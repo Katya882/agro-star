@@ -158,3 +158,28 @@ document.querySelectorAll('.contact__right').forEach(el => {
     el.style.transition = "all 0.8s ease-out";
     observer.observe(el);
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.getElementById('burger');
+    const menu = document.querySelector('.menu');
+    const body = document.body;
+
+    if (burger) {
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            menu.classList.toggle('active');
+            body.classList.toggle('no-scroll'); // Заборона скролу при відкритому меню
+        });
+    }
+
+    // Закриття меню при кліку на посилання
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            burger.classList.remove('active');
+            menu.classList.remove('active');
+            body.classList.remove('no-scroll');
+        });
+    });
+});
