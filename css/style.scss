@@ -1282,6 +1282,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
+  .experience__mini-img{
+    display: none;
+  }
 }
 
 @media (max-width: 992px) {
