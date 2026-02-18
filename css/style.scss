@@ -1534,6 +1534,19 @@ body {
 }
 
 @media (max-width: 576px) {
+  .first-screen {
+    display: none;
+  }
+
+  .bg-mob{
+    position: relative;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%),
+  url('../img/bg-for-mob.jpg') no-repeat center center / cover !important;
+    display: flex;
+    flex-direction: column;
+  }
+
   .spare-parts__line {
     margin-left: 92px;
   }
