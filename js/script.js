@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const swiper = new Swiper('.equipment-swiper', {
     // Основні налаштування
-    slicePerView: 1,
+    slidesPerView: 1, // Виправлено з slicePerView на slidesPerView
     spaceBetween: 30,
     loop: true,
     speed: 800,
@@ -38,6 +38,16 @@ const swiper = new Swiper('.equipment-swiper', {
     effect: 'fade',
     fadeEffect: {
         crossFade: true
+    },
+
+    // Додаємо пагінацію (ті самі риски/крапки знизу)
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+            // Це дозволить стилізувати їх як риски, а не просто кружечки
+            return '<span class="' + className + '"></span>';
+        },
     },
 
     navigation: {
@@ -49,6 +59,20 @@ const swiper = new Swiper('.equipment-swiper', {
         delay: 5000,
         disableOnInteraction: false,
     },
+
+    // Додаємо адаптивність: на мобільних ховаємо стрілки
+    breakpoints: {
+        992: {
+            navigation: {
+                enabled: true,
+            }
+        },
+        0: {
+            navigation: {
+                enabled: false, // Вимикаємо стрілки на малих екранах
+            }
+        }
+    }
 });
 
 const compensationObserver = new IntersectionObserver((entries) => {
