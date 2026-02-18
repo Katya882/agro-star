@@ -1143,11 +1143,9 @@ body {
     width: 100%;
     z-index: 1000; }
 
-  .nav {
-    border: none; }
-    .nav .nav__inner {
-      justify-content: space-between;
-      padding: 0 15px; }
+  .nav .nav__inner {
+    justify-content: space-between;
+    padding: 0 15px; }
 
   .header__top {
     display: grid !important;
