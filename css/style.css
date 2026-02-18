@@ -1116,8 +1116,31 @@ body {
     margin-top: 40px; }
 
   .experience__mini-img {
-    display: none; } }
+    display: none; }
+
+  .contact {
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 0; }
+
+  .contact__inner {
+    height: auto !important;
+    min-height: auto; }
+
+  .footer {
+    margin-top: 0 !important; }
+
+  .footer__col {
+    flex: 0 1 225px;
+    min-height: 250px;
+    margin-bottom: 40px; } }
 @media (max-width: 576px) {
+  .spare-parts__line {
+    margin-left: 92px; }
+
+  .compensation__content {
+    height: 465px; }
+
   .compensation__phone {
     display: flex !important;
     align-items: center;
