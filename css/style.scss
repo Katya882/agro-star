@@ -1290,7 +1290,7 @@ body {
   .menu {
     position: fixed;
     top: 0;
-    right: -100%; // Сховано за екраном
+    right: -100%;
     width: 280px;
     height: 100vh;
     background: #162431;
@@ -1310,17 +1310,15 @@ body {
     }
   }
 
-
   .hero__btns {
     flex-direction: column;
     gap: 15px;
     .btn { width: 100%; }
   }
-
   .solution, .equipment, .compensation { padding: 60px 0; }
 
   .experience__left { min-height: 400px; }
-  .contact__left { display: none; } // Приховуємо ліву частину з фото для економії місця
+  .contact__left { display: none; }
   .contact__right { flex: 0 0 100%; padding: 40px 20px; }
 
   .reviews__list {
@@ -1329,11 +1327,24 @@ body {
   }
 
   .burger {
-    display: block; // Показуємо бургер
+    display: block;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
+  .compensation__content {
+    text-align: left;
+  }
+  .compensation__line {
+    margin-left: 50px;
+  }
+
+  .solution__image {
+    flex: 0 0 255px;
+  }
+  .compensation__image {
+    flex: 0 0 375px;
+  }
   .swiper-button-next,
   .swiper-button-prev { display: none !important; }
 
@@ -1347,16 +1358,98 @@ body {
   }
   .footer__line { margin: 0 auto 20px; }
   .footer__contact-item { justify-content: center; }
+
+  .equipment__text-block {
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .equipment__btn {
+    position: static !important;
+    margin: 20px auto 0;
+    width: 100% !important;
+    max-width: 280px;
+  }
+
+  .spare-parts, .experience {
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  .spare-parts__text-block {
+    align-items: center;
+  }
+
+  .experience__inner {
+    flex-direction: column;
+  }
+
+  .experience__accent-line {
+    margin: 20px auto;
+  }
+
+  .experience__list {
+    margin-top: 40px;
+  }
+  .experience__mini-img{
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
+  .compensation__phone {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 52px !important;
+    height: 52px !important;
+    background-color: #F15623 !important;
+    border-radius: 50% !important;
+    position: static !important;
+    margin: 20px 0 0 auto !important;
+    padding: 0 !important;
+
+    svg, img {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+
+  .contact__right {
+    background: linear-gradient(180deg, #1877F2 0%, #043A80 100%) !important;
+    padding: 40px 20px !important;
+  }
+
+  .contact__input {
+    background: rgba(255, 255, 255, 0.38) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    margin-bottom: 15px !important;
+  }
+
+  .footer__container {
+    flex-direction: column !important;
+    gap: 40px !important;
+    text-align: left !important;
+  }
+
+  .footer__line {
+    margin: 10px 0 20px 0 !important;
+  }
+  .footer__bottom {
+    background-color: #1877F2 !important;
+    margin-top: 40px;
+    padding: 15px 0;
+  }
 
   .reviews__list {
     gap: 20px;
   }
   .reviews__card {
     width: 100%;
-    height: auto; // Виправляємо картки відгуків
+    height: auto;
     padding-bottom: 30px;
   }
   .container { padding: 0 15px; }
@@ -1364,7 +1457,6 @@ body {
   .hero__title { font-size: 26px; line-height: 32px; }
   .hero__subtitle { font-size: 14px; line-height: 1.4; }
 
-  // Виправляємо висоту картки відгуку
   .reviews__card {
     width: 100%;
     height: auto;
@@ -1380,7 +1472,7 @@ body {
   .contact__title { font-size: 24px; }
   .contact__form { width: 100%; }
 
-  .dropdown__text { display: none; } // Ховаємо напис "Контакти" залишаємо іконку/номер
+  .dropdown__text { display: none; }
 }
 
 @media (max-width: 375px) {

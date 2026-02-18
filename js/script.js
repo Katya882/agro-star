@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Dropdowns
+
     const dropdowns = document.querySelectorAll('.js-dropdown');
     dropdowns.forEach(dd => {
         dd.addEventListener('click', (e) => {
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     window.onclick = () => dropdowns.forEach(d => d.classList.remove('is-active'));
 
-    // Menu Underline
     const underline = document.querySelector('.menu-underline');
     const links = document.querySelectorAll('.menu-link');
     const activeLink = document.querySelector('.menu-link.active');
@@ -33,28 +32,24 @@ const swiper = new Swiper('.equipment-swiper', {
     // Основні налаштування
     slicePerView: 1,
     spaceBetween: 30,
-    loop: true, // Безкінечна прокрутка
-    speed: 800, // Швидкість перемикання (мс)
+    loop: true,
+    speed: 800,
 
-    // Ефект появи (Fade), щоб текст не "стрибав", а плавно змінювався
     effect: 'fade',
     fadeEffect: {
         crossFade: true
     },
 
-    // Навігація
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
 
-    // Автоплей (опціонально)
     autoplay: {
         delay: 5000,
         disableOnInteraction: false,
     },
 });
-
 
 const compensationObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -74,7 +69,7 @@ const items = document.querySelectorAll('.experience__item');
 const startCounter = (el) => {
     const target = +el.getAttribute('data-target');
     const count = +el.innerText;
-    const speed = 500; // чим вище число, тим повільніше
+    const speed = 500;
 
     const inc = target / speed;
 
@@ -82,20 +77,18 @@ const startCounter = (el) => {
         el.innerText = Math.ceil(count + inc);
         setTimeout(() => startCounter(el), 30);
     } else {
-        el.innerText = target + '+'; // додаємо плюс в кінці
+        el.innerText = target + '+';
     }
 };
 
 const experienceObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Активуємо появу пунктів
+
             items.forEach(item => item.classList.add('is-visible'));
 
-            // Запускаємо лічильник
             counters.forEach(counter => startCounter(counter));
 
-            // Відключаємо спостереження після спрацювання
             experienceObserver.unobserve(entry.target);
         }
     });
@@ -103,24 +96,20 @@ const experienceObserver = new IntersectionObserver((entries) => {
 
 experienceObserver.observe(experienceSection);
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Збір даних
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        // Проста валідація
         if (data.name.length < 2) {
             alert('Будь ласка, введіть коректне ім’я');
             return;
         }
 
-        // Імітація відправки (наприклад, через fetch)
         console.log('Відправка даних:', data);
 
         // Візуальний фідбек
@@ -159,7 +148,6 @@ document.querySelectorAll('.contact__right').forEach(el => {
     observer.observe(el);
 });
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const burger = document.getElementById('burger');
     const menu = document.querySelector('.menu');
@@ -169,11 +157,10 @@ document.addEventListener('DOMContentLoaded', function() {
         burger.addEventListener('click', () => {
             burger.classList.toggle('active');
             menu.classList.toggle('active');
-            body.classList.toggle('no-scroll'); // Заборона скролу при відкритому меню
+            body.classList.toggle('no-scroll');
         });
     }
 
-    // Закриття меню при кліку на посилання
     const menuLinks = document.querySelectorAll('.menu-link');
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
