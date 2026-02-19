@@ -96,6 +96,8 @@ body {
   align-items: center;
   padding-top: 30px;
   padding-bottom: 30px; }
+.header .dropdown__arrow-white {
+  color: #ffffff; }
 
 .nav {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1313,6 +1315,9 @@ body {
   .equipment__image {
     flex: 0 0 214px; } }
 @media (max-width: 576px) {
+  .spare-parts, .experience {
+    padding: 0 0; }
+
   .first-screen {
     display: none; }
 

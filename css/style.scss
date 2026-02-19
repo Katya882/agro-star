@@ -71,7 +71,6 @@ body {
     &:nth-child(3) { top: 18px; }
   }
 
-  // Стан, коли меню відкрите
   &.active {
     span {
       &:nth-child(1) {
@@ -108,6 +107,9 @@ body {
     align-items: center;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+  .dropdown__arrow-white{
+    color: #ffffff;
   }
 }
 
@@ -270,7 +272,6 @@ body {
 }
 
 .btn {
-  // Базові стилі та твоя типографіка
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1629,6 +1630,9 @@ body {
 }
 
 @media (max-width: 576px) {
+  .spare-parts, .experience {
+    padding: 0 0;
+  }
   .first-screen {
     display: none;
   }
