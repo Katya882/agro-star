@@ -1111,12 +1111,12 @@ body {
   }
 
   &__col {
-    flex: 0 1 100%;
     text-align: left;
     min-height: 280px;
     margin-bottom: 40px;
     padding: 0 15px;
     box-sizing: border-box;
+    flex: 0 1 calc(33.333% - 30px);
   }
 
   &__title {
