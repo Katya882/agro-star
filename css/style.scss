@@ -48,6 +48,7 @@ body {
 .container {
   max-width: 1440px;
   padding: 0 50px;
+  margin: 0 auto;
 }
 
 .burger {
@@ -1237,7 +1238,10 @@ body {
 
 
 @media (max-width: 1440px) {
-  .container { padding: 0 40px; }
+  .container {
+    padding: 0 40px;
+    margin: 0;
+  }
 
   .equipment__image img {
     transform: scale(1.1);
