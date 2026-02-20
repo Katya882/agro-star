@@ -1014,6 +1014,42 @@ body {
 
   .experience__mini-img {
     display: none; } }
+@media (max-width: 1025px) {
+  .equipment {
+    position: relative;
+    width: 100%;
+    min-height: 610px;
+    background: linear-gradient(172.95deg, rgba(13, 13, 13, 0.95) 0%, rgba(49, 39, 131, 0.65) 100%), url(../img/equipment-bg.jpg) no-repeat 50% 30%/160%;
+    padding: 40px 0;
+    overflow: hidden; }
+
+  .compensation__line {
+    margin: 0 auto; }
+
+  .experience__left .experience__accent-line {
+    margin: 0 auto;
+    margin-bottom: 20px; }
+
+  .experience__left-content {
+    min-height: 500px; }
+
+  .experience__left .experience__left-title {
+    margin-top: 150px; }
+
+  .contact__form {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none; }
+
+  .contact {
+    min-height: auto !important; }
+
+  .spare-parts__text-block {
+    align-items: center; }
+
+  .spare-parts__line {
+    margin: 0 auto;
+    margin-bottom: 40px; } }
 @media (max-width: 992px) {
   .dropdown--lang .dropdown__list {
     display: none;
@@ -1311,13 +1347,31 @@ body {
     margin-top: 0 !important; }
 
   .footer__col {
-    flex: 0 1 225px;
-    min-height: 250px;
-    margin-bottom: 40px; }
+    min-height: 130px; }
+    .footer__col .footer__col {
+      flex: 0 1 200px;
+      min-height: 200px;
+      margin-bottom: 40px; }
+
+  .footer__title {
+    text-align: center; }
+
+  .footer__col {
+    min-height: 130px;
+    margin: 0 auto; }
 
   .equipment__image {
-    flex: 0 0 214px; } }
+    flex: 0 0 214px; }
+
+  .footer__socials {
+    padding-left: 45%; }
+
+  .hero__btns .btn {
+    width: 85%; } }
 @media (max-width: 576px) {
+  .hero__btns .btn {
+    width: 100%; }
+
   .spare-parts, .experience {
     padding: 0 0; }
 
@@ -1443,6 +1497,24 @@ body {
     line-height: 26px; }
 
   .experience__number {
-    font-size: 40px; } }
+    font-size: 40px; }
+
+  .hero__btns .btn {
+    width: 100%; }
+
+  .solution__title {
+    font-size: 35px; }
+
+  .compensation__image {
+    flex: 0 0 280px; }
+
+  .compensation__title {
+    font-size: 35px; }
+
+  .spare-parts__title {
+    font-size: 35px; }
+
+  .experience__left .experience__left-title {
+    font-size: 35px; } }
 
 /*# sourceMappingURL=style.css.map */
