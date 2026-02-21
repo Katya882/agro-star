@@ -1269,6 +1269,9 @@ body {
     font-size: 24px;
     line-height: 1.2; } }
 @media (max-width: 769px) {
+  .hero__subtitle {
+    margin-bottom: 60px; }
+
   .compensation__content {
     text-align: left; }
 
@@ -1291,17 +1294,55 @@ body {
   .experience__item {
     padding: 15px 0; }
 
-  .footer__container {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px; }
+  /* --- FOOTER START --- */
+  .footer {
+    margin-top: 0 !important; }
+    .footer__container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px; }
+    .footer__col {
+      flex: 0 1 100% !important;
+      width: 100%;
+      min-height: auto !important;
+      margin: 0 auto 10px !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+    .footer__title {
+      text-align: center;
+      width: 100%; }
+    .footer__line {
+      margin: 0 auto 20px !important; }
+    .footer__contacts-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+    .footer__contact-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 12px;
+      text-align: left; }
+    .footer__label {
+      flex: 0 0 90px;
+      font-weight: 700;
+      text-align: right;
+      min-width: unset !important; }
+    .footer__value, .footer__phones {
+      flex: 1; }
+    .footer__socials {
+      padding-left: 0 !important;
+      justify-content: center !important;
+      width: 100%;
+      display: flex;
+      margin-top: 20px; }
 
-  .footer__line {
-    margin: 0 auto 20px; }
-
-  .footer__contact-item {
-    justify-content: center; }
-
+  /* --- FOOTER END --- */
   .equipment__text-block {
     height: auto !important;
     display: flex;
@@ -1370,7 +1411,7 @@ body {
     width: 85%; } }
 @media (max-width: 576px) {
   .hero__btns .btn {
-    width: 100%; }
+    width: 90%; }
 
   .spare-parts, .experience {
     padding: 0 0; }
@@ -1515,6 +1556,6 @@ body {
     font-size: 35px; }
 
   .experience__left .experience__left-title {
-    font-size: 35px; } }
+    font-size: 20px; } }
 
 /*# sourceMappingURL=style.css.map */

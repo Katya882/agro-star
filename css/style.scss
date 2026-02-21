@@ -1583,6 +1583,9 @@ body {
 
 
 @media (max-width: 769px) {
+  .hero__subtitle{
+    margin-bottom: 60px;
+  }
   .compensation__content {
     text-align: left;
   }
@@ -1602,13 +1605,73 @@ body {
   .experience__number { font-size: 50px; }
   .experience__item { padding: 15px 0; }
 
-  .footer__container {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
+  /* --- FOOTER START --- */
+  .footer {
+    margin-top: 0 !important;
+
+    &__container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+    }
+
+    &__col {
+      flex: 0 1 100% !important;
+      width: 100%;
+      min-height: auto !important; // Прибираємо дірки
+      margin: 0 auto 10px !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__title {
+      text-align: center;
+      width: 100%;
+    }
+
+    &__line {
+      margin: 0 auto 20px !important;
+    }
+
+    &__contacts-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; // Центрує весь список
+    }
+
+    &__contact-item {
+      display: flex;
+      flex-direction: row; // Тримаємо в лінію для вирівнювання двокрапок
+      justify-content: flex-start;
+      width: 100%;
+      max-width: 320px; // Обмежуємо ширину, щоб блок стояв візуально по центру
+      margin: 0 auto 12px;
+      text-align: left;
+    }
+
+    &__label {
+      flex: 0 0 90px; // Фіксована ширина назви (Адреса, Тел) вирівняє текст поруч
+      font-weight: 700;
+      text-align: right;
+      min-width: unset !important;
+    }
+
+    &__value, &__phones {
+      flex: 1;
+    }
+
+    &__socials {
+      padding-left: 0 !important; // ВИДАЛЯЄМО 45%, це помилка
+      justify-content: center !important; // Тільки так центруємо флекс-елементи
+      width: 100%;
+      display: flex;
+      margin-top: 20px;
+    }
   }
-  .footer__line { margin: 0 auto 20px; }
-  .footer__contact-item { justify-content: center; }
+  /* --- FOOTER END --- */
 
   .equipment__text-block {
     height: auto !important;
@@ -1689,7 +1752,7 @@ body {
 
 @media (max-width: 576px) {
   .hero__btns .btn {
-    width: 100%;
+    width: 90%;
   }
   .spare-parts, .experience {
     padding: 0 0;
@@ -1834,6 +1897,6 @@ body {
     font-size: 35px;
   }
   .experience__left .experience__left-title{
-    font-size: 35px;
+    font-size: 20px;
   }
 }
