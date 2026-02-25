@@ -1,3 +1,5 @@
+@import "services";
+
 $orange: #F15623;
 $white: #FFFFFF;
 $grey-text: #474747;
@@ -1236,8 +1238,8 @@ body {
 
 @media (max-width: 1440px) {
   .container {
-    padding: 0 40px;
     margin: 0;
+    padding: 15px 40px 0;
   }
 
   .equipment__image img {
@@ -1337,7 +1339,6 @@ body {
       position: relative;
       top: 0;
       width: 100%;
-      //background: rgba(255, 255, 255, 0.05);
       background: #162431db;
       padding: 10px 0;
       box-shadow: none;
@@ -1900,3 +1901,7 @@ body {
     font-size: 20px;
   }
 }
+
+
+
+
