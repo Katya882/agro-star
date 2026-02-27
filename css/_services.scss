@@ -134,10 +134,9 @@
       font-weight: 700;
       font-size: 16px;
       color: #F15623;
-      text-decoration: underline;
+      text-decoration: none;
     }
 
-    /* ✅ правильний hover */
     &:hover {
       .service-image img {
         transform: scale(1.07);
@@ -148,6 +147,9 @@
       }
     }
   }
+}
+.service-card .more-link:hover {
+  text-decoration: underline;
 }
 
 
