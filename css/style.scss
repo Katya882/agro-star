@@ -7,6 +7,9 @@ $grey-text: #474747;
 html, body {
   height: 100%;
 }
+* {
+  box-sizing: border-box;
+}
 body {
   overflow-x: hidden;
 }
@@ -594,14 +597,15 @@ body {
     height: 378px;
     position: relative;
     overflow: hidden;
-
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       transform: translateX(-20px);
-      opacity: 0;
       transition: all 1s ease-out;
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: block !important;
     }
 
     &.is-visible img {
@@ -993,7 +997,6 @@ body {
   }
 }
 
-
 .contact {
   width: 100%;
   min-height: 790px;
@@ -1296,6 +1299,50 @@ body {
 }
 
 @media (max-width: 1025px) {
+  .spare-parts {
+    /* Центруємо внутрішній контейнер по горизонталі */
+    justify-content: center;
+    text-align: center;
+  }
+
+  .spare-parts__content {
+    /* Прибираємо можливі флоати або вирівнювання вбік */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spare-parts__text-block {
+    /* Центруємо текст та саму обгортку тексту */
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  /* Якщо у синьої лінії під заголовком є фіксований margin-left, скидаємо його */
+  .spare-parts__line {
+    margin: 15px auto;
+  }
+
+
+  .equipment__desc{
+    margin-bottom: 20px;
+  }
+  .equipment__text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   // ⭐ головне
+    text-align: center;    // текст теж по центру
+  }
+  .equipment__line {
+    margin: 15px auto;
+  }
+  .equipment__btn {
+    margin: 30px auto 0;
+    display: inline-flex;
+  }
+
   .equipment {
     position: relative;
     width: 100%;
@@ -1333,7 +1380,6 @@ body {
     margin-bottom: 40px;
   }
 }
-
 
 @media (max-width: 992px) {
   .dropdown--lang {
@@ -1490,10 +1536,7 @@ body {
   .burger {
     display: block;
   }
-}
 
-
-@media (max-width: 992px) {
   .header {
     position: absolute;
     top: 0;
@@ -1501,9 +1544,7 @@ body {
     width: 100%;
     z-index: 1000;
   }
-
   .nav {
-
     .nav__inner {
       justify-content: space-between;
       padding: 0 15px;
@@ -1520,26 +1561,21 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-
   .logo { grid-area: logo; img { width: 130px; } }
-
   .header__top .dropdown {
     grid-area: contacts;
     .dropdown__text { display: flex; }
   }
-
   .nav .dropdown--lang {
     grid-area: lang;
     margin-top: 10px;
     .dropdown__val { color: #fff; font-weight: 700; }
   }
-
   .burger {
     grid-area: burger;
     display: block !important;
     margin-top: 10px;
   }
-
   .dropdown__icon {
     width: 35px;
     height: 35px;
@@ -1554,7 +1590,6 @@ body {
   .dropdown__val--dashed::after {
     border-bottom: 1px dashed $orange !important;
   }
-
   .menu {
     position: fixed;
     top: 0;
@@ -1577,16 +1612,23 @@ body {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%),
     url('../img/bg-for-mob.jpg') no-repeat center center / cover !important;
   }
+  .first-screen.bg-mob {
+    background-position: center top;
+    background-size: cover;
+  }
 }
-
-@media (max-width: 576px) {
-  .dropdown__label { display: none; }
-  .header__top { gap: 10px; }
-  .hero__title { font-size: 24px; line-height: 1.2; }
-}
-
 
 @media (max-width: 769px) {
+  .bg-mob{
+    position: relative;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%),
+    url('../img/bg-for-mob.jpg') no-repeat center center / cover !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+
   .hero__subtitle{
     margin-bottom: 60px;
   }
@@ -1623,7 +1665,7 @@ body {
     &__col {
       flex: 0 1 100% !important;
       width: 100%;
-      min-height: auto !important; // Прибираємо дірки
+      min-height: auto !important;
       margin: 0 auto 10px !important;
       display: flex;
       flex-direction: column;
@@ -1643,21 +1685,21 @@ body {
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center; // Центрує весь список
+      align-items: center;
     }
 
     &__contact-item {
       display: flex;
-      flex-direction: row; // Тримаємо в лінію для вирівнювання двокрапок
+      flex-direction: row;
       justify-content: flex-start;
       width: 100%;
-      max-width: 320px; // Обмежуємо ширину, щоб блок стояв візуально по центру
+      max-width: 320px;
       margin: 0 auto 12px;
       text-align: left;
     }
 
     &__label {
-      flex: 0 0 90px; // Фіксована ширина назви (Адреса, Тел) вирівняє текст поруч
+      flex: 0 0 90px;
       font-weight: 700;
       text-align: right;
       min-width: unset !important;
@@ -1668,8 +1710,8 @@ body {
     }
 
     &__socials {
-      padding-left: 0 !important; // ВИДАЛЯЄМО 45%, це помилка
-      justify-content: center !important; // Тільки так центруємо флекс-елементи
+      padding-left: 0 !important;
+      justify-content: center !important;
       width: 100%;
       display: flex;
       margin-top: 20px;
@@ -1755,6 +1797,10 @@ body {
 }
 
 @media (max-width: 576px) {
+  .dropdown__label { display: none; }
+  .header__top { gap: 10px; }
+  .hero__title { font-size: 24px; line-height: 1.2; }
+
   .hero__btns .btn {
     width: 90%;
   }
@@ -1768,7 +1814,7 @@ body {
     position: relative;
     width: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%),
-  url('../img/bg-for-mob.jpg') no-repeat center center / cover !important;
+    url('../img/bg-for-mob.jpg') no-repeat center center / cover !important;
     display: flex;
     flex-direction: column;
   }
