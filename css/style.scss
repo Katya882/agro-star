@@ -1,4 +1,5 @@
 @import "services";
+@import "about";
 
 $orange: #F15623;
 $white: #FFFFFF;
@@ -6,6 +7,9 @@ $grey-text: #474747;
 
 html, body {
   height: 100%;
+}
+html {
+  scroll-behavior: smooth;
 }
 * {
   box-sizing: border-box;
@@ -1307,6 +1311,12 @@ body {
 }
 
 @media (max-width: 1025px) {
+  .menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+
   .spare-parts {
     /* Центруємо внутрішній контейнер по горизонталі */
     justify-content: center;

@@ -1,0 +1,248 @@
+.about-page {
+  padding-top: 60px;
+  padding-bottom: 80px;
+  background-color: #fff;
+}
+
+.about-info {
+  &__title {
+    font-family: 'Font 1', sans-serif; // Замініть на ваш шрифт
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48.4px;
+    color: #474747;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  &__line {
+    width: 100px;
+    height: 3px;
+    background-color: #1877F2; // Блакитний колір з макета
+    margin-bottom: 30px;
+  }
+
+  &__desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #474747;
+    max-width: 889px;
+    margin-bottom: 40px;
+  }
+}
+
+.about-propose {
+  &__title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #474747;
+    margin-bottom: 5px;
+  }
+
+  &__line {
+    width: 100px;
+    height: 3px;
+    background-color: #1877F2; // Azure Radiance з макета
+    margin-bottom: 25px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    color: #474747;
+
+    // Стан до анімації
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.6s ease-out;
+
+    // Синій чекбокс з Figma
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; // Ширина з Figma
+      height: 20px; // Висота з Figma
+      background: url('../img/check-blue.svg') no-repeat center/contain;
+    }
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* --- Розділ Сертифікатів --- */
+.certificates {
+  padding: 60px 0;
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    color: #474747;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  &__line {
+    width: 50px;
+    height: 2px;
+    background-color: #1877F2;
+    margin-bottom: 40px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  &__item {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__img-wrapper {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden; // Щоб зображення не виходило за межі при збільшенні
+    cursor: pointer; // Вказує, що можна натиснути
+
+    // ЧИСТИЙ ЕФЕКТ: Жодних рамок (border: none)
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease; // Плавна анімація для ховеру
+    }
+  }
+
+  &__name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #474747;
+    max-width: 296px;
+    transition: color 0.3s ease; // Плавність для ховеру
+  }
+
+  /* --- ЕФЕКТ НАВЕДЕННЯ (HOVER) --- */
+  &__item:hover {
+    .certificates__img-wrapper img {
+      transform: scale(1.03); // Саме зображення збільшується
+    }
+
+    .certificates__name {
+      color: #1877F2; // Підпис стає блакитним
+    }
+  }
+}
+
+/* --- СТИЛІ LIGHTBOX (Модального вікна) --- */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: none; // Приховано за замовчуванням
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: zoom-out; // Вказує, що клік закриє вікно
+
+  &.is-open {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border: 5px solid #fff; // Рамка тільки для збільшеної версії
+  border-radius: 4px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #1877F2;
+  }
+}
+
+@media (max-width: 1200px) {
+  .certificates__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .certificates__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-info__title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+  .about-page {
+    padding-top: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .certificates__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 426px) {
+  .about-page {
+    padding-top: 160px;
+    padding-bottom: 10px;
+  }
+  .certificates__img-wrapper img {
+    margin: 0 auto;
+  }
+}
+
