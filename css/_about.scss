@@ -126,9 +126,10 @@
 
     img {
       max-width: 100%;
+      margin: 0 auto;
       height: auto;
       display: block;
-      transition: transform 0.4s ease; // Плавна анімація для ховеру
+      transition: transform 0.4s ease;
     }
   }
 
@@ -139,7 +140,9 @@
     line-height: 1.2;
     color: #474747;
     max-width: 296px;
-    transition: color 0.3s ease; // Плавність для ховеру
+    transition: color 0.3s ease;
+    margin: 0 auto;
+    text-align: center;
   }
 
   /* --- ЕФЕКТ НАВЕДЕННЯ (HOVER) --- */
