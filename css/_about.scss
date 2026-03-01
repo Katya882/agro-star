@@ -229,6 +229,11 @@
     line-height: 1.2;
   }
   .about-page {
+    padding-top: 160px;
+  }
+}
+@media (max-width: 769px) {
+  .about-page {
     padding-top: 260px;
   }
 }
