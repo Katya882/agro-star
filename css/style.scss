@@ -133,33 +133,41 @@ body {
 .menu {
   display: flex;
   list-style: none;
-  position: relative;
+  gap: 30px; // Відстань між пунктами, як у макеті
+
   &-link {
-    display: block;
-    padding: 25px 0;
-    margin-right: 30px;
+    position: relative; // Обов'язково для позиціонування лінії
+    display: inline-block;
+    padding: 10px 0; // Налаштуй під свій макет
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    text-transform: uppercase;
     transition: color 0.3s ease;
-    &:hover, &.active { color: $white; }
-    letter-spacing: 0;
-    vertical-align: middle;
 
+    // Створюємо лінію заздалегідь
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0; // Лінія притиснута до низу
+      width: 0;   // Спочатку її не видно (ширина 0)
+      height: 2px;
+      background-color: #F15623;
+      transition: width 0.3s ease; // Плавна поява
+    }
+
+    // При наведенні лінія розширюється, а текст стає білим
+    &:hover {
+      color: #fff;
+      &::after {
+        width: 100%; // Лінія стає на всю ширину тексту
+      }
+    }
+
+    // Для активної сторінки
+    &.active::after {
+      width: 100%;
+    }
   }
-  &-underline {
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    background-color: $orange;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-.menu-link:hover{
-  border-bottom: 2px solid var(--color-red-54, #F15623) ;
 }
 
 .dropdown {

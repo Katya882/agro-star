@@ -291,31 +291,29 @@ body {
 .menu {
   display: flex;
   list-style: none;
-  position: relative; }
+  gap: 30px; }
   .menu-link {
-    display: block;
-    padding: 25px 0;
-    margin-right: 30px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 0;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    letter-spacing: 0;
-    vertical-align: middle; }
-    .menu-link:hover, .menu-link.active {
-      color: #FFFFFF; }
-  .menu-underline {
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    background-color: #F15623;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-
-.menu-link:hover {
-  border-bottom: 2px solid var(--color-red-54, #F15623); }
+    transition: color 0.3s ease; }
+    .menu-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: #F15623;
+      transition: width 0.3s ease; }
+    .menu-link:hover {
+      color: #fff; }
+      .menu-link:hover::after {
+        width: 100%; }
+    .menu-link.active::after {
+      width: 100%; }
 
 .dropdown {
   position: relative;
