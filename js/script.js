@@ -201,4 +201,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 300);
         }
     }
+
+
+
+    const burnerSwiper = new Swiper('.burner-swiper', {
+        loop: true,
+        speed: 7000, // Швидкість руху
+        slidesPerView: 1,
+        spaceBetween: 30,
+        allowTouchMove: false,
+        freeMode: true,
+        cssMode: false, // Важливо: використовуємо JS анімацію
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            768: { slidesPerView: 3 }
+        }
+    });
 });

@@ -1,0 +1,75 @@
+.burner-intro {
+  margin-bottom: 30px;
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #313131;
+    margin-bottom: 15px;
+  }
+}
+
+.burner-slider-section {
+  width: 100%;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f9f9f9;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 500px; // Обмежуємо висоту для естетики
+  }
+}
+
+.dot-list {
+  list-style: none;
+  padding: 0;
+  li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      background-color: #1877F2;
+      border-radius: 50%;
+    }
+  }
+}
+
+.specs-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000080;
+  margin-bottom: 20px;
+}
+
+.burner-table {
+  width: 100%;
+  td:first-child {
+    background: #f4f4f4;
+    font-weight: 600;
+    width: 45%;
+    text-align: left;
+    padding-left: 10px;
+  }
+}
+
+/* Прибираємо будь-які затримки та нелінійності */
+.burner-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+  -webkit-transition-timing-function: linear !important;
+}
+
+/* Додатково для плавності: прибираємо ривки при зміні слайдів */
+.burner-swiper .swiper-slide {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

@@ -1086,6 +1086,69 @@
       .four-module-page .specs-table-fixed tbody td {
         font-size: 13px; } }
 
+.burner-intro {
+  margin-bottom: 30px; }
+  .burner-intro p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #313131;
+    margin-bottom: 15px; }
+
+.burner-slider-section {
+  width: 100%;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f9f9f9; }
+  .burner-slider-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 500px; }
+
+.dot-list {
+  list-style: none;
+  padding: 0; }
+  .dot-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px; }
+    .dot-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      background-color: #1877F2;
+      border-radius: 50%; }
+
+.specs-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000080;
+  margin-bottom: 20px; }
+
+.burner-table {
+  width: 100%; }
+  .burner-table td:first-child {
+    background: #f4f4f4;
+    font-weight: 600;
+    width: 45%;
+    text-align: left;
+    padding-left: 10px; }
+
+/* ╨Я╤А╨╕╨▒╨╕╤А╨░╤Ф╨╝╨╛ ╨▒╤Г╨┤╤М-╤П╨║╤Ц ╨╖╨░╤В╤А╨╕╨╝╨║╨╕ ╤В╨░ ╨╜╨╡╨╗╤Ц╨╜╤Ц╨╣╨╜╨╛╤Б╤В╤Ц */
+.burner-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+  -webkit-transition-timing-function: linear !important; }
+
+/* ╨Ф╨╛╨┤╨░╤В╨║╨╛╨▓╨╛ ╨┤╨╗╤П ╨┐╨╗╨░╨▓╨╜╨╛╤Б╤В╤Ц: ╨┐╤А╨╕╨▒╨╕╤А╨░╤Ф╨╝╨╛ ╤А╨╕╨▓╨║╨╕ ╨┐╤А╨╕ ╨╖╨╝╤Ц╨╜╤Ц ╤Б╨╗╨░╨╣╨┤╤Ц╨▓ */
+.burner-swiper .swiper-slide {
+  backface-visibility: hidden;
+  transform: translateZ(0); }
+
 html, body {
   height: 100%; }
 
