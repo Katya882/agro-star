@@ -935,6 +935,82 @@
     font-size: 8px; }
     .specs-table th, .specs-table td {
       padding: 5px 2px; } }
+.two-module-page {
+  padding: 40px 0 80px; }
+  @media (max-width: 769px) {
+    .two-module-page {
+      margin-top: 215px; } }
+  @media (max-width: 576px) {
+    .two-module-page {
+      margin-top: 150px; } }
+  .two-module-page__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #313131;
+    text-transform: uppercase;
+    margin-bottom: 10px; }
+  .two-module-page__line {
+    width: 100px;
+    height: 3px;
+    background-color: #1877F2;
+    margin-bottom: 40px; }
+
+.dryer-details__img-wrapper {
+  flex: 0 0 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+.dryer-details__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; }
+
+.specs-container-full {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0; }
+
+.specs-table-fixed {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: 'Inter', sans-serif; }
+  .specs-table-fixed thead th {
+    background-color: #FFFF00;
+    color: #000080;
+    border: 1px solid #ccc;
+    padding: 4px 2px;
+    font-size: 1.8vw; }
+    @media (min-width: 1200px) {
+      .specs-table-fixed thead th {
+        font-size: 14px; } }
+  .specs-table-fixed tbody td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 4px 2px;
+    font-size: 1.6vw;
+    word-break: break-word; }
+    @media (min-width: 1200px) {
+      .specs-table-fixed tbody td {
+        font-size: 13px; } }
+    .specs-table-fixed tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      width: 25%;
+      background-color: #f9f9f9;
+      padding-left: 5px; }
+  .specs-table-fixed .highlight-row td {
+    background-color: #FFFF00 !important;
+    font-weight: 700;
+    font-size: 1.8vw; }
+    @media (min-width: 1200px) {
+      .specs-table-fixed .highlight-row td {
+        font-size: 14px; } }
+
 html, body {
   height: 100%; }
 
