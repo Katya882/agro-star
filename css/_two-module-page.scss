@@ -31,7 +31,6 @@
     height: auto;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
 
   &__img {
@@ -89,5 +88,12 @@
     font-weight: 700;
     font-size: 1.8vw;
     @media (min-width: 1200px) { font-size: 14px; }
+  }
+}
+
+
+@media (max-width: 576px){
+  .dryer-details__img-wrapper {
+    flex: 0 0 225px;
   }
 }
