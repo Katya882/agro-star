@@ -73,3 +73,15 @@
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+
+
+@media (max-width: 769px){
+  .burner-page{
+    margin-top: 250px;
+  }
+}
+@media (max-width: 576px){
+  .burner-page{
+    margin-top: 180px;
+  }
+}
