@@ -1,0 +1,162 @@
+// Заголовок сторінки та синя лінія під ним
+.one-module-page {
+  padding: 40px 0 80px;
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #313131;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  &__line {
+    width: 100px;
+    height: 3px;
+    background-color: #1877F2; // Синій колір лінії
+    margin-bottom: 40px;
+  }
+}
+
+// Хлібні крихти
+.breadcrumbs {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+
+  a { text-decoration: none; color: #888; }
+  span { color: #313131; }
+}
+
+// Головний блок з зображенням
+.dryer-details {
+  margin-bottom: 60px;
+
+  &__grid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    @media (max-width: 992px) { flex-direction: column; text-align: center; }
+  }
+
+  // Контейнер зображення, що задає його розмір
+  &__img-wrapper {
+    flex: 0 0 500px; // Задаємо базову ширину контейнера
+    height: 350px; // Задаємо висоту контейнера
+    overflow: hidden; // Щоб все, що вилазить, обрізалося
+    border-radius: 8px; // Закруглення кутів
+    max-width: 100%; // Гарантуємо, що він не вилізе за межі на мобільних
+  }
+
+  // Стилі самого зображення, щоб воно не втрачало якості та не розтягувалося
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Зображення "заповнює" контейнер, обрізаючи зайве, без розтягування
+    object-position: center; // Центруємо зображення всередині контейнера
+    display: block;
+  }
+
+  &__text-wrapper {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #474747;
+
+    p { margin-bottom: 15px; }
+    strong { color: #313131; font-weight: 700; }
+  }
+}
+
+// Таблиця характеристик
+.specs-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #000080; // Синій заголовок моделей
+  text-align: center;
+  margin: 40px 0 20px;
+  font-weight: 700;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+
+  thead th {
+    background-color: #FFFF00; // Жовтий заголовок
+    color: #000080; // Темно-синій текст заголовка
+    font-weight: 700;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  tbody td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+    &:first-child {
+      text-align: left;
+      font-weight: 600;
+      background-color: #f5f5f5; // Сірий фон першої колонки
+    }
+  }
+
+  .table-highlight td {
+    background-color: #FFFF00; // Жовтий рядок продуктивності
+    font-weight: 700;
+    color: #000;
+    text-align: left;
+  }
+}
+
+// Адаптивність для таблиці (прокрутка)
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 769px) {
+  .one-module-page{
+    margin-top: 215px;
+  }
+  .specs-table {
+    box-sizing: border-box;
+    font-size: 12px; // Трохи зменшуємо шрифт для компактності
+
+    th, td {
+      padding: 8px 5px; // Зменшуємо відступи
+    }
+  }
+}
+@media (max-width: 576px){
+  .one-module-page{
+    margin-top: 150px;
+  }
+  .specs-table {
+    box-sizing: border-box;
+    font-size: 10px; // Трохи зменшуємо шрифт для компактності
+
+    th, td {
+      padding: 7px 4px; // Зменшуємо відступи
+    }
+  }
+}
+@media (max-width: 376px){
+  .one-module-page{
+    margin-top: 150px;
+  }
+  .specs-table {
+    box-sizing: border-box;
+    font-size: 8px; // Трохи зменшуємо шрифт для компактності
+
+    th, td {
+      padding: 5px 2px; // Зменшуємо відступи
+    }
+  }
+}
