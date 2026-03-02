@@ -427,6 +427,188 @@
 @media (max-width: 576px) {
   .contacts-info {
     display: block; } }
+/* --- ╨б╤В╨╛╤А╤Ц╨╜╨║╨░ ╨С╨╗╨╛╨│╤Г --- */
+.blog-page {
+  padding: 60px 0 100px;
+  color: #474747; }
+  .blog-page__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #474747;
+    text-transform: uppercase;
+    margin-bottom: 5px; }
+  .blog-page__line {
+    width: 100px;
+    height: 3px;
+    background-color: #1877F2;
+    margin-bottom: 50px; }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 418px));
+  gap: 48px 30px;
+  justify-content: center; }
+
+.blog-card {
+  display: flex;
+  flex-direction: column; }
+  .blog-card__img {
+    width: 100%;
+    height: 240px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    overflow: hidden; }
+    .blog-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease; }
+  .blog-card:hover .blog-card__img img {
+    transform: scale(1.05); }
+  .blog-card__date {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #005BBB;
+    display: block;
+    margin-bottom: 12px; }
+  .blog-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 15px; }
+  .blog-card__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #313131;
+    text-transform: uppercase;
+    margin: 0;
+    flex: 1; }
+  .blog-card__btn {
+    flex: 0 0 42.41px;
+    width: 42.41px;
+    height: 42.41px;
+    background-color: #F15623;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none; }
+    .blog-card__btn img {
+      width: 16px;
+      height: auto;
+      display: block;
+      pointer-events: none;
+      filter: brightness(0) invert(1); }
+    .blog-card__btn:hover {
+      transform: scale(1.1);
+      background-color: #d4491c; }
+  .blog-card__text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #474747;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden; }
+    .blog-card__text a {
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #474747;
+      margin: 0; }
+
+@media (max-width: 769px) {
+  .blog-page {
+    margin-top: 180px; } }
+@media (max-width: 576px) {
+  .blog-page {
+    margin-top: 120px; } }
+.article-page {
+  padding: 40px 0 100px; }
+  .article-page__main-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden; }
+    .article-page__main-img img {
+      width: 100%;
+      display: block;
+      object-fit: cover; }
+  .article-page__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 20px; }
+    @media (max-width: 768px) {
+      .article-page__header {
+        flex-direction: column;
+        align-items: flex-start; } }
+  .article-page__title {
+    color: #313131;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    margin: 0;
+    flex: 1;
+    margin-bottom: 25px; }
+  .article-page__date {
+    color: #005BBB;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap; }
+  .article-page__content {
+    color: #474747;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0; }
+    .article-page__content p {
+      margin-bottom: 24px;
+      vertical-align: middle; }
+    .article-page__content h3 {
+      color: #313131;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin: 40px 0 16px; }
+    .article-page__content ul {
+      margin-bottom: 24px;
+      padding-left: 20px; }
+      .article-page__content ul li {
+        margin-bottom: 12px;
+        list-style: disc; }
+        .article-page__content ul li::marker {
+          color: #F15623; }
+    .article-page__content strong {
+      font-weight: 700;
+      color: #313131; }
+
+@media (max-width: 769px) {
+  .article-page {
+    margin-top: 180px; } }
+@media (max-width: 576px) {
+  .article-page {
+    margin-top: 120px; } }
 html, body {
   height: 100%; }
 

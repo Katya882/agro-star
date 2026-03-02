@@ -1,0 +1,143 @@
+/* --- Сторінка Блогу --- */
+.blog-page {
+  padding: 60px 0 100px;
+  color: #474747; // Загальний колір тексту
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #474747;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  &__line {
+    width: 100px;
+    height: 3px;
+    background-color: #1877F2;
+    margin-bottom: 50px;
+  }
+}
+
+.blog-grid {
+  display: grid;
+  // Використовуємо ширину 418px з макета
+  grid-template-columns: repeat(auto-fill, minmax(320px, 418px));
+  gap: 48px 30px; // Вертикальний відступ 48px
+  justify-content: center; // Центруємо сітку на великих екранах
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+
+  &__img {
+    width: 100%;
+    height: 240px;
+    margin-bottom: 24px;
+    border-radius: 8px; // Закруглення як на макеті
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover &__img img {
+    transform: scale(1.05);
+  }
+
+  &__date {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; // Semibold
+    font-size: 14px;
+    line-height: 20px;
+    color: #005BBB; // Точний синій з Figma
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // Центруємо кнопку відносно заголовка
+    margin-bottom: 12px;
+    gap: 15px;
+  }
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; // Bold
+    font-size: 16px;
+    line-height: 24px;
+    color: #313131; // Темно-сірий заголовок
+    text-transform: uppercase;
+    margin: 0;
+    flex: 1; // Займає весь вільний простір
+  }
+
+  &__btn {
+    flex: 0 0 42.41px; // Фіксований розмір кнопки
+    width: 42.41px;
+    height: 42.41px;
+    background-color: #F15623; // Помаранчевий Agro Star
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    img {
+      width: 16px;
+      height: auto;
+      display: block;
+      pointer-events: none; // Стрілка не перехоплює кліки
+      filter: brightness(0) invert(1); // Робить стрілку білою, якщо вона була темна
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: #d4491c;
+    }
+  }
+
+  &__text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; // Regular
+    font-size: 16px;
+    line-height: 24px;
+    color: #474747; // Сірий колір тексту
+    margin: 0;
+    // Обмеження у два рядки для естетичності
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    a{
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400; // Regular
+      font-size: 16px;
+      line-height: 24px;
+      color: #474747; // Сірий колір тексту
+      margin: 0;
+    }
+  }
+}
+
+
+@media (max-width: 769px){
+  .blog-page{
+    margin-top: 180px;
+  }
+}
+
+@media (max-width: 576px){
+  .blog-page{
+    margin-top: 120px;
+  }
+}

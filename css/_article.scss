@@ -1,0 +1,110 @@
+.article-page {
+  padding: 40px 0 100px;
+
+  &__main-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    border-radius: 8px; // Закруглення як на макеті блогу
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // Вирівнювання middle згідно з параметрами
+    margin-bottom: 24px;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    // Параметри заголовка
+    color: #313131;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    margin: 0;
+    flex: 1;
+    margin-bottom: 25px;
+  }
+
+  &__date {
+    // Параметри дати
+    color: #005BBB;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+  }
+
+  &__content {
+    // Параметри основного тексту
+    color: #474747;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+
+    p {
+      margin-bottom: 24px;
+      vertical-align: middle;
+    }
+
+    h3 {
+      // Підзаголовки всередині тексту використовують ті ж параметри, що й головний заголовок
+      color: #313131;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin: 40px 0 16px;
+    }
+
+    ul {
+      margin-bottom: 24px;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 12px;
+        list-style: disc;
+
+        &::marker {
+          color: #F15623; // Брендовий помаранчевий
+        }
+      }
+    }
+
+    strong {
+      font-weight: 700;
+      color: #313131;
+    }
+  }
+}
+
+@media (max-width: 769px){
+  .article-page{
+    margin-top: 180px;
+  }
+}
+
+@media (max-width: 576px){
+  .article-page{
+    margin-top: 120px;
+  }
+}
