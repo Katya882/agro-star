@@ -1,0 +1,288 @@
+// Заголовок (параметри з вашого запиту)
+.equipment-page__title {
+  color: #313131;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+// Основний текст
+.equipment-description {
+  color: #474747;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 60px;
+
+  h3 {
+    color: #313131;
+    font-size: 18px;
+    margin: 30px 0 15px;
+    text-transform: uppercase;
+  }
+
+  //ul li {
+  //  margin-bottom: 10px;
+  //  list-style: disc;
+  //  margin-left: 20px;
+  //}
+  li {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; // Semibold як на макеті
+    font-size: 14px;
+    line-height: 20px;
+    color: #313131;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center; // Центруємо крапку по вертикалі
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 6px;  // Розмір крапки
+      height: 6px; // Розмір крапки
+      background-color: #F15623; // Ваш фірмовий помаранчевий
+      border-radius: 50%; // Робимо крапку круглою
+      margin-right: 12px; // Відступ від крапки до тексту
+      flex-shrink: 0; // Щоб крапка не стискалася при переносі тексту
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.dryer-item {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: flex-start;
+
+  // Контейнер для зображення з анімацією
+  &__img-container {
+    flex: 0 0 450px;
+    overflow: hidden;
+    border-radius: 4px;
+
+    .dryer-item__img {
+      width: 100%;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); // Пластична анімація
+    }
+  }
+
+  &:hover &__img {
+    transform: scale(1.05); // Легке збільшення та поворот
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #313131;
+    margin-bottom: 20px;
+  }
+
+  &__specs {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style: none; // Прибираємо стандартні маркери
+
+    li {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600; // Semibold як на макеті
+      font-size: 14px;
+      line-height: 20px;
+      color: #313131;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center; // Центруємо крапку по вертикалі
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 6px;  // Розмір крапки
+        height: 6px; // Розмір крапки
+        background-color: #F15623; // Ваш фірмовий помаранчевий
+        border-radius: 50%; // Робимо крапку круглою
+        margin-right: 12px; // Відступ від крапки до тексту
+        flex-shrink: 0; // Щоб крапка не стискалася при переносі тексту
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #474747;
+    margin-bottom: 30px;
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #F15623;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #e44a18;
+    }
+  }
+}
+
+// Помаранчевий банер (стилі за розмірами з Figma)
+.contact-banner {
+  background-color: #F15623;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 60px auto 0;
+
+  &__text {
+    color: #fff;
+    h3 { font-size: 24px; font-weight: 700; margin-bottom: 5px; }
+    p { font-size: 16px; opacity: 0.9; }
+  }
+
+  &__btn {
+    background: #FFFFFF;
+    color: #474747;
+    border: none;
+    padding: 15px 30px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Адаптивні стилі для сторінки обладнання */
+
+// Планшети (до 992px)
+@media (max-width: 992px) {
+  .dryer-item {
+    flex-direction: column; // Картинка стає над текстом
+    gap: 30px;
+    margin-bottom: 60px;
+
+    &__img-container {
+      flex: 0 0 auto;
+      width: 100%; // Зображення на всю ширину екрана
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    &__content {
+      width: 100%;
+    }
+
+    &__title {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    &__specs {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  .contact-banner {
+    flex-direction: column; // Текст і кнопка в стовпчик
+    text-align: center;
+    gap: 25px;
+    padding: 30px 20px;
+    margin: 40px 15px 0;
+    width: calc(100% - 30px); // Враховуємо margin
+
+    &__text h3 {
+      font-size: 20px;
+    }
+  }
+}
+
+// Малі планшети та великі телефони (до 769px)
+@media (max-width: 769px) {
+  .equipment-page {
+    margin-top: 100px; // Коригування під мобільну шапку
+    padding: 0 15px;
+  }
+
+  .equipment-page__title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .equipment-description {
+    margin-bottom: 40px;
+
+    p, li {
+      font-size: 14px; // Легше читати на малих екранах
+    }
+  }
+}
+
+// Телефони (до 576px)
+@media (max-width: 576px) {
+  .equipment-page {
+    margin-top: 80px;
+  }
+
+  .dryer-item {
+    &__img-container {
+      border-radius: 8px;
+    }
+
+    &__btn {
+      width: 100%; // Кнопка на всю ширину для зручного натискання пальцем
+      text-align: center;
+    }
+  }
+
+  .contact-banner {
+    &__btn {
+      width: 100%;
+      padding: 15px 10px;
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 769px){
+  .equipment-page{
+    margin-top: 250px;
+  }
+}
+
+@media (max-width: 576px){
+  .equipment-page{
+    margin-top: 180px;
+  }
+}

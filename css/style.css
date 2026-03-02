@@ -609,6 +609,207 @@
 @media (max-width: 576px) {
   .article-page {
     margin-top: 120px; } }
+.equipment-page__title {
+  color: #313131;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  margin-bottom: 30px; }
+
+.equipment-description {
+  color: #474747;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 60px; }
+  .equipment-description h3 {
+    color: #313131;
+    font-size: 18px;
+    margin: 30px 0 15px;
+    text-transform: uppercase; }
+  .equipment-description li {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #313131;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center; }
+    .equipment-description li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: #F15623;
+      border-radius: 50%;
+      margin-right: 12px;
+      flex-shrink: 0; }
+    .equipment-description li:last-child {
+      margin-bottom: 0; }
+
+.dryer-item {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: flex-start; }
+  .dryer-item__img-container {
+    flex: 0 0 450px;
+    overflow: hidden;
+    border-radius: 4px; }
+    .dryer-item__img-container .dryer-item__img {
+      width: 100%;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+  .dryer-item:hover .dryer-item__img {
+    transform: scale(1.05); }
+  .dryer-item__content {
+    flex: 1; }
+  .dryer-item__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #313131;
+    margin-bottom: 20px; }
+  .dryer-item__specs {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style: none; }
+    .dryer-item__specs li {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      color: #313131;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center; }
+      .dryer-item__specs li::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background-color: #F15623;
+        border-radius: 50%;
+        margin-right: 12px;
+        flex-shrink: 0; }
+      .dryer-item__specs li:last-child {
+        margin-bottom: 0; }
+  .dryer-item__description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #474747;
+    margin-bottom: 30px; }
+  .dryer-item__btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #F15623;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease; }
+    .dryer-item__btn:hover {
+      background-color: #e44a18; }
+
+.contact-banner {
+  background-color: #F15623;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 60px auto 0; }
+  .contact-banner__text {
+    color: #fff; }
+    .contact-banner__text h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 5px; }
+    .contact-banner__text p {
+      font-size: 16px;
+      opacity: 0.9; }
+  .contact-banner__btn {
+    background: #FFFFFF;
+    color: #474747;
+    border: none;
+    padding: 15px 30px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease; }
+    .contact-banner__btn:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px); }
+
+/* ╨Р╨┤╨░╨┐╤В╨╕╨▓╨╜╤Ц ╤Б╤В╨╕╨╗╤Ц ╨┤╨╗╤П ╤Б╤В╨╛╤А╤Ц╨╜╨║╨╕ ╨╛╨▒╨╗╨░╨┤╨╜╨░╨╜╨╜╤П */
+@media (max-width: 992px) {
+  .dryer-item {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 60px; }
+    .dryer-item__img-container {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto; }
+    .dryer-item__content {
+      width: 100%; }
+    .dryer-item__title {
+      font-size: 18px;
+      text-align: center; }
+    .dryer-item__specs {
+      display: inline-block;
+      width: 100%;
+      text-align: left; }
+
+  .contact-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+    padding: 30px 20px;
+    margin: 40px 15px 0;
+    width: calc(100% - 30px); }
+    .contact-banner__text h3 {
+      font-size: 20px; } }
+@media (max-width: 769px) {
+  .equipment-page {
+    margin-top: 100px;
+    padding: 0 15px; }
+
+  .equipment-page__title {
+    font-size: 18px;
+    margin-bottom: 20px; }
+
+  .equipment-description {
+    margin-bottom: 40px; }
+    .equipment-description p, .equipment-description li {
+      font-size: 14px; } }
+@media (max-width: 576px) {
+  .equipment-page {
+    margin-top: 80px; }
+
+  .dryer-item__img-container {
+    border-radius: 8px; }
+  .dryer-item__btn {
+    width: 100%;
+    text-align: center; }
+
+  .contact-banner__btn {
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 12px; } }
+@media (max-width: 769px) {
+  .equipment-page {
+    margin-top: 250px; } }
+@media (max-width: 576px) {
+  .equipment-page {
+    margin-top: 180px; } }
 html, body {
   height: 100%; }
 
