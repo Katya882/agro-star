@@ -2739,7 +2739,7 @@ body {
     min-height: 100vh;
     padding-top: 140px;
     /* ╨Ь╤Ц╤Б╤Ж╨╡ ╨┤╨╗╤П ╤Е╨╡╨┤╨╡╤А╨░ */
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%), url("../img/bg-for-mob.jpg") no-repeat center center/cover !important; }
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%), url(../img/bg-for-mob.jpg) no-repeat center center/cover !important; }
 
   .first-screen.bg-mob {
     background-position: center top;
