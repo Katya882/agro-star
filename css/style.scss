@@ -495,8 +495,13 @@ body {
   width: 100%;
   min-height: 610px;
   background:
-          linear-gradient(172.95deg, rgba(13, 13, 13, 0.95) 0%, rgba(49, 39, 131, 0.65) 100%),
+          linear-gradient(
+                          172.95deg,
+                          rgba(13, 13, 13, 0.88) 0%,
+                          rgba(49, 39, 131, 0.58) 100%
+          ),
           url('../img/equipment-bg.jpg') no-repeat 50% 30% / 130%;
+
   padding: 100px 0;
   overflow: hidden;
 
