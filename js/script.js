@@ -202,4 +202,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
+
+    const burnerSwiper = new Swiper('.burner-swiper', {
+        loop: true,
+        speed: 12000,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        allowTouchMove: false,
+        freeMode: {
+            enabled: true,
+            momentum: false, // Вимикаємо інерцію для чіткої зупинки
+        },
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            768: { slidesPerView: 3 }
+        }
+    });
+
+    const swiperEl = document.querySelector('.burner-swiper');
+
+    if (swiperEl) {
+        swiperEl.addEventListener('mouseenter', () => {
+            // Повністю зупиняємо автоплей
+            burnerSwiper.autoplay.stop();
+        });
+
+        swiperEl.addEventListener('mouseleave', () => {
+            // Важливо: для режиму "стрічки" іноді потрібно скинути внутрішній стан
+            burnerSwiper.autoplay.start();
+        });
+    }
 });
