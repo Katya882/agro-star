@@ -202,36 +202,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
-
-    const burnerSwiper = new Swiper('.burner-swiper', {
-        loop: true,
-        speed: 12000,
-        slidesPerView: 1,
-        spaceBetween: 30,
-        allowTouchMove: false,
-        freeMode: true,
-        cssMode: false,
-        autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false, // Ми керуємо цим вручну для кращого контролю
-        },
-        breakpoints: {
-            768: { slidesPerView: 3 }
-        }
-    });
-
-// Керування зупинкою та відновленням руху
-    const swiperEl = document.querySelector('.burner-swiper');
-
-    if (swiperEl) {
-        swiperEl.addEventListener('mouseenter', () => {
-            burnerSwiper.autoplay.stop();
-        });
-
-        swiperEl.addEventListener('mouseleave', () => {
-            burnerSwiper.autoplay.start();
-        });
-    }
 });
