@@ -862,7 +862,8 @@
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: #474747; }
+    color: #474747;
+    text-align: left; }
     .dryer-details__text-wrapper p {
       margin-bottom: 15px; }
     .dryer-details__text-wrapper strong {
@@ -876,6 +877,9 @@
   text-align: center;
   margin: 40px 0 20px;
   font-weight: 700; }
+
+.specs-table_bottom {
+  margin-bottom: 60px; }
 
 .specs-table {
   width: 100%;
