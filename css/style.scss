@@ -1215,6 +1215,20 @@ body {
       text-decoration: underline;
     }
   }
+  &__value,a{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 15.1px;
+    line-height: 22.4px;
+    color: #5F5F5F;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #1877F2;
+      text-decoration: underline;
+    }
+  }
 
   &__phones {
     display: flex;

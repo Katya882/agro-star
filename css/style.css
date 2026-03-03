@@ -2364,6 +2364,17 @@ body {
     .footer__value:hover, .footer__phones a:hover {
       color: #1877F2;
       text-decoration: underline; }
+  .footer__value, .footer a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 15.1px;
+    line-height: 22.4px;
+    color: #5F5F5F;
+    text-decoration: none;
+    transition: color 0.3s ease; }
+    .footer__value:hover, .footer a:hover {
+      color: #1877F2;
+      text-decoration: underline; }
   .footer__phones {
     display: flex;
     flex-direction: column;
