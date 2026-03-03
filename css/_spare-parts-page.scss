@@ -1,0 +1,119 @@
+.spare-parts-page {
+  padding: 40px 0 80px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #313131;
+    line-height: 1.3;
+  }
+
+  &__line {
+    width: 100px;
+    height: 3px;
+    background-color: #1877F2;
+    margin: 10px 0 40px;
+  }
+}
+
+.spare-parts-intro {
+  margin-bottom: 30px;
+  max-width: 900px;
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #313131;
+  }
+}
+
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.parts-category {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 8px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-bottom-color: #1877F2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+
+  &__title {
+    font-size: 18px;
+    color: #000080;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+}
+
+.service-note {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #eef5ff;
+  border-left: 5px solid #1877F2;
+  font-size: 16px;
+  text-align: center;
+}
+.burner-name{
+  text-align: center;
+  color: #313131;
+}
+
+.burner-swiper {
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff; // Фон для країв, якщо картинка вузька
+    border-radius: 8px;
+    padding: 10px;
+
+    img {
+      width: 100%;
+      height: 250px; /* Встановіть потрібну вам висоту */
+      object-fit: contain; /* Картинка впишеться повністю без обрізки */
+      /* Або використовуйте 'cover', якщо хочете, щоб заповнювало весь блок без полів */
+
+      background-color: #f9f9f9; // Світлий фон для порожніх зон
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+
+    .burner-name {
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      color: #313131;
+      min-height: 40px; // Щоб назви у два рядки не зміщували блоки
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 769px){
+  .spare-parts-page{
+    margin-top: 220px;
+  }
+}
+@media (max-width: 576px){
+  .spare-parts-page{
+    margin-top: 150px;
+  }
+}
