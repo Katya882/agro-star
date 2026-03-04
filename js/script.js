@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =============================
-    // BURGER
+    // 1. BURGER MENU
     // =============================
     const burger = document.getElementById('burger') || document.querySelector('.burger-service');
     const menu = document.querySelector('.menu');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================
-    // DROPDOWNS
+    // 2. DROPDOWNS
     // =============================
     const dropdowns = document.querySelectorAll('.js-dropdown');
 
@@ -49,10 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =============================
-    // SWIPER (Головний)
+    // 3. SWIPERS (Універсальна перевірка)
     // =============================
+    // Слайдер обладнання (Головна)
     if (document.querySelector('.equipment-swiper')) {
-        const equipmentSwiper = new Swiper('.equipment-swiper', {
+        new Swiper('.equipment-swiper', {
             loop: true,
             speed: 800,
             navigation: {
@@ -70,8 +71,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Будь-який інший слайдер (наприклад, на сторінці Про нас)
+    // Якщо у тебе там інший клас, просто додай його сюди
+    if (document.querySelector('.about-swiper')) {
+        new Swiper('.about-swiper', {
+            loop: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+    }
+
+
+    // Слайдер пальників на сторінці Про Нас
+    if (document.querySelector('.burner-swiper')) {
+        new Swiper('.burner-swiper', {
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            // Якщо захочеш додати крапки/стрілки пізніше:
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    }
+
     // =============================
-    // ЛІЧИЛЬНИК (Experience)
+    // 4. АНІМАЦІЯ СПИСКІВ (Твій невидимий контент)
+    // =============================
+    const animItems = document.querySelectorAll('.js-anim-item');
+
+    if (animItems.length > 0) {
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Додаємо клас, який робить елемент видимим
+                    entry.target.classList.add('is-visible');
+                    animObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animItems.forEach(item => animObserver.observe(item));
+    }
+
+    // =============================
+    // 5. ЛІЧИЛЬНИК (Experience)
     // =============================
     const startCounter = (el) => {
         const target = +el.getAttribute('data-target');
@@ -109,6 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
         experienceObserver.observe(experienceSection);
     }
 
+    // =============================
+    // 6. MODAL (Callback)
+    // =============================
     const modal = document.getElementById('modalOverlay');
     const closeBtn = document.getElementById('closeForm');
     const triggers = document.querySelectorAll('.js-callback-trigger');
@@ -117,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         triggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopPropagation(); // Важливо, щоб не спрацьовували інші кліки
+                e.stopPropagation();
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
