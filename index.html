@@ -79,7 +79,7 @@
             <h1 class="hero__title">ВИРОБНИЦТВО ЗЕРНОВИХ <br> СУШАРОК AGRO STAR</h1>
             <p class="hero__subtitle">Виготовляємо, монтуємо та запускаємо зерносушарки, силоси, транспортери та системи автоматизації. Повний цикл — від проєктування до сервісу</p>
             <div class="hero__btns">
-                <a href="#" class="btn btn--orange">ЗАМОВИТИ ТЕЛЕФОННИЙ ДЗВІНОК</a>
+                <a href="#" class="btn btn--orange js-callback-trigger">ЗАМОВИТИ ТЕЛЕФОННИЙ ДЗВІНОК</a>
                 <a href="#" class="btn btn--white">ЗАВАНТАЖИТИ КАТАЛОГ ОБЛАДНАННЯ</a>
             </div>
         </div>
@@ -220,11 +220,11 @@
                     здешевлення сільськогосподарської техніки та обладнання вітчизняного виробництва
                 </p>
 
-                <a href="tel:+380675206323" class="compensation__phone">
+                <div href="#" class="compensation__phone js-callback-trigger">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="white"/>
                     </svg>
-                </a>
+                </div>
             </div>
         </div>
     </div>
@@ -421,7 +421,7 @@
                 </div>
             </div>
             <div class="footer__socials">
-                <a href="#"><img src="img/fb.svg" alt="Facebook"></a>
+<!--                <a href="#"><img src="img/fb.svg" alt="Facebook"></a>-->
                 <a href="#"><img src="img/tt.svg" alt="TikTok"></a>
                 <a href="#"><img src="img/yt.svg" alt="YouTube"></a>
             </div>
@@ -434,6 +434,24 @@
         </div>
     </div>
 </footer>
+
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="callback-form">
+        <button class="callback-form__close" id="closeForm">&times;</button>
+        <h2 class="callback-form__title">НАПИШІТЬ НАМ, АБО ЗАМОВТЕ ДЗВІНОК</h2>
+        <p class="callback-form__subtitle">Наш менеджер зв'яжеться з вами</p>
+
+        <form action="#" class="callback-form__content">
+            <input type="text" name="name" placeholder="Ваше ім'я *" required>
+            <input type="email" name="email" placeholder="Ваш email *" required>
+            <input type="tel" name="phone" placeholder="Ваш телефон">
+            <textarea name="message" placeholder="Ваше повідомленння *" rows="4" required></textarea>
+
+            <button type="submit" class="callback-form__submit">ВІДПРАВИТИ ЗАЯВКУ</button>
+        </form>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/script.js"></script>
