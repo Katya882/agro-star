@@ -49,149 +49,100 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =============================
-    // 3. SWIPERS (Універсальна перевірка)
+    // 3. SWIPERS
     // =============================
-    // Слайдер обладнання (Головна)
     if (document.querySelector('.equipment-swiper')) {
         new Swiper('.equipment-swiper', {
             loop: true,
             speed: 800,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-        });
-    }
-
-    // Будь-який інший слайдер (наприклад, на сторінці Про нас)
-    // Якщо у тебе там інший клас, просто додай його сюди
-    if (document.querySelector('.about-swiper')) {
-        new Swiper('.about-swiper', {
-            loop: true,
-            pagination: { el: '.swiper-pagination', clickable: true },
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            autoplay: { delay: 3000, disableOnInteraction: false },
         });
     }
 
-
-    // Слайдер пальників на сторінці Про Нас
     if (document.querySelector('.burner-swiper')) {
         new Swiper('.burner-swiper', {
             loop: true,
             speed: 800,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            // Якщо захочеш додати крапки/стрілки пізніше:
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
         });
     }
 
     // =============================
-    // 4. АНІМАЦІЯ СПИСКІВ (Твій невидимий контент)
+    // 4. ANIMATIONS (Сертифікати та Списки)
     // =============================
     const animItems = document.querySelectorAll('.js-anim-item');
-
     if (animItems.length > 0) {
         const animObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Додаємо клас, який робить елемент видимим
                     entry.target.classList.add('is-visible');
                     animObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
-
         animItems.forEach(item => animObserver.observe(item));
     }
 
     // =============================
-    // 5. ЛІЧИЛЬНИК (Experience)
+    // 5. LIGHTBOX (Сертифікати)
     // =============================
-    const startCounter = (el) => {
-        const target = +el.getAttribute('data-target');
-        const speed = 100;
+    const lightbox = document.querySelector('.js-lightbox-overlay');
+    const lightboxImg = document.querySelector('.js-lightbox-img');
+    const lightboxClose = document.querySelector('.js-lightbox-close');
+    const lboxTriggers = document.querySelectorAll('.js-lightbox');
 
-        const updateCount = () => {
-            const count = +el.innerText.replace('+', '');
-            const increment = target / speed;
-
-            if (count < target) {
-                el.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 40);
-            } else {
-                el.innerText = target + '+';
-            }
-        };
-        updateCount();
-    };
-
-    const experienceSection = document.querySelector('.experience');
-    if (experienceSection) {
-        const experienceObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const items = document.querySelectorAll('.experience__item');
-                    items.forEach((item, index) => {
-                        setTimeout(() => { item.classList.add('is-visible'); }, index * 150);
-                    });
-                    const counters = document.querySelectorAll('.experience__number');
-                    counters.forEach(counter => startCounter(counter));
-                    experienceObserver.unobserve(entry.target);
-                }
+    if (lightbox && lboxTriggers.length > 0) {
+        lboxTriggers.forEach(t => {
+            t.addEventListener('click', (e) => {
+                e.preventDefault();
+                lightboxImg.src = t.getAttribute('href');
+                lightbox.classList.add('is-open');
+                body.style.overflow = 'hidden';
             });
-        }, { threshold: 0.2 });
-        experienceObserver.observe(experienceSection);
+        });
+
+        const closeLbox = () => {
+            lightbox.classList.remove('is-open');
+            body.style.overflow = '';
+        };
+
+        if (lightboxClose) lightboxClose.addEventListener('click', closeLbox);
+        lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLbox(); });
     }
 
     // =============================
-    // 6. MODAL (Callback)
+    // 6. CALLBACK MODAL (Повертаємо форму!)
     // =============================
-    const modal = document.getElementById('modalOverlay');
-    const closeBtn = document.getElementById('closeForm');
-    const triggers = document.querySelectorAll('.js-callback-trigger');
+    const callbackModal = document.getElementById('modalOverlay');
+    const closeCallback = document.getElementById('closeForm');
+    const callbackTriggers = document.querySelectorAll('.js-callback-trigger');
 
-    if (modal) {
-        triggers.forEach(trigger => {
+    if (callbackModal) {
+        callbackTriggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                callbackModal.classList.add('active');
+                body.style.overflow = 'hidden';
             });
         });
 
-        const closeModal = () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
+        const closeFunc = () => {
+            callbackModal.classList.remove('active');
+            body.style.overflow = '';
         };
 
-        if (closeBtn) {
-            closeBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                closeModal();
-            });
-        }
+        if (closeCallback) closeCallback.addEventListener('click', closeFunc);
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+        callbackModal.addEventListener('click', (e) => {
+            if (e.target === callbackModal) closeFunc();
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') closeFunc();
         });
     }
 });

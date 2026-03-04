@@ -334,6 +334,27 @@
   .lightbox-close:hover {
     color: #1877F2; }
 
+/* ╨Я╨╛╨║╤А╨░╤Й╨╡╨╜╨░ ╨░╨╜╤Ц╨╝╨░╤Ж╤Ц╤П ╨┐╨╛╤П╨▓╨╕ */
+.js-anim-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+
+.js-anim-item.is-visible {
+  opacity: 1;
+  transform: translateY(0); }
+
+/* Lightbox fix */
+.lightbox-overlay {
+  display: none;
+  /* ╨б╨║╤А╨╕╨┐╤В ╨╖╨╝╤Ц╨╜╨╕╤В╤М ╨╜╨░ flex ╤З╨╡╤А╨╡╨╖ ╨║╨╗╨░╤Б */
+  opacity: 0;
+  transition: opacity 0.3s ease; }
+
+.lightbox-overlay.is-open {
+  display: flex;
+  opacity: 1; }
+
 @media (max-width: 1200px) {
   .certificates__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1143,6 +1164,9 @@
   color: #000080;
   margin-bottom: 20px;
   text-align: left; }
+
+.title-centre {
+  text-align: center; }
 
 .burner-table {
   width: 100%; }
