@@ -145,4 +145,45 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'Escape') closeFunc();
         });
     }
+
+
+    const experienceSection = document.querySelector('.experience');
+
+    if (experienceSection) {
+        const startCounter = (el) => {
+            const target = +el.getAttribute('data-target');
+            const duration = 2000; // Час анімації в мс (2 секунди)
+            const stepTime = Math.abs(Math.floor(duration / target));
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += 1;
+                el.innerText = current;
+                if (current === target) {
+                    clearInterval(timer);
+                    el.innerText = target + '+'; // Додаємо плюсик в кінці
+                }
+            }, stepTime);
+        };
+
+        const experienceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Показуємо елементи списку по черзі
+                    document.querySelectorAll('.experience__item').forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('is-visible');
+                        }, index * 200);
+                    });
+
+                    // Запускаємо лічильник цифр
+                    document.querySelectorAll('.experience__number').forEach(num => startCounter(num));
+
+                    experienceObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        experienceObserver.observe(experienceSection);
+    }
 });
