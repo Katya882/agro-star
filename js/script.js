@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================
-    // 6. CALLBACK MODAL (Повертаємо форму!)
+    // 6. CALLBACK MODAL
     // =============================
     const callbackModal = document.getElementById('modalOverlay');
     const closeCallback = document.getElementById('closeForm');
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (experienceSection) {
         const startCounter = (el) => {
             const target = +el.getAttribute('data-target');
-            const duration = 2000; // Час анімації в мс (2 секунди)
+            const duration = 2000;
             const stepTime = Math.abs(Math.floor(duration / target));
             let current = 0;
 
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.innerText = current;
                 if (current === target) {
                     clearInterval(timer);
-                    el.innerText = target + '+'; // Додаємо плюсик в кінці
+                    el.innerText = target + '+';
                 }
             }, stepTime);
         };
@@ -169,14 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const experienceObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Показуємо елементи списку по черзі
+                    // елементи списку по черзі
                     document.querySelectorAll('.experience__item').forEach((item, index) => {
                         setTimeout(() => {
                             item.classList.add('is-visible');
                         }, index * 200);
                     });
 
-                    // Запускаємо лічильник цифр
+                    //  лічильник цифр
                     document.querySelectorAll('.experience__number').forEach(num => startCounter(num));
 
                     experienceObserver.unobserve(entry.target);

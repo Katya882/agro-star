@@ -28,12 +28,12 @@
 
 .transport-img {
   display: grid;
-  grid-template-columns: 1fr 1fr; // Дві колонки
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin: 40px 0;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; // Одна колонка на мобільних
+    grid-template-columns: 1fr;
   }
 
   &-section {
@@ -41,13 +41,13 @@
     transition: transform 0.3s ease;
 
     &:hover {
-      transform: translateY(-5px); // Легкий підйом при наведенні
+      transform: translateY(-5px);
     }
   }
 
   &-wrapper {
     width: 100%;
-    height: 300px; // Фіксована висота для вирівнювання
+    height: 300px;
     background: #fdfdfd;
     border: 1px solid #eee;
     border-radius: 8px;
@@ -61,7 +61,7 @@
     img {
       max-width: 100%;
       max-height: 100%;
-      object-fit: contain; // Картинка не обрізається, а вписується
+      object-fit: contain;
     }
   }
 
@@ -69,7 +69,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 18px;
-    color: #000080; // Ваш фірмовий темно-синій
+    color: #000080;
     text-transform: uppercase;
   }
 }

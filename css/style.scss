@@ -111,7 +111,6 @@ body {
   }
 }
 
-
 .first-screen {
   position: relative;
   width: 100%;
@@ -148,37 +147,34 @@ body {
 .menu {
   display: flex;
   list-style: none;
-  gap: 30px; // Відстань між пунктами, як у макеті
+  gap: 30px;
 
   &-link {
-    position: relative; // Обов'язково для позиціонування лінії
+    position: relative;
     display: inline-block;
-    padding: 10px 0; // Налаштуй під свій макет
+    padding: 10px 0;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
     transition: color 0.3s ease;
 
-    // Створюємо лінію заздалегідь
     &::after {
       content: '';
       position: absolute;
       left: 0;
-      bottom: 0; // Лінія притиснута до низу
-      width: 0;   // Спочатку її не видно (ширина 0)
+      bottom: 0;
+      width: 0;
       height: 2px;
       background-color: #F15623;
-      transition: width 0.3s ease; // Плавна поява
+      transition: width 0.3s ease;
     }
 
-    // При наведенні лінія розширюється, а текст стає білим
     &:hover {
       color: #fff;
       &::after {
-        width: 100%; // Лінія стає на всю ширину тексту
+        width: 100%;
       }
     }
 
-    // Для активної сторінки
     &.active::after {
       width: 100%;
     }
@@ -1184,7 +1180,7 @@ body {
   &__contacts-list {
     display: flex;
     flex-direction: column;
-    gap: 14px; // Gap з ТЗ
+    gap: 14px;
     margin-bottom: 20px;
   }
 
@@ -1284,8 +1280,6 @@ body {
   }
 }
 
-
-/* Стилі для модального вікна */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1293,7 +1287,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px); /* Ефект розмиття фону сторінки */
+  backdrop-filter: blur(5px);
   display: none;
   justify-content: center;
   align-items: center;
@@ -1305,33 +1299,27 @@ body {
   }
 }
 
-
-/* Базові стилі для оверлею (фон та розмиття) */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Темний фон */
-  backdrop-filter: blur(8px);    /* РОЗМИТТЯ */
-  display: none;                 /* Сховано за замовчуванням */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: none;
   justify-content: center;
   align-items: center;
-  z-index: 10000;                /* Поверх усіх елементів */
+  z-index: 10000;
   padding: 20px;
 }
 
-/* Клас, який додає JS для показу */
 .modal-overlay.active {
   display: flex;
 }
 
-/* Ваші стилі для callback-form залишаються без змін,
-якщо ви використовуєте препроцесор (SASS/SCSS).
-Якщо це чистий CSS — переконайтеся, що ви розгорнули вкладеність (&__close тощо). */
 .callback-form {
-  background: linear-gradient(180deg, #1877F2 0%, #004494 100%); /* Градієнт як на фото */
+  background: linear-gradient(180deg, #1877F2 0%, #004494 100%);
   width: 100%;
   max-width: 420px;
   padding: 40px 30px;
@@ -1376,7 +1364,7 @@ body {
     input, textarea {
       width: 100%;
       padding: 12px 15px;
-      background: rgba(255, 255, 255, 0.2); /* Напівпрозорі поля */
+      background: rgba(255, 255, 255, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 6px;
       color: white;
@@ -1390,7 +1378,7 @@ body {
 
   &__submit {
     margin-top: 10px;
-    background-color: #F15623; /* Помаранчева кнопка */
+    background-color: #F15623;
     color: white;
     border: none;
     padding: 15px;
@@ -1405,8 +1393,6 @@ body {
     }
   }
 }
-
-
 
 
 @media (max-width: 1440px) {
@@ -1473,13 +1459,11 @@ body {
   }
 
   .spare-parts {
-    /* Центруємо внутрішній контейнер по горизонталі */
     justify-content: center;
     text-align: center;
   }
 
   .spare-parts__content {
-    /* Прибираємо можливі флоати або вирівнювання вбік */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1487,17 +1471,14 @@ body {
   }
 
   .spare-parts__text-block {
-    /* Центруємо текст та саму обгортку тексту */
     margin: 0 auto;
     text-align: center;
     max-width: 100%;
   }
 
-  /* Якщо у синьої лінії під заголовком є фіксований margin-left, скидаємо його */
   .spare-parts__line {
     margin: 15px auto;
   }
-
 
   .equipment__desc{
     margin-bottom: 20px;
@@ -1505,8 +1486,8 @@ body {
   .equipment__text-block {
     display: flex;
     flex-direction: column;
-    align-items: center;   // ⭐ головне
-    text-align: center;    // текст теж по центру
+    align-items: center;
+    text-align: center;
   }
   .equipment__line {
     margin: 15px auto;
@@ -1580,30 +1561,30 @@ body {
     }
   }
   .equipment {
-    min-height: auto !important; // Дозволяємо секції розтягуватися по контенту
+    min-height: auto !important;
     padding: 40px 0 80px;
     background-size: cover;
 
     &__content {
-      flex-direction: column; // Текст зверху, фото знизу
+      flex-direction: column;
       text-align: center;
       gap: 20px;
     }
 
     &__text-block {
       width: 100% !important;
-      height: auto !important; // Скидаємо фіксовану висоту
+      height: auto !important;
       align-items: center;
     }
 
     &__title {
-      font-size: 24px; // Зменшуємо заголовок секції
+      font-size: 24px;
       line-height: 1.2;
       margin-bottom: 15px;
     }
 
     &__line {
-      margin: 0 auto 20px; // Центруємо синю лінію
+      margin: 0 auto 20px;
     }
 
     &__subtitle {
@@ -1618,7 +1599,7 @@ body {
     }
 
     &__btn {
-      position: static !important; // Повертаємо кнопку в загальний потік
+      position: static !important;
       margin: 0 auto;
       width: 100% !important;
       max-width: 280px;
@@ -1632,7 +1613,7 @@ body {
       margin-top: 30px;
 
       img {
-        transform: scale(1) !important; // Скидаємо збільшення
+        transform: scale(1) !important;
         max-width: 100%;
         height: auto;
       }
@@ -1781,7 +1762,7 @@ body {
   .first-screen.bg-mob {
     display: flex !important;
     min-height: 100vh;
-    padding-top: 140px; /* Місце для хедера */
+    padding-top: 140px;
     background: linear-gradient(
                     180deg,
                     rgba(0, 0, 0, 0.28) 0%,
@@ -1805,7 +1786,6 @@ body {
     flex-direction: column;
   }
 
-
   .hero__subtitle{
     margin-bottom: 60px;
   }
@@ -1824,11 +1804,9 @@ body {
   }
   .swiper-button-next,
   .swiper-button-prev { display: none !important; }
-
   .experience__number { font-size: 50px; }
   .experience__item { padding: 15px 0; }
 
-  /* --- FOOTER START --- */
   .footer {
     margin-top: 0 !important;
 
@@ -1894,7 +1872,6 @@ body {
       margin-top: 20px;
     }
   }
-  /* --- FOOTER END --- */
 
   .equipment__text-block {
     height: auto !important;
@@ -2014,26 +1991,18 @@ body {
   }
 
   .compensation__phone {
-    /* ПРАВИЛО 2: Гарантуємо розміри */
     display: flex !important;
     align-items: center;
     justify-content: center;
-
-    /* Використовуємо min-width/height щоб іконку не "жмихало" */
     width: 52px !important;
     height: 52px !important;
     min-width: 52px;
     min-height: 52px;
-
     background-color: #F15623 !important;
     border-radius: 50% !important;
-
-    /* ПРАВИЛО 3: Вирівнювання */
-    position: relative !important; // замість static для кращого контролю
-    margin-left: auto !important;  // штовхає вправо
+    position: relative !important;
+    margin-left: auto !important;
     margin-top: 10px;
-
-    /* Скидаємо всі інлайнові паддінги, якщо вони десь закралися */
     padding: 0 !important;
 
     svg {

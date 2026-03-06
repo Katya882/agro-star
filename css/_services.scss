@@ -26,8 +26,6 @@
     padding-top: 15px;
   }
 
-  /* ================= BURGER ================= */
-
   .burger-service {
     width: 30px;
     height: 22px;
@@ -71,8 +69,6 @@
       }
     }
   }
-
-  /* ================= SERVICES ================= */
 
   .services-block {
     padding: 60px 0;
@@ -154,21 +150,17 @@
 
 
 .services {
-  /* ... ваш існуючий код ... */
-
-  /* Стан для відкритого списку (контакти/мови) */
   .js-dropdown.open .dropdown__list {
     display: block;
     opacity: 1;
     visibility: visible;
   }
 
-  /* Стилі для мобільного меню (при натисканні на бургер) */
   @media (max-width: 992px) {
     .menu {
       position: fixed;
       top: 0;
-      right: -100%; /* Ховаємо меню за екран */
+      right: -100%;
       width: 80%;
       height: 100vh;
       background: #F9F9F9;
@@ -179,7 +171,7 @@
       box-shadow: -5px 0 15px rgba(0,0,0,0.1);
 
       &.active {
-        right: 0; /* Показуємо меню */
+        right: 0;
       }
 
       li {
@@ -189,9 +181,6 @@
   }
 }
 
-
-
-/* ================= MEDIA ================= */
 
 @media (max-width: 992px) {
 
@@ -214,10 +203,10 @@
   }
 
   .services .menu {
-    display: flex; /* Переконайся, що меню має flex */
+    display: flex;
     position: fixed;
     top: 0;
-    right: -100%; /* Меню сховане */
+    right: -100%;
     width: 100%;
     height: 100vh;
     background: #F9F9F9;
@@ -228,13 +217,12 @@
     z-index: 1000;
   }
 
-  /* Цей клас додається через JS */
   .services .menu.active {
-    right: 0; /* Меню з'являється */
+    right: 0;
   }
 
   .services .burger-service {
-    display: block; /* Показуємо бургер на мобілках */
+    display: block;
     z-index: 1001;
   }
 }
