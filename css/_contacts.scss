@@ -36,7 +36,7 @@
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 0.1em;
-    color: #1877F2; // Синій акцент
+    color: #1877F2;
     margin-bottom: 12px;
     text-transform: uppercase;
   }
@@ -59,10 +59,10 @@
 .contacts-map {
   border: 1px solid #eee;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  line-height: 0; // Прибирає мікро-відступ під iframe
+  line-height: 0;
 
   iframe {
-    filter: grayscale(0.2); // Легкий фільтр, щоб мапа пасувала до дизайну
+    filter: grayscale(0.2);
     transition: filter 0.3s ease;
 
     &:hover {
@@ -70,7 +70,6 @@
     }
   }
 }
-
 
 
 @media (max-width: 992px) {

@@ -16,14 +16,13 @@
   }
 }
 
-// Контейнер для обмеження розміру зображення
 .lining-image-container {
-  max-width: 800px; // Обмежуємо максимальну ширину
-  margin: 0 auto 40px; // Центруємо та додаємо відступ знизу
+  max-width: 800px;
+  margin: 0 auto 40px;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1); // Тінь для акуратного вигляду
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 
   img {
     width: 100%;
@@ -62,7 +61,6 @@
   }
 }
 
-// Стилізація списку із синіми крапками
 .blue-dot-list {
   list-style: none;
   padding: 0;
@@ -70,21 +68,19 @@
 
   li {
     position: relative;
-    padding-left: 25px; // Відступ для крапки
+    padding-left: 25px;
     margin-bottom: 12px;
     font-size: 16px;
     line-height: 1.5;
-
-    // Створення синьої крапки
     &:before {
       content: "";
       position: absolute;
       left: 0;
-      top: 8px; // Вирівнювання по вертикалі
+      top: 8px;
       width: 10px;
       height: 10px;
-      background-color: #1877F2; // Синій колір
-      border-radius: 50%; // Кругла форма
+      background-color: #1877F2;
+      border-radius: 50%;
     }
   }
 }

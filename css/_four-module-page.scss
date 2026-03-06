@@ -22,7 +22,7 @@
 
   .specs-table-fixed {
     thead th, .highlight-row td {
-      font-size: 2.1vw; // Трохи менше, щоб 8 колонок стали ідеально
+      font-size: 2.1vw;
       @media (min-width: 1200px) { font-size: 14px; }
     }
     tbody td {

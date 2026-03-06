@@ -20,7 +20,7 @@
     height: auto;
     display: block;
     object-fit: contain;
-    max-height: 500px; // Обмежуємо висоту для естетики
+    max-height: 500px;
   }
 }
 
@@ -65,13 +65,11 @@
   }
 }
 
-/* Прибираємо будь-які затримки та нелінійності */
 .burner-swiper .swiper-wrapper {
   transition-timing-function: linear !important;
   -webkit-transition-timing-function: linear !important;
 }
 
-/* Додатково для плавності: прибираємо ривки при зміні слайдів */
 .burner-swiper .swiper-slide {
   backface-visibility: hidden;
   transform: translateZ(0);

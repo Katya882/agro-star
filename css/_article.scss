@@ -5,7 +5,7 @@
     width: 100%;
     height: auto;
     margin-bottom: 40px;
-    border-radius: 8px; // Закруглення як на макеті блогу
+    border-radius: 8px;
     overflow: hidden;
 
     img {
@@ -18,7 +18,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center; // Вирівнювання middle згідно з параметрами
+    align-items: center;
     margin-bottom: 24px;
     gap: 20px;
 
@@ -29,7 +29,6 @@
   }
 
   &__title {
-    // Параметри заголовка
     color: #313131;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
@@ -43,7 +42,6 @@
   }
 
   &__date {
-    // Параметри дати
     color: #005BBB;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
@@ -53,7 +51,6 @@
   }
 
   &__content {
-    // Параметри основного тексту
     color: #474747;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -67,7 +64,6 @@
     }
 
     h3 {
-      // Підзаголовки всередині тексту використовують ті ж параметри, що й головний заголовок
       color: #313131;
       font-weight: 700;
       font-size: 20px;
@@ -85,7 +81,7 @@
         list-style: disc;
 
         &::marker {
-          color: #F15623; // Брендовий помаранчевий
+          color: #F15623;
         }
       }
     }

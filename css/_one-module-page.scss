@@ -1,4 +1,3 @@
-// Заголовок сторінки та синя лінія під ним
 .one-module-page {
   padding: 40px 0 80px;
 
@@ -14,12 +13,11 @@
   &__line {
     width: 100px;
     height: 3px;
-    background-color: #1877F2; // Синій колір лінії
+    background-color: #1877F2;
     margin-bottom: 40px;
   }
 }
 
-// Хлібні крихти
 .breadcrumbs {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -30,7 +28,6 @@
   span { color: #313131; }
 }
 
-// Головний блок з зображенням
 .dryer-details {
   margin-bottom: 60px;
 
@@ -41,21 +38,19 @@
     @media (max-width: 992px) { flex-direction: column; text-align: center; }
   }
 
-  // Контейнер зображення, що задає його розмір
   &__img-wrapper {
-    flex: 0 0 500px; // Задаємо базову ширину контейнера
-    height: 350px; // Задаємо висоту контейнера
-    overflow: hidden; // Щоб все, що вилазить, обрізалося
-    border-radius: 8px; // Закруглення кутів
-    max-width: 100%; // Гарантуємо, що він не вилізе за межі на мобільних
+    flex: 0 0 500px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 8px;
+    max-width: 100%;
   }
 
-  // Стилі самого зображення, щоб воно не втрачало якості та не розтягувалося
   &__img {
     width: 100%;
     height: 100%;
-    object-fit: cover; // Зображення "заповнює" контейнер, обрізаючи зайве, без розтягування
-    object-position: center; // Центруємо зображення всередині контейнера
+    object-fit: cover;
+    object-position: center;
     display: block;
   }
 

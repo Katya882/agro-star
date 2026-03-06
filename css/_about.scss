@@ -6,7 +6,7 @@
 
 .about-info {
   &__title {
-    font-family: 'Font 1', sans-serif; // Замініть на ваш шрифт
+    font-family: 'Font 1', sans-serif;
     font-weight: 700;
     font-size: 40px;
     line-height: 48.4px;
@@ -18,7 +18,7 @@
   &__line {
     width: 100px;
     height: 3px;
-    background-color: #1877F2; // Блакитний колір з макета
+    background-color: #1877F2;
     margin-bottom: 30px;
   }
 
@@ -42,7 +42,7 @@
   &__line {
     width: 100px;
     height: 3px;
-    background-color: #1877F2; // Azure Radiance з макета
+    background-color: #1877F2;
     margin-bottom: 25px;
   }
 
@@ -58,19 +58,17 @@
     font-size: 16px;
     color: #474747;
 
-    // Стан до анімації
     opacity: 0;
     transform: translateY(15px);
     transition: all 0.6s ease-out;
 
-    // Синій чекбокс з Figma
     &::before {
       content: '';
       position: absolute;
       left: 0;
       top: 0;
-      width: 20px; // Ширина з Figma
-      height: 20px; // Висота з Figma
+      width: 20px;
+      height: 20px;
       background: url('../img/check-blue.svg') no-repeat center/contain;
     }
 
@@ -81,7 +79,6 @@
   }
 }
 
-/* --- Розділ Сертифікатів --- */
 .certificates {
   padding: 60px 0;
 
@@ -119,10 +116,9 @@
     width: 100%;
     margin-bottom: 20px;
     position: relative;
-    overflow: hidden; // Щоб зображення не виходило за межі при збільшенні
-    cursor: pointer; // Вказує, що можна натиснути
+    overflow: hidden;
+    cursor: pointer;
 
-    // ЧИСТИЙ ЕФЕКТ: Жодних рамок (border: none)
 
     img {
       max-width: 100%;
@@ -145,19 +141,17 @@
     text-align: center;
   }
 
-  /* --- ЕФЕКТ НАВЕДЕННЯ (HOVER) --- */
   &__item:hover {
     .certificates__img-wrapper img {
-      transform: scale(1.03); // Саме зображення збільшується
+      transform: scale(1.03);
     }
 
     .certificates__name {
-      color: #1877F2; // Підпис стає блакитним
+      color: #1877F2;
     }
   }
 }
 
-/* --- СТИЛІ LIGHTBOX (Модального вікна) --- */
 .lightbox-overlay {
   position: fixed;
   top: 0;
@@ -166,12 +160,12 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
-  display: none; // Приховано за замовчуванням
+  display: none;
   justify-content: center;
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-  cursor: zoom-out; // Вказує, що клік закриє вікно
+  cursor: zoom-out;
 
   &.is-open {
     display: flex;
@@ -191,7 +185,7 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  border: 5px solid #fff; // Рамка тільки для збільшеної версії
+  border: 5px solid #fff;
   border-radius: 4px;
 }
 
@@ -212,7 +206,6 @@
   }
 }
 
-/* Покращена анімація появи */
 .js-anim-item {
   opacity: 0;
   transform: translateY(30px);
@@ -226,7 +219,7 @@
 
 /* Lightbox fix */
 .lightbox-overlay {
-  display: none; /* Скрипт змінить на flex через клас */
+  display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
