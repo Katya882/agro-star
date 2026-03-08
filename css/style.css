@@ -1439,6 +1439,84 @@
 @media (max-width: 576px) {
   .lining-page {
     margin-top: 150px; } }
+.error-page-layout {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 49, 51, 0.7), rgba(0, 49, 51, 0.7)), url("../img/truck-bg.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center; }
+
+.error-hero__content {
+  width: 100%;
+  position: relative; }
+
+.back-navigation {
+  position: absolute;
+  top: -40px;
+  left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s; }
+
+.error-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; }
+
+.error-text {
+  font-size: 18px;
+  margin-bottom: 30px;
+  max-width: 500px; }
+
+.error-hero__content {
+  padding: 60px 0; }
+
+.back-navigation {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 40px;
+  transition: opacity 0.3s; }
+
+.back-navigation:hover {
+  opacity: 0.8; }
+
+.error-title {
+  font-size: clamp(80px, 15vw, 150px);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 10px; }
+
+.error-subtitle {
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  text-transform: uppercase; }
+
+.error-text {
+  font-size: 18px;
+  margin-bottom: 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto; }
+
+@media (max-width: 768px) {
+  .error-page-layout {
+    min-height: 500px;
+    margin-top: 235px; }
+
+  .error-text {
+    font-size: 16px; } }
+@media (max-width: 540px) {
+  .error-page-layout {
+    margin-top: 180px; } }
 html, body {
   height: 100%; }
 
