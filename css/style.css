@@ -1523,7 +1523,6 @@
 @media (max-width: 540px) {
   .error-page-layout {
     margin-top: 180px; } }
-/* --- ╨Ч╨░╨│╨░╨╗╤М╨╜╤Ц ╤Б╤В╨╕╨╗╤Ц ╤В╨░ ╨╖╨░╨│╨╛╨╗╨╛╨▓╨║╨╕ --- */
 .projecting-section {
   padding: 50px 0 80px;
   background: #fff; }
@@ -1555,7 +1554,6 @@
   margin-top: 10px;
   margin-bottom: 40px; }
 
-/* --- ╨С╨╗╨╛╨║ ╨║╤А╨╡╤Б╨╗╨╡╨╜╤М (Blueprint) --- */
 .blueprint-viewer {
   position: relative;
   max-width: 800px;
@@ -1566,8 +1564,7 @@
   opacity: 0;
   transition: opacity 1.2s ease-out;
   aspect-ratio: 16 / 9;
-  cursor: pointer;
-  /* ╨Т╨║╨░╨╖╤Г╤Ф╨╝╨╛, ╤Й╨╛ ╨╝╨╛╨╢╨╜╨░ ╨╜╨░╤В╨╕╤Б╨╜╤Г╤В╨╕ */ }
+  cursor: pointer; }
 
 .blueprint-viewer.active {
   opacity: 1; }
@@ -1610,7 +1607,6 @@
     left: -100%; }
   100% {
     left: 100%; } }
-/* --- 3D ╨д╨╛╤В╨╛-╤Б╤Ц╤В╨║╨░ --- */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1636,32 +1632,26 @@
 
 .photo-grid__item img {
   width: 100%;
-  /* ╨Т╤Б╤В╨░╨╜╨╛╨▓╨╗╤О╤Ф╨╝╨╛ ╤Д╤Ц╨║╤Б╨╛╨▓╨░╨╜╨╡ ╤Б╨┐╤Ц╨▓╨▓╤Ц╨┤╨╜╨╛╤И╨╡╨╜╨╜╤П ╤Б╤В╨╛╤А╤Ц╨╜ (╨╜╨░╨┐╤А╨╕╨║╨╗╨░╨┤, 4:3 ╨░╨▒╨╛ 1:1) */
   aspect-ratio: 4 / 3;
-  /* ╨Т╨░╨╢╨╗╨╕╨▓╨╛: ╤Ж╨╡ ╨╖╨╝╤Г╤И╤Г╤Ф ╤Д╨╛╤В╨╛ ╨╖╨░╨┐╨╛╨▓╨╜╤О╨▓╨░╤В╨╕ ╨╛╨▒╨╗╨░╤Б╤В╤М, ╨╜╨╡ ╤А╨╛╨╖╤В╤П╨│╤Г╤О╤З╨╕╤Б╤М */
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   transition: 0.5s;
   cursor: pointer;
-  display: block;
-  /* ╨Я╤А╨╕╨▒╨╕╤А╨░╤Ф╨╝╨╛ ╨╖╨░╨╣╨▓╤Ц ╨▓╤Ц╨┤╤Б╤В╤Г╨┐╨╕ ╨╖╨╜╨╕╨╖╤Г */ }
+  display: block; }
 
-/* ╨Ф╨╛╨┤╨░╨╝╨╛ ╨╜╨╡╨▓╨╡╨╗╨╕╨║╨╡ ╤Г╤В╨╛╤З╨╜╨╡╨╜╨╜╤П ╨┤╨╗╤П ╤Б╨░╨╝╨╛╤Ч ╤Б╤Ц╤В╨║╨╕, ╤Й╨╛╨▒ ╨▓╨╛╨╜╨░ ╨▒╤Г╨╗╨░ ╤Б╤В╨░╨▒╤Ц╨╗╤М╨╜╨╛╤О */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   margin-bottom: 60px;
   perspective: 1000px;
-  align-items: start;
-  /* ╨Т╨╕╤А╤Ц╨▓╨╜╤О╤Ф╨╝╨╛ ╨▓╤Б╤Ц ╨╡╨╗╨╡╨╝╨╡╨╜╤В╨╕ ╨┐╨╛ ╨▓╨╡╤А╤Е╨╜╤М╨╛╨╝╤Г ╨║╤А╨░╤О */ }
+  align-items: start; }
 
 .photo-grid__item:hover img {
   transform: rotateY(10deg) translateY(-10px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); }
 
-/* --- ╨в╨╡╨║╤Б╤В╨╛╨▓╨╕╨╣ ╨║╨╛╨╜╤В╨╡╨╜╤В --- */
 .project-content h2 {
   color: #163133;
   margin-bottom: 20px;
@@ -1683,7 +1673,6 @@
   font-size: 18px;
   margin-bottom: 10px; }
 
-/* --- ╨б╤В╨╕╨╗╤Ц Lightbox (╨Ч╨▒╤Ц╨╗╤М╤И╨╡╨╜╨╜╤П ╨┐╤А╨╕ ╨║╨╗╤Ц╨║╤Г) --- */
 .lightbox-overlay {
   position: fixed;
   top: 0;
@@ -1691,9 +1680,7 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
-  /* ╨в╨╡╨╝╨╜╨╕╨╣ ╤Д╨╛╨╜ */
   display: none;
-  /* ╨Я╨╛╤З╨░╤В╨║╨╛╨▓╨╛ ╨┐╤А╨╕╤Е╨╛╨▓╨░╨╜╨╕╨╣ */
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -1749,7 +1736,6 @@
   border-left: 4px solid #0047AB;
   font-style: italic; }
 
-/* --- ╨Р╨┤╨░╨┐╤В╨╕╨▓╨╜╤Ц╤Б╤В╤М --- */
 @media (max-width: 992px) {
   .photo-grid {
     grid-template-columns: repeat(2, 1fr); }
@@ -1762,6 +1748,233 @@
 
   .section-header__title {
     font-size: 28px; } }
+/* --- ╨У╨╗╨╛╨▒╨░╨╗╤М╨╜╤Ц ╨╜╨░╨╗╨░╤И╤В╤Г╨▓╨░╨╜╨╜╤П ╤Б╨╡╨║╤Ж╤Ц╤Ч --- */
+.manufacturing-section {
+  padding: 40px 0 100px;
+  background: #fff;
+  color: #333; }
+
+.rounded-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: #eee;
+  margin: 80px 0; }
+
+/* --- ╨С╨╗╨╛╨║ 1: ╨Х╨╗╨╡╨▓╨░╤В╨╛╤А╨╕ (Core) --- */
+.manufacturing-core {
+  margin-bottom: 80px; }
+
+.intro-block {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center; }
+
+.intro-block h2 {
+  color: #163133;
+  font-size: 32px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+
+.lead-text {
+  font-size: 18px;
+  color: #163133;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 20px; }
+
+.intro-block p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 15px; }
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 50px;
+  align-items: start;
+  margin-top: 50px; }
+
+.cap-text h3 {
+  color: #0047AB;
+  font-size: 22px;
+  margin-bottom: 25px; }
+
+.cap-text p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px; }
+
+/* ╨б╤В╨╕╨╗╤Ц╨╖╨░╤Ж╤Ц╤П ╤Б╨┐╨╕╤Б╨║╤Г ╨╖ "╨│╨░╨╗╨╛╤З╨║╨░╨╝╨╕" */
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px; }
+
+.detail-list li {
+  margin-bottom: 18px;
+  padding-left: 30px;
+  position: relative;
+  color: #444;
+  line-height: 1.5;
+  font-size: 15px; }
+
+/* --- ╨С╨╗╨╛╨║ 2: ╨Ч╨Р╨Т/╨Ъ╨Ч╨б --- */
+.manufacturing-zav .intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  align-items: center; }
+
+.manufacturing-zav .intro-grid.reverse {
+  direction: rtl; }
+
+.manufacturing-zav .intro-grid.reverse .intro-text {
+  direction: ltr; }
+
+.manufacturing-zav .intro-text h2 {
+  color: #163133;
+  font-size: 28px;
+  margin-bottom: 25px; }
+
+.manufacturing-zav .intro-text p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px; }
+
+.tech-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px; }
+
+.spec-card {
+  background: #f9fbfd;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid #0047AB; }
+
+.spec-card h4 {
+  color: #163133;
+  font-size: 17px;
+  margin-bottom: 12px; }
+
+.spec-card p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.5; }
+
+/* --- ╨С╨╗╨╛╨║ 3: ╨Ж╨╜╨╢╨╡╨╜╨╡╤А╤Ц╤П --- */
+.engineering-services {
+  padding: 80px 0;
+  background: #fafafa;
+  border-radius: 16px;
+  margin: 80px 0;
+  text-align: center; }
+
+.engineering-services .sub-title {
+  font-size: 26px;
+  color: #163133;
+  margin-bottom: 15px;
+  text-transform: uppercase; }
+
+.section-description {
+  color: #666;
+  margin-bottom: 50px;
+  font-style: italic; }
+
+.engineering-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 0 30px; }
+
+.eng-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  transition: 0.3s; }
+
+.eng-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
+
+.eng-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px; }
+
+.eng-card h4 {
+  font-size: 17px;
+  color: #0047AB;
+  margin-bottom: 12px; }
+
+.eng-card p {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+  line-height: 1.5; }
+
+/* --- CTA ╨С╨╗╨╛╨║ --- */
+.final-cta {
+  text-align: center;
+  padding: 60px;
+  background: #fdf9ec;
+  border-radius: 12px;
+  margin-top: 80px; }
+
+.cta-content p {
+  font-size: 20px;
+  color: #163133;
+  font-weight: 600;
+  margin-bottom: 30px; }
+
+.btn-gold-large {
+  display: inline-block;
+  padding: 18px 45px;
+  background: #F15623;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 6px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 0.3s ease; }
+
+.btn-gold-large:hover {
+  transform: scale(1.03); }
+
+/* --- ╨Р╨┤╨░╨┐╤В╨╕╨▓╨╜╤Ц╤Б╤В╤М --- */
+@media (max-width: 1024px) {
+  .capabilities-grid, .manufacturing-zav .intro-grid {
+    grid-template-columns: 1fr; }
+
+  .manufacturing-zav .intro-grid.reverse {
+    direction: ltr; }
+
+  .engineering-grid {
+    grid-template-columns: 1fr 1fr; }
+
+  .manufacturing-section {
+    margin-top: 230px; } }
+@media (max-width: 600px) {
+  .engineering-grid, .tech-spec-grid {
+    grid-template-columns: 1fr; }
+
+  .intro-block h2 {
+    font-size: 26px; }
+
+  .final-cta {
+    padding: 40px 20px; } }
+@media (max-width: 500px) {
+  .manufacturing-section {
+    margin-top: 130px; } }
 html, body {
   height: 100%; }
 

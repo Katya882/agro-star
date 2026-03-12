@@ -189,8 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Анімація появи при скролі ---
     const animObserver = new IntersectionObserver((entries) => {
@@ -248,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
 
-            // Знаходимо саме зображення всередині натиснутого блоку
+            // зображення всередині натиснутого блоку
             let imageSrc = '';
 
             if (this.tagName.toLowerCase() === 'img') {
@@ -261,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!imageSrc) return;
 
-            // Відкриваємо overlay та вставляємо фото
+            //  overlay та вставляємо фото
             lightboxImage.src = imageSrc;
             lightboxOverlay.classList.add('active');
 

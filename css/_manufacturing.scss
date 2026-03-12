@@ -1,0 +1,82 @@
+/* --- Глобальні налаштування секції --- */
+.manufacturing-section { padding: 40px 0 100px; background: #fff; color: #333; }
+.rounded-img { width: 100%; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+.section-divider { border: 0; height: 1px; background: #eee; margin: 80px 0; }
+
+/* --- Блок 1: Елеватори (Core) --- */
+.manufacturing-core { margin-bottom: 80px; }
+.intro-block { max-width: 900px; margin: 0 auto 60px; text-align: center; }
+.intro-block h2 { color: #163133; font-size: 32px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+.lead-text { font-size: 18px; color: #163133; font-weight: 500; line-height: 1.6; margin-bottom: 20px; }
+.intro-block p { color: #555; line-height: 1.7; margin-bottom: 15px; }
+
+.capabilities-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: start; margin-top: 50px; }
+.cap-text h3 { color: #0047AB; font-size: 22px; margin-bottom: 25px; }
+.cap-text p { color: #555; line-height: 1.7; margin-bottom: 20px; }
+
+/* Стилізація списку з "галочками" */
+.detail-list { list-style: none; padding: 0; margin-top: 25px; }
+.detail-list li { margin-bottom: 18px; padding-left: 30px; position: relative; color: #444; line-height: 1.5; font-size: 15px; }
+
+
+/* --- Блок 2: ЗАВ/КЗС --- */
+.manufacturing-zav .intro-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center; }
+.manufacturing-zav .intro-grid.reverse { direction: rtl; }
+.manufacturing-zav .intro-grid.reverse .intro-text { direction: ltr; }
+.manufacturing-zav .intro-text h2 { color: #163133; font-size: 28px; margin-bottom: 25px; }
+.manufacturing-zav .intro-text p { color: #555; line-height: 1.7; margin-bottom: 25px; }
+
+.tech-spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.spec-card { background: #f9fbfd; padding: 25px; border-radius: 8px; border-left: 4px solid #0047AB; }
+.spec-card h4 { color: #163133; font-size: 17px; margin-bottom: 12px; }
+.spec-card p { font-size: 14px; color: #666; margin: 0; line-height: 1.5; }
+
+/* --- Блок 3: Інженерія --- */
+.engineering-services { padding: 80px 0; background: #fafafa; border-radius: 16px; margin: 80px 0; text-align: center; }
+.engineering-services .sub-title { font-size: 26px; color: #163133; margin-bottom: 15px; text-transform: uppercase; }
+.section-description { color: #666; margin-bottom: 50px; font-style: italic; }
+
+.engineering-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; padding: 0 30px; }
+.eng-card { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
+.eng-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+.eng-card img { width: 60px; height: 60px; margin-bottom: 20px; }
+.eng-card h4 { font-size: 17px; color: #0047AB; margin-bottom: 12px; }
+.eng-card p { font-size: 14px; color: #777; margin: 0; line-height: 1.5; }
+
+/* --- CTA Блок --- */
+.final-cta { text-align: center; padding: 60px; background: #fdf9ec; border-radius: 12px; margin-top: 80px; }
+.cta-content p { font-size: 20px; color: #163133; font-weight: 600; margin-bottom: 30px; }
+.btn-gold-large {
+  display: inline-block;
+  padding: 18px 45px;
+  background: #F15623;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 6px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+.btn-gold-large:hover { transform: scale(1.03); }
+
+/* --- Адаптивність --- */
+@media (max-width: 1024px) {
+  .capabilities-grid, .manufacturing-zav .intro-grid { grid-template-columns: 1fr; }
+  .manufacturing-zav .intro-grid.reverse { direction: ltr; }
+  .engineering-grid { grid-template-columns: 1fr 1fr; }
+  .manufacturing-section{
+    margin-top: 230px;
+  }
+}
+@media (max-width: 600px) {
+  .engineering-grid, .tech-spec-grid { grid-template-columns: 1fr; }
+  .intro-block h2 { font-size: 26px; }
+  .final-cta { padding: 40px 20px; }
+}
+
+@media (max-width: 500px) {
+  .manufacturing-section{
+    margin-top: 130px;
+  }
+}
