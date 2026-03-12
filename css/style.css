@@ -412,6 +412,11 @@
     text-decoration: none;
     margin-bottom: 8px;
     transition: color 0.3s ease; }
+    .contacts-item__text a, .contacts-item__link a {
+      text-decoration: none;
+      color: #474747; }
+      .contacts-item__text a:hover, .contacts-item__link a:hover {
+        color: #1877F2; }
   .contacts-item__link:hover {
     color: #1877F2; }
 
