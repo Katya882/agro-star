@@ -186,4 +186,111 @@ document.addEventListener('DOMContentLoaded', () => {
 
         experienceObserver.observe(experienceSection);
     }
+
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. Анімація появи при скролі ---
+    const animObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+
+                // Активуємо блок креслень
+                const viewer = target.querySelector('.blueprint-viewer');
+                if (viewer) {
+                    viewer.classList.add('active');
+                    startBlueprintLoop(target); // Запускаємо цикл перемикання
+                }
+
+                // Активуємо фото по черзі
+                const photos = target.querySelectorAll('.js-photo');
+                photos.forEach((p, i) => {
+                    setTimeout(() => p.classList.add('active'), 250 * (i + 1));
+                });
+
+                animObserver.unobserve(target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    const trigger = document.querySelector('.js-anim-trigger');
+    if (trigger) animObserver.observe(trigger);
+
+    // Функція плавного перемикання двох креслень (6 секунд цикл)
+    function startBlueprintLoop(container) {
+        const img1 = container.querySelector('.js-blueprint-1');
+        const img2 = container.querySelector('.js-blueprint-2');
+        if (!img1 || !img2) return;
+
+        setInterval(() => {
+            if (img1.classList.contains('active')) {
+                img1.classList.remove('active');
+                img2.classList.add('active');
+            } else {
+                img2.classList.remove('active');
+                img1.classList.add('active');
+            }
+        }, 6000);
+    }
+
+    // --- 2. Логіка Lightbox (Збільшення при натисканні) ---
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    // Всі елементи, які можна збільшити (фото + блок креслень)
+    const clickableItems = document.querySelectorAll('.js-lightbox');
+
+    clickableItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Знаходимо саме зображення всередині натиснутого блоку
+            let imageSrc = '';
+
+            if (this.tagName.toLowerCase() === 'img') {
+                imageSrc = this.src;
+            } else if (this.querySelector('img')) {
+                // Якщо натиснули на блок, беремо перше (або активне) фото всередині
+                const activeImg = this.querySelector('img.active') || this.querySelector('img');
+                imageSrc = activeImg.src;
+            }
+
+            if (!imageSrc) return;
+
+            // Відкриваємо overlay та вставляємо фото
+            lightboxImage.src = imageSrc;
+            lightboxOverlay.classList.add('active');
+
+            // Забороняємо скрол основної сторінки
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Функція закриття
+    function closeLightbox() {
+        lightboxOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Повертаємо скрол
+        // Невелика затримка, щоб очистити src після анімації закриття
+        setTimeout(() => lightboxImage.src = "", 400);
+    }
+
+    // Кліки для закриття: на хрестик, на фон, на саму картинку
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxOverlay.addEventListener('click', function(e) {
+        // Закриваємо тільки якщо клікнули на фон, а не на саму картинку
+        if (e.target !== lightboxImage) {
+            closeLightbox();
+        }
+    });
+
+    // Закриття клавішею Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightboxOverlay.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
 });
