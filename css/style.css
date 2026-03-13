@@ -1956,6 +1956,145 @@
 
   .install-section.reverse .content-grid {
     direction: ltr; } }
+.maintenance-section {
+  padding-bottom: 100px;
+  background-color: #FFFFFF;
+  padding-top: 25px; }
+  .maintenance-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; }
+  .maintenance-section .section-header {
+    margin-bottom: 60px; }
+    .maintenance-section .section-header__title {
+      color: #474747;
+      font-size: 32px;
+      text-transform: uppercase; }
+    .maintenance-section .section-header__line {
+      background-color: #F15623;
+      height: 4px;
+      width: 80px;
+      margin-top: 15px; }
+  .maintenance-section .maintenance-intro {
+    margin-bottom: 80px; }
+    .maintenance-section .maintenance-intro .intro-flex {
+      display: flex;
+      gap: 50px;
+      align-items: center; }
+      @media (max-width: 992px) {
+        .maintenance-section .maintenance-intro .intro-flex {
+          flex-direction: column; } }
+    .maintenance-section .maintenance-intro .intro-content {
+      flex: 1; }
+      .maintenance-section .maintenance-intro .intro-content .lead-orange {
+        color: #F15623;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.4; }
+      .maintenance-section .maintenance-intro .intro-content .description {
+        color: #474747;
+        line-height: 1.7;
+        font-size: 16px; }
+    .maintenance-section .maintenance-intro .img-limited {
+      flex: 1;
+      max-width: 500px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+      .maintenance-section .maintenance-intro .img-limited img {
+        width: 100%;
+        display: block;
+        object-fit: cover; }
+  .maintenance-section .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 80px; }
+    @media (max-width: 768px) {
+      .maintenance-section .services-grid {
+        grid-template-columns: 1fr; } }
+    .maintenance-section .services-grid .service-card {
+      padding: 40px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid #eee; }
+      .maintenance-section .services-grid .service-card:hover {
+        background: #FFFFFF;
+        border-color: #F15623;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        transform: translateY(-5px); }
+      .maintenance-section .services-grid .service-card h4 {
+        color: #F15623;
+        font-size: 18px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px; }
+      .maintenance-section .services-grid .service-card p {
+        font-size: 14px;
+        color: #474747;
+        line-height: 1.6; }
+  .maintenance-section .timing-banner {
+    background-color: #474747;
+    color: #FFFFFF;
+    padding: 60px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    @media (max-width: 992px) {
+      .maintenance-section .timing-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px; } }
+    .maintenance-section .timing-banner__info {
+      max-width: 600px; }
+      .maintenance-section .timing-banner__info h3 {
+        color: #F15623;
+        margin-bottom: 20px;
+        font-size: 24px; }
+      .maintenance-section .timing-banner__info ul {
+        padding: 0; }
+        .maintenance-section .timing-banner__info ul li {
+          margin-bottom: 10px;
+          padding-left: 20px;
+          position: relative; }
+    .maintenance-section .timing-banner__badge {
+      background-color: #F15623;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: 800;
+      box-shadow: 0 0 25px rgba(241, 86, 35, 0.4); }
+      .maintenance-section .timing-banner__badge .hours {
+        font-size: 50px;
+        line-height: 1; }
+      .maintenance-section .timing-banner__badge .label {
+        font-size: 12px;
+        text-transform: uppercase; }
+  .maintenance-section .maintenance-cta {
+    margin-top: 80px;
+    text-align: center; }
+    .maintenance-section .maintenance-cta .btn-orange {
+      display: inline-block;
+      background: #F15623;
+      color: #FFFFFF;
+      padding: 20px 45px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s; }
+      .maintenance-section .maintenance-cta .btn-orange:hover {
+        background: #d43f0d;
+        transform: scale(1.05); }
+
 html, body {
   height: 100%; }
 

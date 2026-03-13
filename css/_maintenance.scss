@@ -1,0 +1,186 @@
+$orange: #F15623;
+$white: #FFFFFF;
+$grey-text: #474747;
+$blue: #1877F2;
+$light-bg: #f8f9fa;
+
+.maintenance-section {
+  padding-bottom: 100px;
+  background-color: $white;
+  padding-top: 25px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+    &__title {
+      color: $grey-text;
+      font-size: 32px;
+      text-transform: uppercase;
+    }
+    &__line {
+      background-color: $orange;
+      height: 4px;
+      width: 80px;
+      margin-top: 15px;
+    }
+  }
+
+  .maintenance-intro {
+    margin-bottom: 80px;
+
+    .intro-flex {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+
+      @media (max-width: 992px) {
+        flex-direction: column;
+      }
+    }
+
+    .intro-content {
+      flex: 1;
+      .lead-orange {
+        color: $orange;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+      .description {
+        color: $grey-text;
+        line-height: 1.7;
+        font-size: 16px;
+      }
+    }
+
+    .img-limited {
+      flex: 1;
+      max-width: 500px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+
+      img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      padding: 40px;
+      background: $light-bg;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+
+      &:hover {
+        background: $white;
+        border-color: $orange;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        transform: translateY(-5px);
+      }
+
+      h4 {
+        color: $orange;
+        font-size: 18px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      p {
+        font-size: 14px;
+        color: $grey-text;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .timing-banner {
+    background-color: $grey-text;
+    color: $white;
+    padding: 60px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+    }
+
+    &__info {
+      max-width: 600px;
+      h3 {
+        color: $orange;
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+      ul {
+        padding: 0;
+        li {
+          margin-bottom: 10px;
+          padding-left: 20px;
+          position: relative;
+        }
+      }
+    }
+
+    &__badge {
+      background-color: $orange;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: 800;
+      box-shadow: 0 0 25px rgba($orange, 0.4);
+
+      .hours { font-size: 50px; line-height: 1; }
+      .label { font-size: 12px; text-transform: uppercase; }
+    }
+  }
+
+  .maintenance-cta {
+    margin-top: 80px;
+    text-align: center;
+    .btn-orange {
+      display: inline-block;
+      background: $orange;
+      color: $white;
+      padding: 20px 45px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+      &:hover {
+        background: darken($orange, 10%);
+        transform: scale(1.05);
+      }
+    }
+  }
+}
