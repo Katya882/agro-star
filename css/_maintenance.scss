@@ -184,3 +184,14 @@ $light-bg: #f8f9fa;
     }
   }
 }
+
+@media (max-width: 769px) {
+  .maintenance-section{
+    margin-top: 220px;
+  }
+}
+@media (max-width: 500px) {
+  .maintenance-section{
+    margin-top: 180px;
+  }
+}

@@ -172,3 +172,14 @@ $bg-faded: #fcfcfc;
     }
   }
 }
+
+@media (max-width: 769px) {
+  .technical-support-section{
+    margin-top: 220px;
+  }
+}
+@media (max-width: 500px) {
+  .technical-support-section{
+    margin-top: 180px;
+  }
+}
