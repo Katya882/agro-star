@@ -1,0 +1,49 @@
+.installation-page { padding-bottom: 80px; }
+
+/* Блок команд */
+.team-expertise { padding: 60px 0; border-bottom: 1px solid #eee; margin-bottom: 60px; }
+.team-flex { display: flex; gap: 60px; align-items: center; }
+.title-accent { color: #163133; font-size: 28px; margin-bottom: 20px; position: relative; padding-left: 20px; }
+.title-accent::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #D4AF37; }
+.lead { font-size: 18px; color: #163133; font-weight: 500; margin-bottom: 15px; }
+
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+.value-item h4 { color: #0047AB; font-size: 16px; margin-bottom: 8px; }
+.value-item p { font-size: 14px; color: #666; line-height: 1.5; }
+
+.experience-card { background: #163133; color: #fff; padding: 40px; border-radius: 15px; text-align: center; min-width: 280px; }
+.exp-circle { width: 100px; height: 100px; border: 2px solid #D4AF37; border-radius: 50%; margin: 0 auto 15px; display: flex; flex-direction: column; justify-content: center; }
+.exp-num { font-size: 32px; font-weight: 800; color: #D4AF37; }
+.exp-label { font-size: 10px; text-transform: uppercase; }
+
+/* Секції контенту */
+.install-section { margin-bottom: 80px; }
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.install-section.reverse .content-grid { direction: rtl; }
+.install-section.reverse .content-text { direction: ltr; }
+.content-text h3 { color: #163133; margin-bottom: 20px; }
+.content-image img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+.check-list { list-style: none; padding: 0; }
+.check-list li { position: relative; padding-left: 25px; margin-bottom: 10px; font-size: 14px; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; color: #D4AF37; font-weight: bold; }
+
+.spec-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.spec-tags span { background: #f0f4f8; padding: 8px 15px; border-radius: 20px; font-size: 12px; color: #0047AB; font-weight: 600; }
+
+/* Сушарки */
+.dryer-tech { background: #fdf9ec; padding: 60px; border-radius: 20px; }
+.dryer-header { text-align: center; margin-bottom: 40px; }
+.dryer-header h3 { color: #163133; font-size: 24px; }
+.dryer-content-flex { display: flex; gap: 40px; align-items: center; }
+.dryer-list { list-style: none; padding: 0; }
+.dryer-list li { margin-bottom: 15px; font-size: 14px; line-height: 1.5; }
+
+.final-cta { text-align: center; margin-top: 80px; padding: 40px; border-top: 1px solid #eee; }
+.btn-main { display: inline-block; background: #D4AF37; color: #163133; padding: 15px 40px; border-radius: 5px; font-weight: 700; text-decoration: none; transition: 0.3s; }
+.btn-main:hover { background: #163133; color: #D4AF37; }
+
+@media (max-width: 992px) {
+  .team-flex, .content-grid, .dryer-content-flex { flex-direction: column; grid-template-columns: 1fr; }
+  .install-section.reverse .content-grid { direction: ltr; }
+}
