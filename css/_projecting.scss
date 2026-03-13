@@ -87,8 +87,16 @@
 @media (max-width: 768px) {
   .intro-grid, .features-grid, .partner-card { grid-template-columns: 1fr; flex-direction: column; }
   .img-limited { max-width: 100%; }
+  .projecting-section{
+    margin-top: 250px;
+  }
 }
 
+@media (max-width: 576px){
+  .projecting-section{
+    margin-top: 180px;
+  }
+}
 
 
 
