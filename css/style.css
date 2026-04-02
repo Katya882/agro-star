@@ -503,6 +503,9 @@
     text-transform: uppercase;
     margin: 0;
     flex: 1; }
+    .blog-card__title a {
+      text-decoration: none;
+      color: #313131; }
   .blog-card__btn {
     flex: 0 0 42.41px;
     width: 42.41px;

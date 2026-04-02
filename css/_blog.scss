@@ -67,13 +67,17 @@
 
   &__title {
     font-family: 'Inter', sans-serif;
-    font-weight: 700; // Bold
+    font-weight: 700;
     font-size: 16px;
     line-height: 24px;
     color: #313131;
     text-transform: uppercase;
     margin: 0;
     flex: 1;
+    a{
+      text-decoration: none;
+      color: #313131;
+    }
   }
 
   &__btn {
