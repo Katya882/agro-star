@@ -5,7 +5,7 @@
   --blue: #1877F2;
 }
 
-.manufacturing-section { padding-bottom: 80px; background-color: var(--white); }
+.manufacturing-section { padding-bottom: 80px; background-color: var(--white); padding-top: 30px; }
 
 .img-limited {
   max-width: 500px;
@@ -81,6 +81,410 @@
 
 .btn-orange:hover { background: var(--white); color: var(--orange); }
 
+
+   /* ── BLUEPRINT PARALLAX SECTION ── */
+ .blueprint-parallax { padding-bottom: 80px; }
+
+.blueprint-intro-text {
+  text-align: center;
+  color: #474747;
+  font-size: 15px;
+  margin-top: -30px;
+  margin-bottom: 40px;
+  opacity: 0.7;
+}
+
+.blueprint-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #061529;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: crosshair;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  /* Grid background */
+  background-image:
+          linear-gradient(rgba(0,140,255,0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,140,255,0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* scan-line overlay */
+.blueprint-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+                  to bottom,
+                  transparent 0px,
+                  transparent 3px,
+                  rgba(0,0,0,0.06) 3px,
+                  rgba(0,0,0,0.06) 4px
+  );
+  pointer-events: none;
+  z-index: 20;
+}
+
+.bp-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.12;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+.bp-bg img { width: 95%; height: 95%; object-fit: contain; }
+
+/* Layers */
+.bp-layer {
+  position: absolute;
+  border-radius: 6px;
+  border: 1px solid rgba(0,180,255,0.2);
+  overflow: visible;
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.bp-layer:hover {
+  box-shadow: 0 0 25px rgba(0,180,255,0.35), inset 0 0 0 1px rgba(0,180,255,0.5);
+  z-index: 15 !important;
+}
+.bp-layer img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.bp-label {
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: rgba(0,180,255,0.55);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Layer positions */
+#bpFront  { top: 5%;  left: 2%;  width: 50%; height: 45%; z-index: 5; }
+#bpSide   { top: 5%;  left: 52%; width: 42%; height: 46%; z-index: 5; }
+#bpTop    { top: 51%; left: 6%;  width: 79%; height: 44%; z-index: 4; }
+#bpLegend { top: 52%; left: 81%; width: 17%; height: 27%; z-index: 6; }
+#bpTitle  { top: 80%; left: 81%; width: 17%; height: 16%; z-index: 6; }
+
+/* Crosshair */
+.bp-crosshair {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 30;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.bp-crosshair::before,
+.bp-crosshair::after {
+  content: '';
+  position: absolute;
+  background: rgba(0,180,255,0.6);
+}
+.bp-crosshair::before { width: 1px; height: 100%; left: 50%; top: 0; }
+.bp-crosshair::after  { height: 1px; width: 100%; top: 50%; left: 0; }
+
+.blueprint-wrapper:hover .bp-crosshair { opacity: 1; }
+
+/* Specs panel */
+.bp-specs {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  gap: 24px;
+  z-index: 25;
+  background: rgba(4,20,40,0.75);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,140,255,0.2);
+  backdrop-filter: blur(6px);
+}
+.bp-spec-item { display: flex; flex-direction: column; align-items: center; }
+.bp-spec-val {
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #F15623;
+  line-height: 1;
+}
+.bp-spec-key {
+  font-size: 9px;
+  color: rgba(0,180,255,0.6);
+  letter-spacing: 0.1em;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+/* ── CARDS ── */
+.bp-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.bp-card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fafafa;
+  border-bottom: 3px solid #1877F2;
+  transition: transform 0.3s ease, border-bottom-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.bp-card:hover {
+  transform: translateY(-5px);
+  border-bottom-color: #F15623;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.bp-card__thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #061529;
+}
+.bp-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: transform 0.4s ease, opacity 0.3s;
+}
+.bp-card:hover .bp-card__thumb img {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.bp-card__body { padding: 16px 20px 20px; }
+.bp-card__tag {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #1877F2;
+  letter-spacing: 0.2em;
+  margin-bottom: 6px;
+}
+.bp-card__title {
+  color: #F15623;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.bp-card__desc {
+  font-size: 13px;
+  color: #474747;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — 992px (планшет, альбомний)
+══════════════════════════════════════════ */
+@media (max-width: 992px) {
+  .blueprint-parallax { padding-bottom: 60px; }
+
+  /* Wrapper трохи вищий, щоб шари не вилазили */
+  .blueprint-wrapper {
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+  }
+
+  /* Перекомпонуємо шари під 4:3 */
+  #bpFront  { top: 4%;  left: 1%;  width: 52%; height: 44%; }
+  #bpSide   { top: 4%;  left: 53%; width: 44%; height: 45%; }
+  #bpTop    { top: 50%; left: 1%;  width: 78%; height: 43%; }
+  #bpLegend { top: 51%; left: 80%; width: 18%; height: 26%; }
+  #bpTitle  { top: 78%; left: 80%; width: 18%; height: 17%; }
+
+  .bp-specs {
+    gap: 16px;
+    padding: 10px 16px;
+    bottom: 12px;
+    left: 12px;
+  }
+  .bp-spec-val { font-size: 13px; }
+  .bp-spec-key { font-size: 8px; }
+
+  /* Картки — 3 колонки залишаємо, але менший padding */
+  .bp-card__body { padding: 12px 14px 16px; }
+  .bp-card__title { font-size: 13px; }
+  .bp-card__desc  { font-size: 12px; }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — 768px (планшет, портрет)
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .blueprint-parallax { padding-bottom: 50px; }
+
+  .blueprint-intro-text { font-size: 14px; margin-bottom: 24px; }
+
+  .blueprint-wrapper {
+    aspect-ratio: unset;
+    height: 56vw;
+    min-height: 260px;
+    border-radius: 10px;
+  }
+
+  /* Шари: 2 зверху + план знизу на повну ширину */
+  #bpFront  { top: 3%;  left: 1%;   width: 48%; height: 44%; }
+  #bpSide   { top: 3%;  left: 50%;  width: 48%; height: 44%; }
+  #bpTop    { top: 50%; left: 1%;   width: 98%; height: 44%; }
+  #bpLegend { display: none; }
+  #bpTitle  { display: none; }
+
+  /* Підписи шарів ховаємо — немає місця */
+  .bp-label { display: none; }
+
+  /* Specs — 2 рядки по 2 */
+  .bp-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    padding: 10px 14px;
+    bottom: 10px;
+    left: 10px;
+    right: auto;
+  }
+  .bp-spec-item { align-items: flex-start; }
+  .bp-spec-val { font-size: 12px; }
+  .bp-spec-key { font-size: 8px; }
+
+  /* Картки — в одну колонку */
+  .bp-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .bp-card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+  }
+  .bp-card__thumb {
+    width: 120px;
+    min-width: 120px;
+    aspect-ratio: unset;
+    height: auto;
+  }
+  .bp-card__body {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bp-card__title { font-size: 13px; margin-bottom: 6px; }
+  .bp-card__desc  { font-size: 12px; }
+
+  /* Вимикаємо mouse-parallax на touch (hover не спрацьовує) */
+  .blueprint-wrapper { cursor: default; }
+  .blueprint-wrapper:hover .bp-crosshair { opacity: 0; }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — 480px (великий телефон)
+══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .blueprint-parallax { padding-bottom: 40px; }
+
+  .blueprint-intro-text { font-size: 13px; margin-bottom: 18px; }
+
+  .blueprint-wrapper {
+    height: 64vw;
+    min-height: 220px;
+    border-radius: 8px;
+    /* Спрощуємо фон — менше навантаження */
+    background-image: none;
+    background-color: #061529;
+  }
+
+  /* На маленькому екрані показуємо лише повне фонове креслення
+     та план зверху як основний елемент */
+  #bpFront  { top: 2%;  left: 1%;  width: 98%; height: 46%; }
+  #bpSide   { display: none; }
+  #bpTop    { top: 51%; left: 1%;  width: 98%; height: 46%; }
+  #bpLegend { display: none; }
+  #bpTitle  { display: none; }
+
+  /* Фонова картинка трохи яскравіша, бо шарів менше */
+  .bp-bg { opacity: 0.18; }
+
+  /* Specs — в рядок, дрібно */
+  .bp-specs {
+    grid-template-columns: 1fr 1fr;
+    padding: 8px 10px;
+    gap: 6px 10px;
+    bottom: 8px;
+    left: 8px;
+    border-radius: 6px;
+  }
+  .bp-spec-val { font-size: 11px; }
+  .bp-spec-key { font-size: 7px; letter-spacing: 0.05em; }
+
+  /* Картки — стек, горизонтальний layout */
+  .bp-cards { gap: 12px; margin-top: 16px; }
+  .bp-card__thumb {
+    width: 100px;
+    min-width: 100px;
+  }
+  .bp-card__body { padding: 12px 14px; }
+  .bp-card__title { font-size: 12px; }
+  .bp-card__desc  { font-size: 11px; line-height: 1.5; }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — 360px (маленький телефон)
+══════════════════════════════════════════ */
+@media (max-width: 360px) {
+  .blueprint-wrapper {
+    height: 70vw;
+    min-height: 200px;
+  }
+
+  /* Лише фон + один шар (план) */
+  #bpFront { display: none; }
+  #bpTop   { top: 5%; left: 1%; width: 98%; height: 88%; }
+
+  .bp-specs {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 8px;
+    padding: 6px 8px;
+    bottom: 6px;
+    left: 6px;
+  }
+  .bp-spec-val { font-size: 10px; }
+  .bp-spec-key { font-size: 6.5px; }
+
+  /* Картки: тільки перша, решта складені */
+  .bp-card {
+    flex-direction: column;
+    border-radius: 8px;
+  }
+  .bp-card__thumb {
+    width: 100%;
+    min-width: unset;
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+}
+
+
 @media (max-width: 992px) {
   .intro-flex, .capabilities-grid, .assurance-banner { flex-direction: column; grid-template-columns: 1fr; }
   .assurance-text { max-width: 100%; margin-bottom: 30px; text-align: center; }
@@ -97,3 +501,5 @@
     margin-top: 180px;
   }
 }
+
+
