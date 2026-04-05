@@ -1706,6 +1706,10 @@
   font-size: 32px;
   margin-bottom: 20px; }
 
+.cap-icon img {
+  max-width: 70px;
+  max-height: 70px; }
+
 .cap-card h4 {
   color: var(--orange);
   margin-bottom: 15px;

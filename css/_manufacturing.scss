@@ -51,7 +51,13 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.cap-icon { font-size: 32px; margin-bottom: 20px; }
+.cap-icon { font-size: 32px; margin-bottom: 20px;}
+.cap-icon{
+  img{
+      max-width: 70px;
+      max-height: 70px;
+  }
+}
 .cap-card h4 { color: var(--orange); margin-bottom: 15px; font-size: 18px; text-transform: uppercase; }
 .cap-card p { font-size: 14px; color: var(--grey-text); line-height: 1.6; }
 
