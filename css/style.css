@@ -2839,6 +2839,8 @@
         font-size: 30px;
         margin-bottom: 20px;
         display: block; }
+        .technical-support-section .care-grid .care-card .icon img {
+          max-width: 120px; }
       .technical-support-section .care-grid .care-card h4 {
         color: #F15623;
         margin-bottom: 15px;
