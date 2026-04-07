@@ -4113,6 +4113,118 @@ body {
     .callback-form__submit:hover {
       background-color: #d4451a; }
 
+.contact-picker {
+  position: relative;
+  display: inline-flex; }
+
+.compensation__phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #F15623;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(241, 86, 35, 0.45);
+  transition: transform .2s, box-shadow .2s; }
+
+.compensation__phone:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 22px rgba(241, 86, 35, 0.55); }
+
+.compensation__phone svg {
+  width: 24px;
+  height: 24px; }
+
+.contact-popup {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  right: 0;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+  padding: 20px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.96);
+  transform-origin: bottom right;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 200; }
+
+.contact-popup.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1); }
+
+.contact-popup__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #3b0a0a;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: background .15s; }
+
+.contact-popup__close svg {
+  width: 14px;
+  height: 14px; }
+
+.contact-popup__close:hover {
+  background: #5a1010; }
+
+.contact-popup__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  border-radius: 14px;
+  padding: 8px 12px;
+  transition: background .15s; }
+
+.contact-popup__item:hover {
+  background: #f5f5f5; }
+
+.contact-popup__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0; }
+
+.contact-popup__icon svg {
+  width: 48px;
+  height: 48px;
+  display: block; }
+
+.contact-popup__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a; }
+
+.contact-popup::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 20px;
+  width: 2px;
+  height: 14px;
+  background: #ddd;
+  border-radius: 2px; }
+
 @media (max-width: 1440px) {
   .container {
     margin: 0;

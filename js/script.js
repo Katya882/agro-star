@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const body = document.body;
+
     // =============================
     // 1. BURGER MENU
     // =============================
     const burger = document.getElementById('burger') || document.querySelector('.burger-service');
     const menu = document.querySelector('.menu');
-    const body = document.body;
 
     if (burger && menu) {
         burger.addEventListener('click', (e) => {
@@ -32,20 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdowns.forEach(dd => {
         dd.addEventListener('click', (e) => {
             e.stopPropagation();
+
             dropdowns.forEach(other => {
                 if (other !== dd) {
                     other.classList.remove('is-active', 'open');
                 }
             });
+
             dd.classList.toggle('is-active');
             dd.classList.toggle('open');
         });
     });
 
     window.addEventListener('click', () => {
-        dropdowns.forEach(d => {
-            d.classList.remove('is-active', 'open');
-        });
+        dropdowns.forEach(d => d.classList.remove('is-active', 'open'));
     });
 
     // =============================
@@ -55,9 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
         new Swiper('.equipment-swiper', {
             loop: true,
             speed: 800,
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            autoplay: { delay: 3000, disableOnInteraction: false },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            }
         });
     }
 
@@ -65,15 +75,22 @@ document.addEventListener('DOMContentLoaded', () => {
         new Swiper('.burner-swiper', {
             loop: true,
             speed: 800,
-            autoplay: { delay: 3000, disableOnInteraction: false },
-            pagination: { el: '.swiper-pagination', clickable: true },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            }
         });
     }
 
     // =============================
-    // 4. ANIMATIONS (Сертифікати та Списки)
+    // 4. ANIMATIONS
     // =============================
     const animItems = document.querySelectorAll('.js-anim-item');
+
     if (animItems.length > 0) {
         const animObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -83,34 +100,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, { threshold: 0.1 });
+
         animItems.forEach(item => animObserver.observe(item));
     }
 
     // =============================
-    // 5. LIGHTBOX (Сертифікати)
+    // 5. LIGHTBOX (ЄДИНА ВЕРСІЯ)
     // =============================
-    const lightbox = document.querySelector('.js-lightbox-overlay');
-    const lightboxImg = document.querySelector('.js-lightbox-img');
-    const lightboxClose = document.querySelector('.js-lightbox-close');
-    const lboxTriggers = document.querySelectorAll('.js-lightbox');
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCloseBtn = document.getElementById('lightboxClose');
+    const lightboxTriggers = document.querySelectorAll('.js-lightbox');
 
-    if (lightbox && lboxTriggers.length > 0) {
-        lboxTriggers.forEach(t => {
-            t.addEventListener('click', (e) => {
+    if (lightboxOverlay && lightboxImage && lightboxTriggers.length > 0) {
+
+        lightboxTriggers.forEach(item => {
+            item.addEventListener('click', function (e) {
                 e.preventDefault();
-                lightboxImg.src = t.getAttribute('href');
-                lightbox.classList.add('is-open');
+
+                let imageSrc = '';
+
+                if (this.tagName.toLowerCase() === 'img') {
+                    imageSrc = this.src;
+                } else if (this.querySelector('img')) {
+                    const activeImg = this.querySelector('img.active') || this.querySelector('img');
+                    imageSrc = activeImg.src;
+                }
+
+                if (!imageSrc) return;
+
+                lightboxImage.src = imageSrc;
+                lightboxOverlay.classList.add('active');
                 body.style.overflow = 'hidden';
             });
         });
 
-        const closeLbox = () => {
-            lightbox.classList.remove('is-open');
+        const closeLightbox = () => {
+            lightboxOverlay.classList.remove('active');
             body.style.overflow = '';
+            setTimeout(() => lightboxImage.src = "", 300);
         };
 
-        if (lightboxClose) lightboxClose.addEventListener('click', closeLbox);
-        lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLbox(); });
+        if (lightboxCloseBtn) {
+            lightboxCloseBtn.addEventListener('click', closeLightbox);
+        }
+
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (e.target !== lightboxImage) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
     }
 
     // =============================
@@ -121,10 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const callbackTriggers = document.querySelectorAll('.js-callback-trigger');
 
     if (callbackModal) {
+
         callbackTriggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopPropagation();
                 callbackModal.classList.add('active');
                 body.style.overflow = 'hidden';
             });
@@ -135,7 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
             body.style.overflow = '';
         };
 
-        if (closeCallback) closeCallback.addEventListener('click', closeFunc);
+        if (closeCallback) {
+            closeCallback.addEventListener('click', closeFunc);
+        }
 
         callbackModal.addEventListener('click', (e) => {
             if (e.target === callbackModal) closeFunc();
@@ -146,20 +191,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
+    // =============================
+    // 7. EXPERIENCE
+    // =============================
     const experienceSection = document.querySelector('.experience');
 
     if (experienceSection) {
+
         const startCounter = (el) => {
             const target = +el.getAttribute('data-target');
             const duration = 2000;
-            const stepTime = Math.abs(Math.floor(duration / target));
+            const stepTime = Math.max(20, Math.floor(duration / target));
             let current = 0;
 
             const timer = setInterval(() => {
-                current += 1;
+                current++;
                 el.innerText = current;
-                if (current === target) {
+
+                if (current >= target) {
                     clearInterval(timer);
                     el.innerText = target + '+';
                 }
@@ -169,14 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const experienceObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // елементи списку по черзі
+
                     document.querySelectorAll('.experience__item').forEach((item, index) => {
-                        setTimeout(() => {
-                            item.classList.add('is-visible');
-                        }, index * 200);
+                        setTimeout(() => item.classList.add('is-visible'), index * 200);
                     });
 
-                    //  лічильник цифр
                     document.querySelectorAll('.experience__number').forEach(num => startCounter(num));
 
                     experienceObserver.unobserve(entry.target);
@@ -187,108 +233,96 @@ document.addEventListener('DOMContentLoaded', () => {
         experienceObserver.observe(experienceSection);
     }
 
-});
+    // =============================
+    // 8. BLUEPRINT + PHOTOS
+    // =============================
+    const animTrigger = document.querySelector('.js-anim-trigger');
 
-document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Анімація появи при скролі ---
-    const animObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
+    if (animTrigger) {
 
-                // Активуємо блок креслень
-                const viewer = target.querySelector('.blueprint-viewer');
-                if (viewer) {
-                    viewer.classList.add('active');
-                    startBlueprintLoop(target); // Запускаємо цикл перемикання
+        let intervalStarted = false;
+
+        const animObserver2 = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+
+                    const target = entry.target;
+
+                    const viewer = target.querySelector('.blueprint-viewer');
+                    if (viewer) {
+                        viewer.classList.add('active');
+
+                        if (!intervalStarted) {
+                            startBlueprintLoop(target);
+                            intervalStarted = true;
+                        }
+                    }
+
+                    const photos = target.querySelectorAll('.js-photo');
+                    photos.forEach((p, i) => {
+                        setTimeout(() => p.classList.add('active'), 250 * (i + 1));
+                    });
+
+                    animObserver2.unobserve(target);
                 }
+            });
+        }, { threshold: 0.2 });
 
-                // Активуємо фото по черзі
-                const photos = target.querySelectorAll('.js-photo');
-                photos.forEach((p, i) => {
-                    setTimeout(() => p.classList.add('active'), 250 * (i + 1));
-                });
+        animObserver2.observe(animTrigger);
 
-                animObserver.unobserve(target);
-            }
-        });
-    }, { threshold: 0.2 });
+        function startBlueprintLoop(container) {
+            const img1 = container.querySelector('.js-blueprint-1');
+            const img2 = container.querySelector('.js-blueprint-2');
 
-    const trigger = document.querySelector('.js-anim-trigger');
-    if (trigger) animObserver.observe(trigger);
+            if (!img1 || !img2) return;
 
-    // Функція плавного перемикання двох креслень (6 секунд цикл)
-    function startBlueprintLoop(container) {
-        const img1 = container.querySelector('.js-blueprint-1');
-        const img2 = container.querySelector('.js-blueprint-2');
-        if (!img1 || !img2) return;
-
-        setInterval(() => {
-            if (img1.classList.contains('active')) {
-                img1.classList.remove('active');
-                img2.classList.add('active');
-            } else {
-                img2.classList.remove('active');
-                img1.classList.add('active');
-            }
-        }, 6000);
+            setInterval(() => {
+                img1.classList.toggle('active');
+                img2.classList.toggle('active');
+            }, 6000);
+        }
     }
 
-    // --- 2. Логіка Lightbox (Збільшення при натисканні) ---
-    const lightboxOverlay = document.getElementById('lightboxOverlay');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
+    // =============================
+    // 9. CONTACT POPUP
+    // =============================
+    const contactTrigger = document.querySelector('.js-contact-trigger');
+    const contactPopup = document.getElementById('contactPopup');
+    const contactClose = document.querySelector('.js-contact-close');
 
-    // Всі елементи, які можна збільшити (фото + блок креслень)
-    const clickableItems = document.querySelectorAll('.js-lightbox');
+    if (contactTrigger && contactPopup) {
 
-    clickableItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
+        const openPopup = () => {
+            contactPopup.classList.add('is-open');
+            contactTrigger.setAttribute('aria-expanded', 'true');
+        };
 
-            // зображення всередині натиснутого блоку
-            let imageSrc = '';
+        const closePopup = () => {
+            contactPopup.classList.remove('is-open');
+            contactTrigger.setAttribute('aria-expanded', 'false');
+        };
 
-            if (this.tagName.toLowerCase() === 'img') {
-                imageSrc = this.src;
-            } else if (this.querySelector('img')) {
-                // Якщо натиснули на блок, беремо перше (або активне) фото всередині
-                const activeImg = this.querySelector('img.active') || this.querySelector('img');
-                imageSrc = activeImg.src;
-            }
-
-            if (!imageSrc) return;
-
-            //  overlay та вставляємо фото
-            lightboxImage.src = imageSrc;
-            lightboxOverlay.classList.add('active');
-
-            // Забороняємо скрол основної сторінки
-            document.body.style.overflow = 'hidden';
+        contactTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            contactPopup.classList.contains('is-open') ? closePopup() : openPopup();
         });
-    });
 
-    // Функція закриття
-    function closeLightbox() {
-        lightboxOverlay.classList.remove('active');
-        document.body.style.overflow = ''; // Повертаємо скрол
-        // Невелика затримка, щоб очистити src після анімації закриття
-        setTimeout(() => lightboxImage.src = "", 400);
+        if (contactClose) {
+            contactClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closePopup();
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!contactPopup.contains(e.target) && e.target !== contactTrigger) {
+                closePopup();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closePopup();
+        });
     }
 
-    // Кліки для закриття: на хрестик, на фон, на саму картинку
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxOverlay.addEventListener('click', function(e) {
-        // Закриваємо тільки якщо клікнули на фон, а не на саму картинку
-        if (e.target !== lightboxImage) {
-            closeLightbox();
-        }
-    });
-
-    // Закриття клавішею Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightboxOverlay.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
 });
