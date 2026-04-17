@@ -57,31 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
             loop: true,
             speed: 800,
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
+                nextEl: '.equipment .swiper-button-next',
+                prevEl: '.equipment .swiper-button-prev'
             },
             pagination: {
-                el: '.swiper-pagination',
+                el: '.equipment .swiper-pagination',
                 clickable: true
             },
             autoplay: {
-                delay: 3000,
+                delay: 3500,
                 disableOnInteraction: false
-            }
-        });
-    }
-
-    if (document.querySelector('.burner-swiper')) {
-        new Swiper('.burner-swiper', {
-            loop: true,
-            speed: 800,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
             }
         });
     }
