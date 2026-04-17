@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Star</title>
+    <title>Модернізація зерносушарок — Agro Star</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="img/logo-blue-bg.svg" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/modernization.css">
 </head>
 <body class="services">
 
+<!-- HEADER -->
 <section>
     <header class="header container">
         <div class="container header__top">
@@ -20,12 +22,9 @@
                     <img class="logo-services" src="img/logo-blue-bg.svg" alt="AgroStar Logo">
                 </a>
             </div>
-
             <div class="dropdown js-dropdown">
                 <div class="dropdown__trigger">
-                    <div class="dropdown__icon">
-                        <img src="img/tel.svg" alt="phone">
-                    </div>
+                    <div class="dropdown__icon"><img src="img/tel.svg" alt="phone"></div>
                     <div class="dropdown__text">
                         <span class="dropdown__label dropdown__label-services">КОНТАКТИ</span>
                         <span class="dropdown__val dropdown__val--dashed">+38 067 520 63 23</span>
@@ -40,19 +39,17 @@
                 </ul>
             </div>
         </div>
-
         <nav class="nav">
             <div class="container nav__inner">
                 <ul class="menu">
-                    <li><a href="index.html" class="menu-link menu-link_services">ГОЛОВНА</a></li>
+                    <li><a href="index.html"    class="menu-link menu-link_services">ГОЛОВНА</a></li>
                     <li><a href="equipment.html" class="menu-link menu-link_services">ОБЛАДНАННЯ</a></li>
-                    <li><a href="services.html" class="menu-link menu-link_services">НАШІ ПОСЛУГИ</a></li>
-                    <li><a href="about.html" class="menu-link menu-link_services">ПРО НАС</a></li>
-                    <li><a href="blog.html" class="menu-link menu-link_services">БЛОГ</a></li>
-                    <li><a href="contacts.html" class="menu-link menu-link_services">КОНТАКТИ</a></li>
+                    <li><a href="services.html"  class="menu-link menu-link_services active">НАШІ ПОСЛУГИ</a></li>
+                    <li><a href="about.html"     class="menu-link menu-link_services">ПРО НАС</a></li>
+                    <li><a href="blog.html"      class="menu-link menu-link_services">БЛОГ</a></li>
+                    <li><a href="contacts.html"  class="menu-link menu-link_services">КОНТАКТИ</a></li>
                     <div class="menu-underline"></div>
                 </ul>
-
                 <div class="dropdown dropdown--lang js-dropdown">
                     <div class="dropdown__trigger">
                         <img src="img/ua.svg" alt="ua" class="dropdown__flag">
@@ -66,43 +63,50 @@
                         <li><a href="#">DE</a></li>
                     </ul>
                 </div>
-
-                <div class="burger burger-service">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <div class="burger burger-service"><span></span><span></span><span></span></div>
             </div>
         </nav>
     </header>
 </section>
 
+<!-- MAIN -->
 <main class="modernization-section">
     <div class="container">
 
-        <nav class="breadcrumbs">
-            <a href="index.html">Головна</a> / <a href="services.html">Наші послуги</a> / <span>Переобладнання та модернізація зернових сушарок</span>
+        <!-- Breadcrumbs -->
+        <nav class="mod-breadcrumbs">
+            <a href="index.html">Головна</a>
+            <span>/</span>
+            <a href="services.html">Наші послуги</a>
+            <span>/</span>
+            <span>Модернізація зерносушарок</span>
         </nav>
 
-        <header class="section-header">
-            <h1 class="section-header__title">Модернізація зерносушарок</h1>
-            <div class="section-header__line"></div>
-        </header>
-
-        <section class="mod-intro js-anim-trigger">
-            <div class="mod-intro__grid">
-                <div class="mod-intro__text">
-                    <p class="lead-orange">Перетворіть вашу зерносушарку на високоефективний та економний агрегат.</p>
-                    <p>Досвід монтажу та обслуговування модульних колонкових сушарок виробництва США, Туреччини та України дозволяє нам пропонувати рішення, що значно знижують собівартість сушіння зерна.</p>
-                </div>
-                <div class="mod-intro__image img-limited js-photo">
-                    <img src="img/equipment-1.jpg" alt="Модернізація сушарок">
+        <!-- Hero intro -->
+        <section class="mod-intro">
+            <div class="mod-intro__text">
+                <h1 class="mod-intro__title">Модернізація<br>зерносушарок</h1>
+                <div class="mod-intro__line"></div>
+                <p class="mod-intro__lead">Перетворіть вашу зерносушарку на <strong>високоефективний та економний агрегат.</strong></p>
+                <p class="mod-intro__body">Досвід монтажу та обслуговування модульних колонкових сушарок виробництва США, Туреччини та України дозволяє нам пропонувати рішення, що значно знижують собівартість сушіння зерна.</p>
+                <a href="#mod-cta" class="mod-intro__btn js-callback-trigger">Замовити розрахунок</a>
+            </div>
+            <div class="mod-intro__image">
+                <img src="img/equipment-1.jpg" alt="Модернізація зерносушарок Agro Star">
+                <div class="mod-intro__image-badge">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    <span>Зниження<br>собівартості</span>
                 </div>
             </div>
         </section>
 
+        <!-- Solutions grid -->
         <section class="mod-solutions">
-            <h2 class="section-title">Основні напрямки оновлення</h2>
+            <div class="mod-solutions__header">
+                <h2 class="mod-solutions__title">Основні напрямки оновлення</h2>
+                <p class="mod-solutions__sub">Комплексний підхід до підвищення ефективності вашого обладнання</p>
+            </div>
+
             <div class="solutions-grid">
 
                 <div class="solution-item">
@@ -138,48 +142,81 @@
             </div>
         </section>
 
-        <section class="fuel-update js-anim-trigger">
-            <div class="fuel-update__header">
-                <h3>Енергоефективність та паливо</h3>
+        <!-- Fuel/energy section -->
+        <section class="fuel-update">
+            <div class="fuel-update__left">
+                <div class="fuel-update__icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3 class="fuel-update__title">Енергоефективність<br>та паливо</h3>
+                <p class="fuel-update__desc">Переводимо на будь-який тип палива та встановлюємо автоматичні системи підтримки температурного режиму.</p>
             </div>
-            <div class="fuel-update__list">
-                <div class="list-item">Встановлення автоматичних пальників з підтримкою температурного режиму.</div>
-                <div class="list-item">Переобладнання з природного газу на зріджений (пропан-бутан) та навпаки.</div>
-                <div class="list-item">Адаптація сушарок під роботу від твердопаливних теплогенераторів.</div>
-                <div class="list-item">Повна заміна або модернізація газової магістралі.</div>
+            <div class="fuel-update__right">
+                <ul class="fuel-update__list">
+                    <li>
+                        <span class="fuel-update__bullet">
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        Встановлення автоматичних пальників з підтримкою температурного режиму
+                    </li>
+                    <li>
+                        <span class="fuel-update__bullet">
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        Переобладнання з природного газу на зріджений (пропан-бутан) та навпаки
+                    </li>
+                    <li>
+                        <span class="fuel-update__bullet">
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        Адаптація сушарок під роботу від твердопаливних теплогенераторів
+                    </li>
+                    <li>
+                        <span class="fuel-update__bullet">
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        Повна заміна або модернізація газової магістралі
+                    </li>
+                </ul>
             </div>
         </section>
 
-        <div class="mod-cta">
-            <p class="btn-orange js-callback-trigger">ЗАМОВИТИ РОЗРАХУНОК МОДЕРНІЗАЦІЇ</p>
-        </div>
+        <!-- CTA -->
+        <section class="mod-cta" id="mod-cta">
+            <div class="mod-cta__content">
+                <h2 class="mod-cta__title">Готові до модернізації?</h2>
+                <p class="mod-cta__text">Наші інженери проведуть безкоштовний аналіз вашого обладнання та розрахують економічний ефект від модернізації</p>
+            </div>
+            <div class="mod-cta__actions">
+                <button class="mod-cta__btn mod-cta__btn--primary js-callback-trigger">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    Замовити розрахунок
+                </button>
+                <a href="tel:+380675206323" class="mod-cta__btn mod-cta__btn--outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.73 12.3a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1a16 16 0 0 0 6 6l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Зателефонувати
+                </a>
+            </div>
+        </section>
 
     </div>
 </main>
 
+<!-- FOOTER -->
 <footer class="footer">
     <div class="footer__container">
         <div class="footer__col">
             <h3 class="footer__title">Про нас</h3>
             <div class="footer__line"></div>
-            <p class="footer__text">
-                ТОВ «Завод елеваторних машин» - це команда професіоналів з багаторічним досвідом роботи.
-                Головним покликанням якої є задоволення потреб аграріїв сучасною, високотехнологічною
-                технікою для сушіння, транспортування та зберігання зерна.
-            </p>
+            <p class="footer__text">ТОВ «Завод елеваторних машин» — команда професіоналів з багаторічним досвідом роботи. Задовольняємо потреби аграріїв сучасною, високотехнологічною технікою для сушіння, транспортування та зберігання зерна.</p>
         </div>
-
         <div class="footer__col footer__col--contacts">
             <h3 class="footer__title">Контакти</h3>
             <div class="footer__line"></div>
             <div class="footer__contacts-list">
                 <div class="footer__contact-item">
                     <span class="footer__label">Адреса:</span>
-                    <span class="footer__value">
-                        <a href="https://share.google/9pPtDnRfeulvMTLEx">
-                            Україна м.Кропивницький вул. Родникова, 86
-                        </a>
-                    </span>
+                    <span class="footer__value"><a href="https://share.google/9pPtDnRfeulvMTLEx">Україна м.Кропивницький вул. Родникова, 86</a></span>
                 </div>
                 <div class="footer__contact-item">
                     <span class="footer__label">Телефони:</span>
@@ -196,15 +233,12 @@
                 </div>
             </div>
             <div class="footer__socials">
-                <a href="https://t.me/graindryerua" target="_blank" rel="noopener noreferrer">
-                    <img src="img/telegram.png" alt="telegram">
-                </a>
-                <a href="https://www.tiktok.com/@agro___star?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer"><img src="img/tt.svg" alt="TikTok"></a>
-                <a href="https://youtube.com/@elevator-machines?si=LS_yGilealWPAbQL" target="_blank" rel="noopener noreferrer"><img src="img/yt.svg" alt="YouTube"></a>
+                <a href="https://t.me/graindryerua" target="_blank" rel="noopener noreferrer"><img src="img/telegram.png" alt="telegram"></a>
+                <a href="https://www.tiktok.com/@agro___star" target="_blank" rel="noopener noreferrer"><img src="img/tt.svg" alt="TikTok"></a>
+                <a href="https://youtube.com/@elevator-machines" target="_blank" rel="noopener noreferrer"><img src="img/yt.svg" alt="YouTube"></a>
             </div>
         </div>
     </div>
-
     <div class="footer__bottom">
         <div class="footer__container">
             <p class="footer__copy">© 2025 «Agrostar». All rights reserved.</p>
@@ -212,18 +246,17 @@
     </div>
 </footer>
 
+<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay">
     <div class="callback-form">
         <button class="callback-form__close" id="closeForm">&times;</button>
         <h2 class="callback-form__title">НАПИШІТЬ НАМ, АБО ЗАМОВТЕ ДЗВІНОК</h2>
         <p class="callback-form__subtitle">Наш менеджер зв'яжеться з вами</p>
-
         <form action="#" class="callback-form__content">
             <input type="text" name="name" placeholder="Ваше ім'я *" required>
             <input type="tel" name="phone" placeholder="Ваш телефон *" required>
-            <input type="text" name="name" placeholder="Назва вашого підприємства">
-            <textarea name="message" placeholder="Ваше повідомленння" rows="4"></textarea>
-
+            <input type="text" name="company" placeholder="Назва вашого підприємства">
+            <textarea name="message" placeholder="Ваше повідомлення" rows="4"></textarea>
             <button type="submit" class="callback-form__submit">ВІДПРАВИТИ ЗАЯВКУ</button>
         </form>
     </div>

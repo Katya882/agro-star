@@ -326,3 +326,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+
+// ═══════════════════════════════════════════
+// BURNER PAGE — burner-page.js
+// ═══════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ── Thumbnail swiper ──────────────────────
+    var thumbsSwiper = new Swiper('.bp-swiper-thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 3,
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+    });
+
+    // ── Main swiper with thumbs ───────────────
+    var mainSwiper = new Swiper('.bp-swiper-main', {
+        spaceBetween: 0,
+        slidesPerView: 1,
+        loop: true,
+        speed: 600,
+        navigation: {
+            nextEl: '.bp-swiper-next',
+            prevEl: '.bp-swiper-prev',
+        },
+        pagination: {
+            el: '.bp-swiper-pagination',
+            clickable: true,
+        },
+        thumbs: {
+            swiper: thumbsSwiper,
+        },
+        keyboard: { enabled: true },
+        a11y: {
+            prevSlideMessage: 'Попередній слайд',
+            nextSlideMessage: 'Наступний слайд',
+        },
+    });
+
+});
