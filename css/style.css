@@ -3972,12 +3972,12 @@ body {
     .hero {
       padding-top: 140px;
       padding-bottom: 40px;
-      min-height: calc(100vh - 0px);
+      min-height: 75vh;
       justify-content: space-between; }
       .hero__title {
         font-size: 28px;
         line-height: 36px;
-        margin-bottom: 16px; }
+        margin-bottom: 35px; }
       .hero__subtitle {
         font-size: 14px;
         font-weight: 300;
@@ -3996,7 +3996,8 @@ body {
   @media (max-width: 576px) {
     .hero {
       padding-top: 90px;
-      padding-bottom: 32px; }
+      padding-bottom: 32px;
+      min-height: 72vh; }
       .hero__title {
         font-size: 24px;
         line-height: 32px; }
