@@ -3930,7 +3930,9 @@ body {
 .hero {
   padding-top: 126px;
   padding-bottom: 176px;
-  text-align: left; }
+  text-align: left;
+  display: flex;
+  flex-direction: column; }
   .hero__title {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
@@ -3968,58 +3970,52 @@ body {
         width: 100%; } }
   @media (max-width: 769px) {
     .hero {
-      padding-top: 40px;
-      padding-bottom: 0; }
+      padding-top: 140px;
+      padding-bottom: 40px;
+      min-height: calc(100vh - 0px);
+      justify-content: space-between; }
       .hero__title {
         font-size: 28px;
         line-height: 36px;
         margin-bottom: 16px; }
       .hero__subtitle {
         font-size: 14px;
+        font-weight: 300;
         line-height: 22px;
-        margin-bottom: 28px; }
+        margin-bottom: 0;
+        max-width: 85%; }
       .hero__btns {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
-        margin-top: 0; }
+        margin-top: auto;
+        padding-bottom: 10px; }
         .hero__btns .btn {
           width: 100%;
           max-width: 320px; } }
   @media (max-width: 576px) {
     .hero {
-      padding-top: 32px;
-      padding-bottom: 0; }
+      padding-top: 90px;
+      padding-bottom: 32px; }
       .hero__title {
         font-size: 24px;
         line-height: 32px; }
       .hero__subtitle {
         font-size: 14px;
-        line-height: 1.4;
-        margin-bottom: 100px; }
-      .hero__btns .btn {
-        max-width: 100%; } }
+        line-height: 22px;
+        font-weight: 300;
+        max-width: 85%;
+        margin-bottom: 0; }
+      .hero__btns {
+        margin-top: auto; }
+        .hero__btns .btn {
+          max-width: 100%; } }
   @media (max-width: 375px) {
     .hero__title {
       font-size: 22px; }
     .hero__btns .btn {
       width: 100%; } }
 
-@media (max-width: 769px) {
-  .hero {
-    padding-top: 140px;
-    padding-bottom: 0; } }
-@media (max-width: 576px) {
-  .hero {
-    padding-top: 90px;
-    padding-bottom: 0; }
-
-  .hero__subtitle {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 300;
-    max-width: 85%;
-    margin-bottom: 100px; } }
 @media (max-width: 769px) {
   .first-screen.bg-mob {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 30%, rgba(0, 0, 0, 0.05) 60%, rgba(0, 0, 0, 0) 100%), url("../img/bg-for-mob.jpg") no-repeat center center/cover !important;
