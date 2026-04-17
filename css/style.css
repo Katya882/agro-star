@@ -3995,7 +3995,8 @@ body {
         line-height: 32px; }
       .hero__subtitle {
         font-size: 14px;
-        line-height: 1.4; }
+        line-height: 1.4;
+        margin-bottom: 100px; }
       .hero__btns .btn {
         max-width: 100%; } }
   @media (max-width: 375px) {
