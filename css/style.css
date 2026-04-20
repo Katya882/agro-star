@@ -85,6 +85,12 @@
       margin-bottom: 15px;
       padding: 0 10px;
       transition: color 0.3s ease; }
+      .services .service-card h3 a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease; }
+      .services .service-card h3 a:hover {
+        color: #0056b3; }
     .services .service-card .more-link {
       margin-top: auto;
       font-family: 'Inter', sans-serif;
