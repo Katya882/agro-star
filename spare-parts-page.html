@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Star</title>
+    <title>Запасні частини — Agro Star</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="img/logo-blue-bg.svg" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body class="services">
@@ -20,12 +20,9 @@
                     <img class="logo-services" src="img/logo-blue-bg.svg" alt="AgroStar Logo">
                 </a>
             </div>
-
             <div class="dropdown js-dropdown">
                 <div class="dropdown__trigger">
-                    <div class="dropdown__icon">
-                        <img src="img/tel.svg" alt="phone">
-                    </div>
+                    <div class="dropdown__icon"><img src="img/tel.svg" alt="phone"></div>
                     <div class="dropdown__text">
                         <span class="dropdown__label dropdown__label-services">КОНТАКТИ</span>
                         <span class="dropdown__val dropdown__val--dashed">+38 067 520 63 23</span>
@@ -40,19 +37,17 @@
                 </ul>
             </div>
         </div>
-
         <nav class="nav">
             <div class="container nav__inner">
                 <ul class="menu">
-                    <li><a href="index.html" class="menu-link menu-link_services">ГОЛОВНА</a></li>
+                    <li><a href="index.html"    class="menu-link menu-link_services">ГОЛОВНА</a></li>
                     <li><a href="equipment.html" class="menu-link menu-link_services">ОБЛАДНАННЯ</a></li>
-                    <li><a href="services.html" class="menu-link menu-link_services">НАШІ ПОСЛУГИ</a></li>
-                    <li><a href="about.html" class="menu-link menu-link_services">ПРО НАС</a></li>
-                    <li><a href="#" class="menu-link menu-link_services">БЛОГ</a></li>
-                    <li><a href="contacts.html" class="menu-link menu-link_services">КОНТАКТИ</a></li>
+                    <li><a href="services.html"  class="menu-link menu-link_services">НАШІ ПОСЛУГИ</a></li>
+                    <li><a href="about.html"     class="menu-link menu-link_services">ПРО НАС</a></li>
+                    <li><a href="#"              class="menu-link menu-link_services">БЛОГ</a></li>
+                    <li><a href="contacts.html"  class="menu-link menu-link_services">КОНТАКТИ</a></li>
                     <div class="menu-underline"></div>
                 </ul>
-
                 <div class="dropdown dropdown--lang js-dropdown">
                     <div class="dropdown__trigger">
                         <img src="img/ua.svg" alt="ua" class="dropdown__flag">
@@ -66,12 +61,7 @@
                         <li><a href="#">DE</a></li>
                     </ul>
                 </div>
-
-                <div class="burger burger-service">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <div class="burger burger-service"><span></span><span></span><span></span></div>
             </div>
         </nav>
     </header>
@@ -79,116 +69,151 @@
 
 <main class="spare-parts-page">
     <div class="container">
-        <nav class="breadcrumbs">
-            <a href="index.html">Головна</a> / <a href="equipment.html">Обладнання</a> / <span>Запасні частини</span>
+
+        <!-- Breadcrumbs -->
+        <nav class="sp-breadcrumbs">
+            <a href="index.html">Головна</a>
+            <span>/</span>
+            <a href="equipment.html">Обладнання</a>
+            <span>/</span>
+            <span>Запасні частини</span>
         </nav>
 
-        <h1 class="spare-parts-page__title">ЗАПАСНІ ЧАСТИНИ ТА КОМПЛЕКТУЮЧІ</h1>
-        <div class="spare-parts-page__line"></div>
+        <!-- Hero -->
+        <div class="sp-hero">
+            <div class="sp-hero__text">
+                <h1 class="sp-hero__title">Запасні частини та комплектуючі</h1>
+                <div class="sp-hero__line"></div>
+                <p class="sp-hero__lead">Постачаємо <strong>оригінальні та альтернативні запасні частини</strong> для зерносушарок американського, турецького та українського виробництва.</p>
+                <p class="sp-hero__body">Забезпечуємо повну технічну підтримку — від підбору потрібного вузла до його доставки та заміни власними сервісними бригадами.</p>
+            </div>
+            <div class="sp-hero__badge">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <span>Доставка<br>та монтаж</span>
+            </div>
+        </div>
 
-        <section class="spare-parts-intro">
-            <p>Постійно в наявності та під замовлення <strong>оригінальні та не оригінальні запасні частини</strong> для зерносушарок американського, турецького та українського виробництва. Ми забезпечуємо повну технічну підтримку та швидку заміну необхідних вузлів.</p>
-        </section>
-
-        <section class="burner-grid-section">
-            <div class="parts-container">
-                <div class="part-card">
-                    <div class="part-img-wrapper">
+        <!-- Photo grid -->
+        <section class="sp-gallery">
+            <h2 class="sp-section-title">Приклади запчастин</h2>
+            <div class="sp-gallery__grid">
+                <div class="sp-gallery__item">
+                    <div class="sp-gallery__img-wrap">
                         <img src="img/parts-1.jpg" alt="Фторопластові втулки">
                     </div>
-                    <p class="part-name">фторопластові втулки</p>
+                    <p class="sp-gallery__label">Фторопластові втулки</p>
                 </div>
-
-                <div class="part-card">
-                    <div class="part-img-wrapper">
+                <div class="sp-gallery__item">
+                    <div class="sp-gallery__img-wrap">
                         <img src="img/parts-2.jpg" alt="Механізм приводу">
                     </div>
-                    <p class="part-name">механізм приводу нижнього шнека та дозаторів</p>
+                    <p class="sp-gallery__label">Механізм приводу нижнього шнека та дозаторів</p>
                 </div>
-
-                <div class="part-card">
-                    <div class="part-img-wrapper">
+                <div class="sp-gallery__item">
+                    <div class="sp-gallery__img-wrap">
                         <img src="img/parts-3.jpg" alt="Електрична шафа">
                     </div>
-                    <p class="part-name">електрична шафа керування зерносушаркою</p>
+                    <p class="sp-gallery__label">Електрична шафа керування зерносушаркою</p>
                 </div>
-
-                <div class="part-card">
-                    <div class="part-img-wrapper">
+                <div class="sp-gallery__item">
+                    <div class="sp-gallery__img-wrap">
                         <img src="img/parts-4.jpg" alt="Вузол розпалу">
                     </div>
-                    <p class="part-name">вузол розпалу та контролю полум'я пальника</p>
+                    <p class="sp-gallery__label">Вузол розпалу та контролю полум'я пальника</p>
                 </div>
             </div>
         </section>
 
-        <section class="parts-list-section">
-            <div class="parts-grid">
-                <div class="parts-category">
-                    <h3 class="parts-category__title">Газове та теплове обладнання</h3>
-                    <ul class="dot-list">
-                        <li>Електромагнітні клапани Madas, ACL, котушки та конектори;</li>
-                        <li>Регулятори тиску пропан-бутану (редуктори) Novacomet;</li>
-                        <li>Газові вентилі, гнучкі патрубки та магістралі у зборі;</li>
-                        <li>Дифузори пальників, випаровувачі рідкої фази;</li>
-                        <li>Температурні датчики зерна і агента сушіння;</li>
-                        <li>Датчики наявності полум'я та трансформатори розпалювання Danfoss.</li>
+        <!-- Categories -->
+        <section class="sp-cats">
+            <h2 class="sp-section-title">Що є в наявності та під замовлення</h2>
+            <div class="sp-cats__grid">
+
+                <div class="sp-cats__card">
+                    <div class="sp-cats__card-head">
+                        <div class="sp-cats__icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="sp-cats__card-title">Газове та теплове обладнання</h3>
+                    </div>
+                    <ul class="sp-dot-list">
+                        <li>Електромагнітні клапани Madas, ACL, котушки та конектори</li>
+                        <li>Регулятори тиску пропан-бутану (редуктори) Novacomet</li>
+                        <li>Газові вентилі, гнучкі патрубки та магістралі у зборі</li>
+                        <li>Дифузори пальників, випаровувачі рідкої фази</li>
+                        <li>Температурні датчики зерна і агента сушіння</li>
+                        <li>Датчики наявності полум'я та трансформатори розпалювання Danfoss</li>
                     </ul>
                 </div>
 
-                <div class="parts-category">
-                    <h3 class="parts-category__title">Електроніка та автоматика</h3>
-                    <ul class="dot-list">
-                        <li>Блоки керування пальниками Siemens;</li>
-                        <li>Автоматичні вимикачі, блоки реле Schneider, CHINT;</li>
-                        <li>Частотні перетворювачі та пуско-захисні пристрої;</li>
-                        <li>Реле контролю фаз, проміжні та кінцеві вимикачі;</li>
-                        <li>Електричні шафи та пульти керування у зборі.</li>
+                <div class="sp-cats__card">
+                    <div class="sp-cats__card-head">
+                        <div class="sp-cats__icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                        </div>
+                        <h3 class="sp-cats__card-title">Електроніка та автоматика</h3>
+                    </div>
+                    <ul class="sp-dot-list">
+                        <li>Блоки керування пальниками Siemens</li>
+                        <li>Автоматичні вимикачі, блоки реле Schneider, CHINT</li>
+                        <li>Частотні перетворювачі та пуско-захисні пристрої</li>
+                        <li>Реле контролю фаз, проміжні та кінцеві вимикачі</li>
+                        <li>Електричні шафи та пульти керування у зборі</li>
                     </ul>
                 </div>
 
-                <div class="parts-category">
-                    <h3 class="parts-category__title">Механічні вузли та приводи</h3>
-                    <ul class="dot-list">
-                        <li>Електричні двигуни та мотор-редуктори;</li>
-                        <li>Фторопластові втулки шнеків та дозуючих вальців;</li>
-                        <li>Шнеки, шківи, дозуючі вальці;</li>
-                        <li>Решета для зерносушарок та промислові вентилятори;</li>
-                        <li>Приводні ланцюги, ремені та інші комплектуючі.</li>
+                <div class="sp-cats__card">
+                    <div class="sp-cats__card-head">
+                        <div class="sp-cats__icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 4.93 19.07"/><path d="M4.93 4.93A10 10 0 0 1 19.07 19.07"/></svg>
+                        </div>
+                        <h3 class="sp-cats__card-title">Механічні вузли та приводи</h3>
+                    </div>
+                    <ul class="sp-dot-list">
+                        <li>Електричні двигуни та мотор-редуктори</li>
+                        <li>Фторопластові втулки шнеків та дозуючих вальців</li>
+                        <li>Шнеки, шківи, дозуючі вальці</li>
+                        <li>Решета для зерносушарок та промислові вентилятори</li>
+                        <li>Приводні ланцюги, ремені та інші комплектуючі</li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="parts-footer">
-                <p class="service-note"><strong>Виконуємо доставку та заміну даного обладнання власними сервісними бригадами.</strong></p>
             </div>
         </section>
+
+        <!-- CTA -->
+        <section class="sp-cta">
+            <div class="sp-cta__content">
+                <h2 class="sp-cta__title">Потрібна конкретна деталь?</h2>
+                <p class="sp-cta__text">Доставляємо та замінюємо власними сервісними бригадами. Зателефонуйте — підберемо потрібний вузол швидко</p>
+            </div>
+            <div class="tp-cta__actions">
+                <button class="tp-cta__btn tp-cta__btn--primary js-contact-phone-trigger">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.73 12.3a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1a16 16 0 0 0 6 6l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Зателефонувати
+                </button>
+                <button class="tp-cta__btn tp-cta__btn--outline js-callback-trigger">Написати нам</button>
+            </div>
+        </section>
+
     </div>
 </main>
 
+<!-- FOOTER -->
 <footer class="footer">
     <div class="footer__container">
         <div class="footer__col">
             <h3 class="footer__title">Про нас</h3>
             <div class="footer__line"></div>
-            <p class="footer__text">
-                ТОВ «Завод елеваторних машин» - це команда професіоналів з багаторічним досвідом роботи.
-                Головним покликанням якої є задоволення потреб аграріїв сучасною, високотехнологічною
-                технікою для сушіння, транспортування та зберігання зерна.
-            </p>
+            <p class="footer__text">ТОВ «Завод елеваторних машин» — команда професіоналів з багаторічним досвідом роботи. Задовольняємо потреби аграріїв сучасною технікою для сушіння, транспортування та зберігання зерна.</p>
         </div>
-
         <div class="footer__col footer__col--contacts">
             <h3 class="footer__title">Контакти</h3>
             <div class="footer__line"></div>
             <div class="footer__contacts-list">
                 <div class="footer__contact-item">
                     <span class="footer__label">Адреса:</span>
-                    <span class="footer__value">
-                        <a href="https://share.google/9pPtDnRfeulvMTLEx">
-                            Україна м.Кропивницький вул. Родникова, 86
-                        </a>
-                    </span>
+                    <span class="footer__value"><a href="https://share.google/9pPtDnRfeulvMTLEx">Україна м.Кропивницький вул. Родникова, 86</a></span>
                 </div>
                 <div class="footer__contact-item">
                     <span class="footer__label">Телефони:</span>
@@ -205,21 +230,60 @@
                 </div>
             </div>
             <div class="footer__socials">
-                <a href="https://t.me/graindryerua" target="_blank" rel="noopener noreferrer">
-                    <img src="img/telegram.png" alt="telegram">
-                </a>
-                <a href="https://www.tiktok.com/@agro___star?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer"><img src="img/tt.svg" alt="TikTok"></a>
-                <a href="https://youtube.com/@elevator-machines?si=LS_yGilealWPAbQL" target="_blank" rel="noopener noreferrer"><img src="img/yt.svg" alt="YouTube"></a>
+                <a href="https://t.me/graindryerua" target="_blank" rel="noopener noreferrer"><img src="img/telegram.png" alt="telegram"></a>
+                <a href="https://www.tiktok.com/@agro___star" target="_blank" rel="noopener noreferrer"><img src="img/tt.svg" alt="TikTok"></a>
+                <a href="https://youtube.com/@elevator-machines" target="_blank" rel="noopener noreferrer"><img src="img/yt.svg" alt="YouTube"></a>
             </div>
         </div>
     </div>
-
     <div class="footer__bottom">
         <div class="footer__container">
             <p class="footer__copy">© 2025 «Agrostar». All rights reserved.</p>
         </div>
     </div>
 </footer>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="callback-form">
+        <button class="callback-form__close" id="closeForm">&times;</button>
+        <h2 class="callback-form__title">НАПИШІТЬ НАМ, АБО ЗАМОВТЕ ДЗВІНОК</h2>
+        <p class="callback-form__subtitle">Наш менеджер зв'яжеться з вами</p>
+        <form action="#" class="callback-form__content">
+            <input type="text" name="name" placeholder="Ваше ім'я *" required>
+            <input type="tel" name="phone" placeholder="Ваш телефон *" required>
+            <input type="text" name="company" placeholder="Назва вашого підприємства">
+            <textarea name="message" placeholder="Ваше повідомлення" rows="4"></textarea>
+            <button type="submit" class="callback-form__submit">ВІДПРАВИТИ ЗАЯВКУ</button>
+        </form>
+    </div>
+</div>
+
+<div class="phone-modal-overlay" id="phoneModal">
+    <div class="phone-modal">
+        <button class="phone-modal__close" id="phoneModalClose">&times;</button>
+        <h2 class="phone-modal__title">Оберіть зручний спосіб зв'язку</h2>
+
+        <a href="tel:+380675206323" class="phone-modal__call">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.73 12.3a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1a16 16 0 0 0 6 6l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Зателефонувати
+        </a>
+
+        <p class="phone-modal__or">Написати</p>
+
+        <div class="phone-modal__messengers">
+            <a href="viber://chat?number=%2B380675206323" class="phone-modal__messenger phone-modal__messenger--viber">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M11.4 0C5.5 0 1.3 4.1 1.3 9.9c0 2.8 1 5.3 2.9 7.1v3.3l3.1-1.7c.8.2 1.6.3 2.4.3h.3c5.9 0 10.1-4.1 10.1-9.9S17.3 0 11.4 0zm1 13.3c-.2 0-.4-.1-.6-.2l-2.3-1.7-4.4 1.7 4.8-5.1 2.4 1.7 4.3-1.7-4.2 5.3z"/></svg>
+            </a>
+            <a href="https://t.me/graindryerua" target="_blank" rel="noopener" class="phone-modal__messenger phone-modal__messenger--telegram">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2l-2 9.4c-.1.6-.5.8-1 .4l-2.8-2.1-1.3 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.2-4.7c.2-.2 0-.3-.3-.1L6.1 14.5 3.4 13.7c-.6-.2-.6-.6.1-.8l11.5-4.4c.6-.2 1.1.1.9.7z"/></svg>
+            </a>
+            <a href="https://wa.me/380675206323" target="_blank" rel="noopener" class="phone-modal__messenger phone-modal__messenger--whatsapp">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.4-1.6C8.1 23.4 10 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0zm6.2 16.9c-.3.8-1.4 1.4-2.3 1.6-.6.1-1.4.2-4.1-.9-3.4-1.4-5.6-4.9-5.8-5.1-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4 1-.4h.7c.3 0 .6.1.8.7l1.1 2.7c.1.3.1.6-.1.8l-.6.7c-.1.2-.2.3-.1.6.5.9 1.2 1.8 2 2.5.9.7 1.8 1.2 2.8 1.5.3.1.5 0 .7-.2l.6-.8c.2-.3.5-.4.8-.2l2.6 1.2c.3.1.5.3.5.6v.7z"/></svg>
+            </a>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/script.js"></script>
