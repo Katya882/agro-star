@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
             loop: true,
             speed: 800,
             navigation: {
-                nextEl: '.equipment .swiper-button-next',
-                prevEl: '.equipment .swiper-button-prev'
+                nextEl: '.equipment-swiper .swiper-button-next',
+                prevEl: '.equipment-swiper .swiper-button-prev'
             },
             pagination: {
-                el: '.equipment .swiper-pagination',
+                el: '.swiper-pagination',
                 clickable: true
             },
             autoplay: {
