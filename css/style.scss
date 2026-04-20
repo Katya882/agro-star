@@ -518,7 +518,7 @@ body {
 
   @media (max-width: 576px) {
     padding-top: 0;
-    margin-top: 150px;
+    margin-top: 125px;
     padding-bottom: 48px;
     min-height: calc(75vh - 150px);
 
@@ -538,7 +538,7 @@ body {
 
     &__btns {
       margin-top: auto;
-      padding-top: 28px;
+      padding-top: 50px;
       gap: 12px;
       .btn { max-width: 100%; }
     }

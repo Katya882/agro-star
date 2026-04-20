@@ -4008,7 +4008,7 @@ body {
   @media (max-width: 576px) {
     .hero {
       padding-top: 0;
-      margin-top: 150px;
+      margin-top: 125px;
       padding-bottom: 48px;
       min-height: calc(75vh - 150px); }
       .hero__title {
@@ -4023,7 +4023,7 @@ body {
         margin-bottom: 0; }
       .hero__btns {
         margin-top: auto;
-        padding-top: 28px;
+        padding-top: 50px;
         gap: 12px; }
         .hero__btns .btn {
           max-width: 100%; } }
