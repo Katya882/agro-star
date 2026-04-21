@@ -1,197 +1,352 @@
-$orange: #F15623;
-$white: #FFFFFF;
-$grey-text: #474747;
-$blue: #1877F2;
-$light-bg: #f8f9fa;
+// ═══════════════════════════════════════════
+// MAINTENANCE PAGE — _maintenance.scss
+// Unified with transport-page & spare-parts-page
+// Brand: #1877F2 · #F15623 · #162431 · #313131
+// ═══════════════════════════════════════════
 
-.maintenance-section {
-  padding-bottom: 100px;
+$blue:       #1877F2;
+$orange:     #F15623;
+$dark:       #162431;
+$text:       #313131;
+$text-mid:   #4a5a6a;
+$text-light: #8a9aaa;
+$border:     #e4e9ef;
+$bg-light:   #f5f8fc;
+$white:      #ffffff;
+
+// ─── Page wrapper ────────────────────────────
+.page-maintenance {
   background-color: $white;
-  padding-top: 25px;
+}
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.maintenance-page {
+  padding: 0 0 80px;
+  background: $white;
+
+  @media (max-width: 769px) { margin-top: 220px; }
+  @media (max-width: 576px) { margin-top: 150px; }
+}
+
+// ─── Breadcrumbs ────────────────────────────
+.mn-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0 36px;
+  font-size: 13px;
+  color: $text-light;
+  flex-wrap: wrap;
+
+  a {
+    color: $blue;
+    text-decoration: none;
+    transition: opacity .15s;
+    &:hover { opacity: .75; }
   }
 
-  .section-header {
-    margin-bottom: 60px;
-    &__title {
-      color: $grey-text;
-      font-size: 32px;
-      text-transform: uppercase;
-    }
-    &__line {
-      background-color: $orange;
-      height: 4px;
-      width: 80px;
-      margin-top: 15px;
-    }
+  span:last-child { color: $text-mid; }
+}
+
+// ─── Hero ────────────────────────────────────
+.mn-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 60px;
+
+  &__text { flex: 1; max-width: 680px; }
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: $dark;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
   }
 
-  .maintenance-intro {
-    margin-bottom: 80px;
-
-    .intro-flex {
-      display: flex;
-      gap: 50px;
-      align-items: center;
-
-      @media (max-width: 992px) {
-        flex-direction: column;
-      }
-    }
-
-    .intro-content {
-      flex: 1;
-      .lead-orange {
-        color: $orange;
-        font-size: 22px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        line-height: 1.4;
-      }
-      .description {
-        color: $grey-text;
-        line-height: 1.7;
-        font-size: 16px;
-      }
-    }
-
-    .img-limited {
-      flex: 1;
-      max-width: 500px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-
-      img {
-        width: 100%;
-        display: block;
-        object-fit: cover;
-      }
-    }
+  &__line {
+    width: 56px;
+    height: 3px;
+    background: $orange;
+    border-radius: 2px;
+    margin-bottom: 24px;
   }
 
-  .services-grid {
+  &__lead {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: $text;
+    margin-bottom: 14px;
+  }
+
+  &__body {
+    font-size: 15px;
+    line-height: 1.75;
+    color: $text-mid;
+  }
+
+  &__badge {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $orange 0%, darken($orange, 12%) 100%);
+    color: $white;
+    box-shadow: 0 10px 32px rgba($orange, .28);
+    text-align: center;
+  }
+
+  &__badge-num {
+    display: block;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  &__badge-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    opacity: .9;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+    gap: 24px;
+    &__badge { align-self: flex-end; width: 110px; height: 110px; }
+    &__badge-num { font-size: 34px; }
+  }
+
+  @media (max-width: 576px) {
+    &__title { font-size: 24px; }
+    &__lead   { font-size: 15px; }
+  }
+}
+
+// ─── Section title ───────────────────────────
+.mn-section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: $dark;
+  margin-bottom: 28px;
+  letter-spacing: -0.2px;
+}
+
+// ─── Service cards ───────────────────────────
+.mn-cards {
+  margin-bottom: 60px;
+
+  &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-bottom: 80px;
+    gap: 20px;
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
-
-    .service-card {
-      padding: 40px;
-      background: $light-bg;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      border: 1px solid #eee;
-
-      &:hover {
-        background: $white;
-        border-color: $orange;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        transform: translateY(-5px);
-      }
-
-      h4 {
-        color: $orange;
-        font-size: 18px;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      p {
-        font-size: 14px;
-        color: $grey-text;
-        line-height: 1.6;
-      }
-    }
+    @media (max-width: 560px) { grid-template-columns: 1fr; }
   }
 
-  .timing-banner {
-    background-color: $grey-text;
-    color: $white;
-    padding: 60px;
-    border-radius: 20px;
+  &__card {
+    background: $bg-light;
+    border: 1px solid $border;
+    border-radius: 12px;
+    padding: 32px 28px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+    border-left: 4px solid $orange;
 
-    @media (max-width: 992px) {
-      flex-direction: column;
-      text-align: center;
-      gap: 30px;
-    }
-
-    &__info {
-      max-width: 600px;
-      h3 {
-        color: $orange;
-        margin-bottom: 20px;
-        font-size: 24px;
-      }
-      ul {
-        padding: 0;
-        li {
-          margin-bottom: 10px;
-          padding-left: 20px;
-          position: relative;
-        }
-      }
-    }
-
-    &__badge {
-      background-color: $orange;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-weight: 800;
-      box-shadow: 0 0 25px rgba($orange, 0.4);
-
-      .hours { font-size: 50px; line-height: 1; }
-      .label { font-size: 12px; text-transform: uppercase; }
+    &:hover {
+      border-color: $orange;
+      box-shadow: 0 8px 28px rgba(0,0,0,.08);
+      transform: translateY(-3px);
+      background: $white;
     }
   }
 
-  .maintenance-cta {
-    margin-top: 80px;
-    text-align: center;
-    .btn-orange {
-      display: inline-block;
+  &__icon { display: none; }  // прибираємо іконки
+
+  &__card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: $dark;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  &__card-text {
+    font-size: 14px;
+    color: $text-mid;
+    line-height: 1.7;
+    margin: 0;
+    flex: 1;
+  }
+}
+
+// ─── Advantages block ────────────────────────
+.mn-advantages {
+  background: $dark;
+  border-radius: 16px;
+  padding: 52px 56px;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 60px;
+  align-items: center;
+
+  &__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    background: rgba($orange, .15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $orange;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: $white;
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+
+  &__desc {
+    font-size: 14px;
+    color: rgba($white, .6);
+    line-height: 1.7;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      font-size: 15px;
+      color: rgba($white, .85);
+      line-height: 1.55;
+      border-bottom: 1px solid rgba($white, .08);
+
+      &:last-child { border-bottom: none; }
+    }
+  }
+
+  &__bullet {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba($orange, .2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $orange;
+    margin-top: 1px;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 36px 28px;
+  }
+}
+
+// ─── CTA ─────────────────────────────────────
+.mn-cta {
+  background: linear-gradient(135deg, $blue 0%, darken($blue, 14%) 100%);
+  border-radius: 16px;
+  padding: 48px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $white;
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: rgba($white, .65);
+    line-height: 1.6;
+    max-width: 400px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+
+    &--primary {
       background: $orange;
       color: $white;
-      padding: 20px 45px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s;
-      &:hover {
-        background: darken($orange, 10%);
-        transform: scale(1.05);
-      }
+      border: none;
+      &:hover { background: darken($orange, 8%); transform: translateY(-1px); }
+    }
+
+    &--outline {
+      background: transparent;
+      color: rgba($white, .85);
+      border: 1.5px solid rgba($white, .3);
+      &:hover { border-color: rgba($white, .6); color: $white; }
     }
   }
-}
 
-@media (max-width: 769px) {
-  .maintenance-section{
-    margin-top: 220px;
+  @media (max-width: 860px) {
+    flex-direction: column;
+    padding: 36px 28px;
+    text-align: center;
+    &__text { max-width: 100%; }
+    &__actions { justify-content: center; }
+    &__btn { width: 100%; }
   }
-}
-@media (max-width: 500px) {
-  .maintenance-section{
-    margin-top: 180px;
+
+  @media (max-width: 576px) {
+    padding: 28px 20px;
+    &__title { font-size: 20px; }
   }
 }
