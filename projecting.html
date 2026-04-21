@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Star</title>
+    <title>Робота на альтернативному паливі — Agro Star</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="img/logo-blue-bg.svg" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body class="services">
@@ -20,12 +20,9 @@
                     <img class="logo-services" src="img/logo-blue-bg.svg" alt="AgroStar Logo">
                 </a>
             </div>
-
             <div class="dropdown js-dropdown">
                 <div class="dropdown__trigger">
-                    <div class="dropdown__icon">
-                        <img src="img/tel.svg" alt="phone">
-                    </div>
+                    <div class="dropdown__icon"><img src="img/tel.svg" alt="phone"></div>
                     <div class="dropdown__text">
                         <span class="dropdown__label dropdown__label-services">КОНТАКТИ</span>
                         <span class="dropdown__val dropdown__val--dashed">+38 067 520 63 23</span>
@@ -40,19 +37,17 @@
                 </ul>
             </div>
         </div>
-
         <nav class="nav">
             <div class="container nav__inner">
                 <ul class="menu">
                     <li><a href="index.html" class="menu-link menu-link_services">ГОЛОВНА</a></li>
                     <li><a href="equipment.html" class="menu-link menu-link_services">ОБЛАДНАННЯ</a></li>
-                    <li><a href="services.html" class="menu-link menu-link_services">НАШІ ПОСЛУГИ</a></li>
+                    <li><a href="services.html" class="menu-link menu-link_services active">НАШІ ПОСЛУГИ</a></li>
                     <li><a href="about.html" class="menu-link menu-link_services">ПРО НАС</a></li>
                     <li><a href="blog.html" class="menu-link menu-link_services">БЛОГ</a></li>
                     <li><a href="contacts.html" class="menu-link menu-link_services">КОНТАКТИ</a></li>
                     <div class="menu-underline"></div>
                 </ul>
-
                 <div class="dropdown dropdown--lang js-dropdown">
                     <div class="dropdown__trigger">
                         <img src="img/ua.svg" alt="ua" class="dropdown__flag">
@@ -66,12 +61,7 @@
                         <li><a href="#">DE</a></li>
                     </ul>
                 </div>
-
-                <div class="burger burger-service">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <div class="burger burger-service"><span></span><span></span><span></span></div>
             </div>
         </nav>
     </header>
@@ -79,17 +69,195 @@
 
 <main class="projecting-section">
     <div class="container">
+
+        <!-- Breadcrumbs -->
         <nav class="breadcrumbs">
-            <a href="index.html">Головна</a> / <a href="blog.html">Наші послуги</a> / Робота на альтернативному паливі</span>
+            <a href="index.html">Головна</a> /
+            <a href="services.html">Наші послуги</a> /
+            Робота на альтернативному паливі
         </nav>
 
+        <!-- Section header -->
         <div class="section-header">
+            <div class="section-header__eyebrow">Наші послуги</div>
             <h1 class="section-header__title">Робота на альтернативному паливі</h1>
             <div class="section-header__line"></div>
+            <p class="section-header__sub">
+                Зернові сушарки Agro Star адаптовані до роботи на будь-якому виді палива —
+                незалежно від газопостачання. Скорочуйте витрати до 70% та сушіть зерно без зупинок.
+            </p>
         </div>
 
+        <!-- Stats strip -->
+        <div class="proj-stats" id="projStats">
+            <div class="proj-stats__item">
+                <div class="proj-stats__val"><span>−70</span>%</div>
+                <div class="proj-stats__label">Економія на паливі</div>
+            </div>
+            <div class="proj-stats__item">
+                <div class="proj-stats__val"><span>6</span></div>
+                <div class="proj-stats__label">Видів палива</div>
+            </div>
+            <div class="proj-stats__item">
+                <div class="proj-stats__val"><span>4</span></div>
+                <div class="proj-stats__label">Кроки переоснащення</div>
+            </div>
+            <div class="proj-stats__item">
+                <div class="proj-stats__val"><span>24</span><span style="font-size:.55em">/7</span></div>
+                <div class="proj-stats__label">Безперебійна робота</div>
+            </div>
+        </div>
 
-    </div>
+        <!-- Main layout -->
+        <div class="proj-layout">
+            <div class="proj-main">
+
+                <!-- 01 — Інтро -->
+                <div class="proj-block-heading proj-reveal">
+                    <span class="proj-block-heading__num">— 01</span>
+                    <h2>Незалежність від газу</h2>
+                </div>
+                <div class="intro-grid">
+                    <div class="img-limited proj-reveal-left">
+                        <img src="img/nead-foto.png" alt="Сушарка на альтернативному паливі">
+                    </div>
+                    <div class="intro-text-block proj-reveal-right">
+                        <p>Сушарки <strong>Agro Star</strong> розроблені з урахуванням реалій агробізнесу в Україні. Нестабільність газопостачання та зростання цін стали стимулом для альтернативних паливних систем.</p>
+                        <p>Наші інженери розробили теплогенераторні блоки, сумісні з різними видами палива — від соломи та лузги до відпрацьованої олії та дизелю.</p>
+                        <p><strong>Скорочення витрат на 40–70%</strong> і гарантована безперебійна робота навіть за відсутності газопостачання.</p>
+                    </div>
+                </div>
+
+                <!-- 02 — Палива -->
+                <div class="proj-block-heading proj-reveal">
+                    <span class="proj-block-heading__num">— 02</span>
+                    <h2>Підтримувані види палива</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item proj-reveal">
+                        <div class="feature-item__index">01</div>
+                        <div class="feature-item__title">Тверде паливо</div>
+                        <p class="feature-item__text">Солома, лузга соняшнику, кукурудзяні качани, деревні пелети, тріска. Вихрова топка з КПД до 85%.</p>
+                    </div>
+                    <div class="feature-item proj-reveal">
+                        <div class="feature-item__index">02</div>
+                        <div class="feature-item__title">Рідке паливо</div>
+                        <p class="feature-item__text">Відпрацьована олія, дизельне паливо, технічне масло. Пальники з автоматичним розпилом та регулюванням потужності.</p>
+                    </div>
+                    <div class="feature-item proj-reveal">
+                        <div class="feature-item__index">03</div>
+                        <div class="feature-item__title">Зріджений газ LPG</div>
+                        <p class="feature-item__text">Пропан-бутанова суміш. Ідеальний варіант за відсутності магістрального газопроводу.</p>
+                    </div>
+                    <div class="feature-item proj-reveal">
+                        <div class="feature-item__index">04</div>
+                        <div class="feature-item__title">Пелети та брикети</div>
+                        <p class="feature-item__text">Деревні та агропелети будь-якого діаметру. Автоматична подача з бункера від 2 до 12 м³.</p>
+                    </div>
+                    <div class="feature-item proj-reveal">
+                        <div class="feature-item__index">05</div>
+                        <div class="feature-item__title">Комбінований режим</div>
+                        <p class="feature-item__text">Двопаливні пальники поєднують природний газ з рідким чи твердим паливом — гнучкість та безперебійність.</p>
+                    </div>
+                    <div class="feature-item proj-reveal">
+                        <div class="feature-item__index">06</div>
+                        <div class="feature-item__title">Природний газ</div>
+                        <p class="feature-item__text">Класичний варіант з автоматичним газопальниковим блоком. Можлива доустановка резервного пальника.</p>
+                    </div>
+                </div>
+
+                <!-- 03 — Переваги -->
+                <div class="proj-block-heading proj-reveal">
+                    <span class="proj-block-heading__num">— 03</span>
+                    <h2>Переваги</h2>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-content">
+                        <div class="adv-grid">
+                            <div class="adv-item proj-reveal"><div class="adv-item__num">01</div><div class="adv-item__text">Скорочення витрат на паливо на 40–70% порівняно з природним газом</div></div>
+                            <div class="adv-item proj-reveal"><div class="adv-item__num">02</div><div class="adv-item__text">Незалежність від централізованого газопостачання</div></div>
+                            <div class="adv-item proj-reveal"><div class="adv-item__num">03</div><div class="adv-item__text">Використання власних відходів виробництва — лузга, солома</div></div>
+                            <div class="adv-item proj-reveal"><div class="adv-item__num">04</div><div class="adv-item__text">Безперебійна робота сушарки під час відключень газу</div></div>
+                            <div class="adv-item proj-reveal"><div class="adv-item__num">05</div><div class="adv-item__text">Можливість швидкого переоснащення наявної сушарки</div></div>
+                            <div class="adv-item proj-reveal"><div class="adv-item__num">06</div><div class="adv-item__text">Автоматична подача палива — мінімум ручної праці</div></div>
+                            <div class="adv-item proj-reveal"><div class="adv-item__num">07</div><div class="adv-item__text">Дотримання екологічних стандартів горіння</div></div>
+                            <div class="adv-item proj-reveal"><div class="adv-item__num">08</div><div class="adv-item__text">Збільшення конкурентоспроможності господарства</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04 — Кроки -->
+                <div class="proj-block-heading proj-reveal">
+                    <span class="proj-block-heading__num">— 04</span>
+                    <h2>Як відбувається переоснащення</h2>
+                </div>
+                <div class="proj-steps">
+                    <div class="proj-steps__row">
+                        <div class="proj-steps__item proj-reveal">
+                            <div class="proj-steps__circle"><span class="proj-steps__num">1</span></div>
+                            <div class="proj-steps__title">Технічний аудит</div>
+                            <p class="proj-steps__desc">Обстеження обладнання, визначення оптимального виду палива та потужності теплогенератора</p>
+                        </div>
+                        <div class="proj-steps__item proj-reveal">
+                            <div class="proj-steps__circle"><span class="proj-steps__num">2</span></div>
+                            <div class="proj-steps__title">Проєктування</div>
+                            <p class="proj-steps__desc">Розробка проєкту: пальниковий блок, паливна лінія, автоматика, система подачі</p>
+                        </div>
+                        <div class="proj-steps__item proj-reveal">
+                            <div class="proj-steps__circle"><span class="proj-steps__num">3</span></div>
+                            <div class="proj-steps__title">Монтаж</div>
+                            <p class="proj-steps__desc">Встановлення та підключення власними монтажними бригадами у стислі терміни</p>
+                        </div>
+                        <div class="proj-steps__item proj-reveal">
+                            <div class="proj-steps__circle"><span class="proj-steps__num">4</span></div>
+                            <div class="proj-steps__title">Запуск і навчання</div>
+                            <p class="proj-steps__desc">Пусконалагоджувальні роботи, навчання персоналу та гарантійне обслуговування</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="proj-cta proj-reveal">
+                    <div class="proj-cta__inner">
+                        <div>
+                            <div class="proj-cta__label">Готові розпочати?</div>
+                            <div class="proj-cta__title">Замовте консультацію</div>
+                            <p class="proj-cta__text">Технічний менеджер підбере оптимальне рішення для вашого господарства</p>
+                        </div>
+                        <div class="proj-cta__btns">
+                            <button class="btn-orange js-contact-phone-trigger">Зателефонувати</button>
+                            <button class="btn-orange btn-orange--ghost js-callback-trigger">Написати нам</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /proj-main -->
+
+            <!-- Sidebar -->
+            <aside class="proj-sidebar">
+                <div class="proj-sb-card">
+                    <div class="proj-sb-card__head">Наші послуги</div>
+                    <ul>
+                        <li><a href="projecting.html" class="active">Робота на альтернативному паливі</a></li>
+                        <li><a href="manufacturing.html">Будівництво зерноочисних комплексів</a></li>
+                        <li><a href="modernization.html">Переобладнання та модернізація</a></li>
+                        <li><a href="technical-support.html">Ремонт та технічний супровід</a></li>
+                        <li><a href="spare-parts-page.html">Запасні частини</a></li>
+                        <li><a href="maintenance.html">Сервіс</a></li>
+                    </ul>
+                </div>
+                <div class="proj-sb-contact">
+                    <h4>Зв'язатись з нами</h4>
+                    <a href="tel:+380675206323">+38 067 520 63 23</a>
+                    <a href="tel:+380975137175">+38 097 513 71 75</a>
+                    <a href="tel:+380675638881">+38 067 563 88 81</a>
+                    <a href="mailto:info@agrostar.com">info@agrostar.com</a>
+                    <button class="proj-sb-btn js-callback-trigger">ЗАМОВИТИ ДЗВІНОК</button>
+                </div>
+            </aside>
+
+        </div><!-- /proj-layout -->
+    </div><!-- /container -->
 </main>
 
 
@@ -98,13 +266,11 @@
         <button class="callback-form__close" id="closeForm">&times;</button>
         <h2 class="callback-form__title">НАПИШІТЬ НАМ, АБО ЗАМОВТЕ ДЗВІНОК</h2>
         <p class="callback-form__subtitle">Наш менеджер зв'яжеться з вами</p>
-
         <form action="#" class="callback-form__content">
             <input type="text" name="name" placeholder="Ваше ім'я *" required>
             <input type="tel" name="phone" placeholder="Ваш телефон *" required>
-            <input type="text" name="name" placeholder="Назва вашого підприємства">
-            <textarea name="message" placeholder="Ваше повідомленння" rows="4"></textarea>
-
+            <input type="text" name="company" placeholder="Назва вашого підприємства">
+            <textarea name="message" placeholder="Ваше повідомлення" rows="4"></textarea>
             <button type="submit" class="callback-form__submit">ВІДПРАВИТИ ЗАЯВКУ</button>
         </form>
     </div>
@@ -116,24 +282,15 @@
         <div class="footer__col">
             <h3 class="footer__title">Про нас</h3>
             <div class="footer__line"></div>
-            <p class="footer__text">
-                ТОВ «Завод елеваторних машин» - це команда професіоналів з багаторічним досвідом роботи.
-                Головним покликанням якої є задоволення потреб аграріїв сучасною, високотехнологічною
-                технікою для сушіння, транспортування та зберігання зерна.
-            </p>
+            <p class="footer__text">ТОВ «Завод елеваторних машин» - це команда професіоналів з багаторічним досвідом роботи. Головним покликанням якої є задоволення потреб аграріїв сучасною, високотехнологічною технікою для сушіння, транспортування та зберігання зерна.</p>
         </div>
-
         <div class="footer__col footer__col--contacts">
             <h3 class="footer__title">Контакти</h3>
             <div class="footer__line"></div>
             <div class="footer__contacts-list">
                 <div class="footer__contact-item">
                     <span class="footer__label">Адреса:</span>
-                    <span class="footer__value">
-                        <a href="https://share.google/9pPtDnRfeulvMTLEx">
-                            Україна м.Кропивницький вул. Родникова, 86
-                        </a>
-                    </span>
+                    <span class="footer__value"><a href="https://share.google/9pPtDnRfeulvMTLEx">Україна м.Кропивницький вул. Родникова, 86</a></span>
                 </div>
                 <div class="footer__contact-item">
                     <span class="footer__label">Телефони:</span>
@@ -150,15 +307,12 @@
                 </div>
             </div>
             <div class="footer__socials">
-                <a href="https://t.me/graindryerua" target="_blank" rel="noopener noreferrer">
-                    <img src="img/telegram.png" alt="telegram">
-                </a>
+                <a href="https://t.me/graindryerua" target="_blank" rel="noopener noreferrer"><img src="img/telegram.png" alt="telegram"></a>
                 <a href="https://www.tiktok.com/@agro___star?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer"><img src="img/tt.svg" alt="TikTok"></a>
                 <a href="https://youtube.com/@elevator-machines?si=LS_yGilealWPAbQL" target="_blank" rel="noopener noreferrer"><img src="img/yt.svg" alt="YouTube"></a>
             </div>
         </div>
     </div>
-
     <div class="footer__bottom">
         <div class="footer__container">
             <p class="footer__copy">© 2025 «Agrostar». All rights reserved.</p>
@@ -168,5 +322,36 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+    // ── Scroll reveal (IntersectionObserver) ─────────────────────
+    const revealEls = document.querySelectorAll(
+        '.proj-reveal, .proj-reveal-left, .proj-reveal-right, .proj-stats__item'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── Callback modal ────────────────────────────────────────────
+    document.querySelectorAll('.js-callback-trigger').forEach(btn =>
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('modalOverlay').classList.add('active');
+        })
+    );
+    document.getElementById('closeForm').addEventListener('click', () =>
+        document.getElementById('modalOverlay').classList.remove('active')
+    );
+    document.getElementById('modalOverlay').addEventListener('click', e => {
+        if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+    });
+</script>
 </body>
 </html>
