@@ -22,6 +22,7 @@
 @import "technical-support";
 @import "automation-section";
 @import "pre-cleaning";
+@import "grain-bins";
 
 // ─── VARIABLES ──────────────────────────────────────────
 $orange:    #F15623;
@@ -1016,6 +1017,7 @@ body {
     position: absolute;
     right: 0;
     bottom: 0;
+    top: 0;
     width: 52px;
     height: 52px;
     background-color: #F15623;
