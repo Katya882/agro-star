@@ -7,8 +7,436 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="img/logo-blue-bg.svg" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* ── Reveal animations ─────────────────────────────── */
+        .proj-reveal,
+        .proj-reveal-left,
+        .proj-reveal-right {
+            opacity: 0;
+            transition: opacity .55s ease, transform .55s ease;
+        }
+        .proj-reveal        { transform: translateY(20px); }
+        .proj-reveal-left   { transform: translateX(-24px); }
+        .proj-reveal-right  { transform: translateX(24px); }
+
+        .proj-reveal.is-visible,
+        .proj-reveal-left.is-visible,
+        .proj-reveal-right.is-visible {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        /* stagger for siblings */
+        .proj-stagger .proj-reveal:nth-child(1) { transition-delay: 0s; }
+        .proj-stagger .proj-reveal:nth-child(2) { transition-delay: .07s; }
+        .proj-stagger .proj-reveal:nth-child(3) { transition-delay: .14s; }
+        .proj-stagger .proj-reveal:nth-child(4) { transition-delay: .21s; }
+        .proj-stagger .proj-reveal:nth-child(5) { transition-delay: .28s; }
+        .proj-stagger .proj-reveal:nth-child(6) { transition-delay: .35s; }
+        .proj-stagger .proj-reveal:nth-child(7) { transition-delay: .42s; }
+        .proj-stagger .proj-reveal:nth-child(8) { transition-delay: .49s; }
+
+        /* ── Hero enter ────────────────────────────────────── */
+        @keyframes pFadeUp {
+            from { opacity:0; transform:translateY(16px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        @keyframes pLineGrow {
+            from { width:0; }
+            to   { width:60px; }
+        }
+
+        /* ─────────────────────────────────────────────────── */
+        /* PAGE STYLES                                         */
+        /* ─────────────────────────────────────────────────── */
+
+        /* Hero */
+        .ap-hero {
+            padding: 44px 0 50px;
+        }
+        .ap-hero__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: #F15623;
+            margin-bottom: 14px;
+            animation: pFadeUp .4s .05s ease both;
+        }
+        .ap-hero__eyebrow::before {
+            content: '';
+            display: block;
+            width: 22px; height: 1.5px;
+            background: #F15623;
+        }
+        .ap-hero__title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(30px, 4vw, 52px);
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #0b1724;
+            line-height: 1.05;
+            letter-spacing: .01em;
+            margin-bottom: 14px;
+            animation: pFadeUp .45s .12s ease both;
+        }
+        .ap-hero__line {
+            width: 0;
+            height: 3px;
+            background: #1877F2;
+            margin-bottom: 20px;
+            animation: pLineGrow .5s .3s ease forwards;
+        }
+        .ap-hero__lead {
+            font-size: 16px;
+            font-weight: 500;
+            color: #474747;
+            max-width: 660px;
+            line-height: 1.65;
+            margin-bottom: 10px;
+            animation: pFadeUp .5s .35s ease both;
+        }
+        .ap-hero__body {
+            font-size: 14.5px;
+            color: #777;
+            max-width: 620px;
+            line-height: 1.65;
+            animation: pFadeUp .5s .42s ease both;
+        }
+
+        /* Stats */
+        .ap-stats {
+            display: flex;
+            border-top: 1px solid #ebebeb;
+            border-bottom: 1px solid #ebebeb;
+            margin: 40px 0 60px;
+        }
+        .ap-stat {
+            flex: 1;
+            padding: 20px 28px;
+            border-right: 1px solid #ebebeb;
+        }
+        .ap-stat:last-child { border-right: none; }
+        .ap-stat__val {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #0b1724;
+            line-height: 1;
+            letter-spacing: -.01em;
+        }
+        .ap-stat__val span { color: #F15623; }
+        .ap-stat__label {
+            font-size: 11px;
+            font-weight: 500;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            margin-top: 5px;
+        }
+
+        /* Section heading */
+        .ap-section-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #0b1724;
+            letter-spacing: .03em;
+            margin-bottom: 8px;
+        }
+        .ap-section-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: #F15623;
+            margin-bottom: 6px;
+        }
+        .ap-section-line {
+            width: 40px; height: 2px;
+            background: #1877F2;
+            margin-bottom: 28px;
+        }
+
+        /* Intro */
+        .ap-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-bottom: 70px;
+            overflow: hidden;
+            border: 1px solid #e8e8e8;
+        }
+        .ap-intro__img {
+            overflow: hidden;
+            min-height: 320px;
+            position: relative;
+        }
+        .ap-intro__img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s ease;
+        }
+        .ap-intro:hover .ap-intro__img img { transform: scale(1.03); }
+        .ap-intro__text {
+            background: #0b1724;
+            padding: 48px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .ap-intro__text p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: rgba(255,255,255,.68);
+            margin-bottom: 16px;
+        }
+        .ap-intro__text p:last-child { margin-bottom: 0; }
+        .ap-intro__text strong { color: #fff; }
+
+        /* Fuel cards */
+        .ap-fuels {
+            margin-bottom: 70px;
+        }
+        .ap-fuels__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: #e8e8e8;
+            border: 1px solid #e8e8e8;
+        }
+        .ap-fuel {
+            background: #fff;
+            padding: 30px 26px;
+            position: relative;
+            overflow: hidden;
+            transition: background .25s;
+        }
+        .ap-fuel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 0; height: 3px;
+            background: #F15623;
+            transition: width .35s ease;
+        }
+        .ap-fuel:hover { background: #0b1724; }
+        .ap-fuel:hover::before { width: 100%; }
+        .ap-fuel:hover .ap-fuel__num  { color: rgba(255,255,255,.25); }
+        .ap-fuel:hover .ap-fuel__name { color: #fff; }
+        .ap-fuel:hover .ap-fuel__desc { color: rgba(255,255,255,.6); }
+        .ap-fuel__num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 700;
+            letter-spacing: .14em; text-transform: uppercase;
+            color: #F15623; margin-bottom: 10px;
+            transition: color .25s;
+        }
+        .ap-fuel__name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 19px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: .03em;
+            color: #0b1724; margin-bottom: 8px;
+            transition: color .25s;
+        }
+        .ap-fuel__desc {
+            font-size: 13.5px; line-height: 1.65;
+            color: #5F5F5F;
+            transition: color .25s;
+        }
+
+        /* Advantages */
+        .ap-adv {
+            margin-bottom: 70px;
+        }
+        .ap-adv__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .ap-adv__item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 20px;
+            background: #f5f5f5;
+            border-left: 3px solid #F15623;
+            transition: background .2s, transform .2s;
+        }
+        .ap-adv__item:hover {
+            background: #0b1724;
+            transform: translateX(4px);
+        }
+        .ap-adv__item:hover .ap-adv__num  { background: #F15623; }
+        .ap-adv__item:hover .ap-adv__text { color: rgba(255,255,255,.8); }
+        .ap-adv__num {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            background: #0b1724;
+            color: #fff;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            transition: background .2s;
+        }
+        .ap-adv__text {
+            font-size: 14.5px; line-height: 1.5;
+            color: #474747; padding-top: 4px;
+            transition: color .2s;
+        }
+
+        /* Steps */
+        .ap-steps {
+            margin-bottom: 70px;
+        }
+        .ap-steps__row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            position: relative;
+        }
+        .ap-steps__row::before {
+            content: '';
+            position: absolute;
+            top: 40px; left: 12%; right: 12%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #F15623 25%, #F15623 75%, transparent);
+            z-index: 0;
+        }
+        .ap-step {
+            text-align: center;
+            padding: 0 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .ap-step__circle {
+            width: 80px; height: 80px;
+            background: #0b1724;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 18px;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #F15623;
+            transition: background .3s, transform .3s;
+        }
+        .ap-step:hover .ap-step__circle {
+            background: #F15623;
+            transform: scale(1.07);
+        }
+        .ap-step__num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 28px; font-weight: 900;
+            color: #fff; line-height: 1;
+        }
+        .ap-step__title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: .05em;
+            color: #0b1724; margin-bottom: 10px;
+        }
+        .ap-step__desc {
+            font-size: 13px; line-height: 1.6; color: #777;
+        }
+
+        /* CTA */
+        .ap-cta {
+            background: #0b1724;
+            padding: 48px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        .ap-cta::after {
+            content: '';
+            position: absolute;
+            right: -60px; top: -60px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: rgba(241,86,35,.06);
+            pointer-events: none;
+        }
+        .ap-cta__eyebrow {
+            font-size: 11px; font-weight: 600;
+            letter-spacing: .14em; text-transform: uppercase;
+            color: #F15623; margin-bottom: 8px;
+        }
+        .ap-cta__title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 32px; font-weight: 800;
+            text-transform: uppercase;
+            color: #fff; line-height: 1.05;
+            margin-bottom: 10px;
+        }
+        .ap-cta__text {
+            font-size: 14.5px; color: rgba(255,255,255,.55);
+        }
+        .ap-cta__btns {
+            display: flex; flex-direction: column;
+            gap: 12px; flex-shrink: 0;
+        }
+        .tp-cta__btn {
+            display: inline-flex;
+            align-items: center; justify-content: center;
+            gap: 8px;
+            height: 46px; padding: 0 28px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .04em;
+            white-space: nowrap; cursor: pointer; border: none;
+            transition: all .25s ease;
+        }
+        .tp-cta__btn--primary {
+            background: #F15623; color: #fff;
+        }
+        .tp-cta__btn--primary:hover {
+            background: #ff6b3d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(241,86,35,.4);
+        }
+        .tp-cta__btn--outline {
+            background: transparent; color: rgba(255,255,255,.8);
+            border: 1.5px solid rgba(255,255,255,.25);
+        }
+        .tp-cta__btn--outline:hover {
+            border-color: #fff; color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .ap-intro { grid-template-columns: 1fr; }
+            .ap-intro__img { min-height: 260px; }
+            .ap-fuels__grid { grid-template-columns: repeat(2, 1fr); }
+            .ap-adv__grid { grid-template-columns: 1fr; }
+            .ap-steps__row { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .ap-steps__row::before { display: none; }
+            .ap-cta { flex-direction: column; padding: 36px 30px; }
+            .ap-cta__btns { flex-direction: row; }
+            .ap-stats { flex-wrap: wrap; }
+            .ap-stat { flex: 0 1 50%; }
+        }
+        @media (max-width: 768px) {
+            .ap-fuels__grid { grid-template-columns: 1fr; }
+            .ap-steps__row { grid-template-columns: 1fr; }
+            .ap-cta__btns { flex-direction: column; width: 100%; }
+            .tp-cta__btn { width: 100%; }
+            .ap-stat { flex: 0 1 50%; }
+            .ap-intro__text { padding: 32px 24px; }
+        }
+        @media (max-width: 576px) {
+            .ap-stat { flex: 0 1 100%; }
+        }
+    </style>
 </head>
 <body class="services">
 
@@ -67,200 +495,162 @@
     </header>
 </section>
 
-<main class="projecting-section">
+<main class="spare-parts-page">
     <div class="container">
 
         <!-- Breadcrumbs -->
-        <nav class="breadcrumbs">
-            <a href="index.html">Головна</a> /
-            <a href="services.html">Наші послуги</a> /
-            Робота на альтернативному паливі
+        <nav class="sp-breadcrumbs">
+            <a href="index.html">Головна</a>
+            <span>/</span>
+            <a href="services.html">Наші послуги</a>
+            <span>/</span>
+            <span>Робота на альтернативному паливі</span>
         </nav>
 
-        <!-- Section header -->
-        <div class="section-header">
-            <div class="section-header__eyebrow">Наші послуги</div>
-            <h1 class="section-header__title">Робота на альтернативному паливі</h1>
-            <div class="section-header__line"></div>
-            <p class="section-header__sub">
-                Зернові сушарки Agro Star адаптовані до роботи на будь-якому виді палива —
-                незалежно від газопостачання. Скорочуйте витрати до 70% та сушіть зерно без зупинок.
-            </p>
+        <!-- Hero -->
+        <div class="ap-hero">
+<!--            <div class="ap-hero__eyebrow">Наші послуги</div>-->
+            <h1 class="ap-hero__title">Робота на альтернативному паливі</h1>
+            <div class="ap-hero__line"></div>
+            <p class="ap-hero__lead">Зернові сушарки <strong>Agro Star</strong> адаптовані до роботи на будь-якому виді палива — незалежно від газопостачання.</p>
+            <p class="ap-hero__body">Скорочуйте витрати до 70% та забезпечуйте безперебійне сушіння врожаю навіть за відсутності природного газу.</p>
         </div>
 
-        <!-- Stats strip -->
-        <div class="proj-stats" id="projStats">
-            <div class="proj-stats__item">
-                <div class="proj-stats__val"><span>−70</span>%</div>
-                <div class="proj-stats__label">Економія на паливі</div>
+        <!-- Stats -->
+        <div class="ap-stats proj-stagger">
+            <div class="ap-stat proj-reveal">
+                <div class="ap-stat__val"><span>−70</span>%</div>
+                <div class="ap-stat__label">Економія на паливі</div>
             </div>
-            <div class="proj-stats__item">
-                <div class="proj-stats__val"><span>6</span></div>
-                <div class="proj-stats__label">Видів палива</div>
+            <div class="ap-stat proj-reveal">
+                <div class="ap-stat__val"><span>6</span></div>
+                <div class="ap-stat__label">Видів палива</div>
             </div>
-            <div class="proj-stats__item">
-                <div class="proj-stats__val"><span>4</span></div>
-                <div class="proj-stats__label">Кроки переоснащення</div>
+            <div class="ap-stat proj-reveal">
+                <div class="ap-stat__val"><span>4</span></div>
+                <div class="ap-stat__label">Кроки переоснащення</div>
             </div>
-            <div class="proj-stats__item">
-                <div class="proj-stats__val"><span>24</span><span style="font-size:.55em">/7</span></div>
-                <div class="proj-stats__label">Безперебійна робота</div>
+            <div class="ap-stat proj-reveal">
+                <div class="ap-stat__val"><span>24</span><span style="font-size:.55em">/7</span></div>
+                <div class="ap-stat__label">Безперебійна робота</div>
             </div>
         </div>
 
-        <!-- Main layout -->
-        <div class="proj-layout">
-            <div class="proj-main">
+        <!-- Intro -->
+        <div class="ap-intro proj-reveal">
+            <div class="ap-intro__img proj-reveal-left">
+                <img src="img/spare-parts-page_img.png" alt="Сушарка на альтернативному паливі">
+            </div>
+            <div class="ap-intro__text proj-reveal-right">
+                <p>Сушарки <strong>Agro Star</strong> розроблені з урахуванням реалій агробізнесу в Україні. Нестабільність газопостачання та зростання цін стали стимулом для альтернативних паливних систем.</p>
+                <p>Наші інженери розробили теплогенераторні блоки, сумісні з різними видами палива — від соломи та лузги до відпрацьованої олії та дизелю.</p>
+                <p><strong>Скорочення витрат на 40–70%</strong> і гарантована безперебійна робота навіть за відсутності газопостачання.</p>
+            </div>
+        </div>
 
-                <!-- 01 — Інтро -->
-                <div class="proj-block-heading proj-reveal">
-                    <span class="proj-block-heading__num">— 01</span>
-                    <h2>Незалежність від газу</h2>
+        <!-- Fuels -->
+        <section class="ap-fuels proj-reveal">
+            <div class="ap-section-eyebrow">— 02</div>
+            <h2 class="ap-section-title">Підтримувані види палива</h2>
+            <div class="ap-section-line"></div>
+            <div class="ap-fuels__grid proj-stagger">
+                <div class="ap-fuel proj-reveal">
+                    <div class="ap-fuel__num">01</div>
+                    <div class="ap-fuel__name">Тверде паливо</div>
+                    <p class="ap-fuel__desc">Солома, лузга соняшнику, кукурудзяні качани, деревні пелети, тріска. Вихрова топка з КПД до 85%.</p>
                 </div>
-                <div class="intro-grid">
-                    <div class="img-limited proj-reveal-left">
-                        <img src="img/nead-foto.png" alt="Сушарка на альтернативному паливі">
-                    </div>
-                    <div class="intro-text-block proj-reveal-right">
-                        <p>Сушарки <strong>Agro Star</strong> розроблені з урахуванням реалій агробізнесу в Україні. Нестабільність газопостачання та зростання цін стали стимулом для альтернативних паливних систем.</p>
-                        <p>Наші інженери розробили теплогенераторні блоки, сумісні з різними видами палива — від соломи та лузги до відпрацьованої олії та дизелю.</p>
-                        <p><strong>Скорочення витрат на 40–70%</strong> і гарантована безперебійна робота навіть за відсутності газопостачання.</p>
-                    </div>
+                <div class="ap-fuel proj-reveal">
+                    <div class="ap-fuel__num">02</div>
+                    <div class="ap-fuel__name">Рідке паливо</div>
+                    <p class="ap-fuel__desc">Відпрацьована олія, дизельне паливо, технічне масло. Пальники з автоматичним розпилом та регулюванням потужності.</p>
                 </div>
+                <div class="ap-fuel proj-reveal">
+                    <div class="ap-fuel__num">03</div>
+                    <div class="ap-fuel__name">Зріджений газ LPG</div>
+                    <p class="ap-fuel__desc">Пропан-бутанова суміш. Ідеальний варіант за відсутності магістрального газопроводу.</p>
+                </div>
+                <div class="ap-fuel proj-reveal">
+                    <div class="ap-fuel__num">04</div>
+                    <div class="ap-fuel__name">Пелети та брикети</div>
+                    <p class="ap-fuel__desc">Деревні та агропелети будь-якого діаметру. Автоматична подача з бункера від 2 до 12 м³.</p>
+                </div>
+                <div class="ap-fuel proj-reveal">
+                    <div class="ap-fuel__num">05</div>
+                    <div class="ap-fuel__name">Комбінований режим</div>
+                    <p class="ap-fuel__desc">Двопаливні пальники поєднують природний газ з рідким чи твердим паливом.</p>
+                </div>
+                <div class="ap-fuel proj-reveal">
+                    <div class="ap-fuel__num">06</div>
+                    <div class="ap-fuel__name">Природний газ</div>
+                    <p class="ap-fuel__desc">Класичний варіант з автоматичним газопальниковим блоком. Можлива доустановка резервного пальника.</p>
+                </div>
+            </div>
+        </section>
 
-                <!-- 02 — Палива -->
-                <div class="proj-block-heading proj-reveal">
-                    <span class="proj-block-heading__num">— 02</span>
-                    <h2>Підтримувані види палива</h2>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-item proj-reveal">
-                        <div class="feature-item__index">01</div>
-                        <div class="feature-item__title">Тверде паливо</div>
-                        <p class="feature-item__text">Солома, лузга соняшнику, кукурудзяні качани, деревні пелети, тріска. Вихрова топка з КПД до 85%.</p>
-                    </div>
-                    <div class="feature-item proj-reveal">
-                        <div class="feature-item__index">02</div>
-                        <div class="feature-item__title">Рідке паливо</div>
-                        <p class="feature-item__text">Відпрацьована олія, дизельне паливо, технічне масло. Пальники з автоматичним розпилом та регулюванням потужності.</p>
-                    </div>
-                    <div class="feature-item proj-reveal">
-                        <div class="feature-item__index">03</div>
-                        <div class="feature-item__title">Зріджений газ LPG</div>
-                        <p class="feature-item__text">Пропан-бутанова суміш. Ідеальний варіант за відсутності магістрального газопроводу.</p>
-                    </div>
-                    <div class="feature-item proj-reveal">
-                        <div class="feature-item__index">04</div>
-                        <div class="feature-item__title">Пелети та брикети</div>
-                        <p class="feature-item__text">Деревні та агропелети будь-якого діаметру. Автоматична подача з бункера від 2 до 12 м³.</p>
-                    </div>
-                    <div class="feature-item proj-reveal">
-                        <div class="feature-item__index">05</div>
-                        <div class="feature-item__title">Комбінований режим</div>
-                        <p class="feature-item__text">Двопаливні пальники поєднують природний газ з рідким чи твердим паливом — гнучкість та безперебійність.</p>
-                    </div>
-                    <div class="feature-item proj-reveal">
-                        <div class="feature-item__index">06</div>
-                        <div class="feature-item__title">Природний газ</div>
-                        <p class="feature-item__text">Класичний варіант з автоматичним газопальниковим блоком. Можлива доустановка резервного пальника.</p>
-                    </div>
-                </div>
+        <!-- Advantages -->
+        <section class="ap-adv">
+            <div class="ap-section-eyebrow proj-reveal">— 03</div>
+            <h2 class="ap-section-title proj-reveal">Переваги альтернативного палива</h2>
+            <div class="ap-section-line proj-reveal"></div>
+            <div class="ap-adv__grid proj-stagger">
+                <div class="ap-adv__item proj-reveal"><div class="ap-adv__num">01</div><div class="ap-adv__text">Скорочення витрат на паливо на 40–70% порівняно з природним газом</div></div>
+                <div class="ap-adv__item proj-reveal"><div class="ap-adv__num">02</div><div class="ap-adv__text">Незалежність від централізованого газопостачання</div></div>
+                <div class="ap-adv__item proj-reveal"><div class="ap-adv__num">03</div><div class="ap-adv__text">Використання власних відходів виробництва — лузга, солома</div></div>
+                <div class="ap-adv__item proj-reveal"><div class="ap-adv__num">04</div><div class="ap-adv__text">Безперебійна робота сушарки під час відключень газу</div></div>
+                <div class="ap-adv__item proj-reveal"><div class="ap-adv__num">05</div><div class="ap-adv__text">Можливість швидкого переоснащення наявної сушарки</div></div>
+                <div class="ap-adv__item proj-reveal"><div class="ap-adv__num">06</div><div class="ap-adv__text">Автоматична подача палива — мінімум ручної праці</div></div>
+                <div class="ap-adv__item proj-reveal"><div class="ap-adv__num">07</div><div class="ap-adv__text">Дотримання екологічних стандартів горіння</div></div>
+                <div class="ap-adv__item proj-reveal"><div class="ap-adv__num">08</div><div class="ap-adv__text">Збільшення конкурентоспроможності господарства</div></div>
+            </div>
+        </section>
 
-                <!-- 03 — Переваги -->
-                <div class="proj-block-heading proj-reveal">
-                    <span class="proj-block-heading__num">— 03</span>
-                    <h2>Переваги</h2>
+        <!-- Steps -->
+        <section class="ap-steps">
+            <div class="ap-section-eyebrow proj-reveal">— 04</div>
+            <h2 class="ap-section-title proj-reveal">Як відбувається переоснащення</h2>
+            <div class="ap-section-line proj-reveal"></div>
+            <div class="ap-steps__row proj-stagger">
+                <div class="ap-step proj-reveal">
+                    <div class="ap-step__circle"><span class="ap-step__num">1</span></div>
+                    <div class="ap-step__title">Технічний аудит</div>
+                    <p class="ap-step__desc">Обстеження обладнання, визначення оптимального виду палива та потужності теплогенератора</p>
                 </div>
-                <div class="partner-card">
-                    <div class="partner-content">
-                        <div class="adv-grid">
-                            <div class="adv-item proj-reveal"><div class="adv-item__num">01</div><div class="adv-item__text">Скорочення витрат на паливо на 40–70% порівняно з природним газом</div></div>
-                            <div class="adv-item proj-reveal"><div class="adv-item__num">02</div><div class="adv-item__text">Незалежність від централізованого газопостачання</div></div>
-                            <div class="adv-item proj-reveal"><div class="adv-item__num">03</div><div class="adv-item__text">Використання власних відходів виробництва — лузга, солома</div></div>
-                            <div class="adv-item proj-reveal"><div class="adv-item__num">04</div><div class="adv-item__text">Безперебійна робота сушарки під час відключень газу</div></div>
-                            <div class="adv-item proj-reveal"><div class="adv-item__num">05</div><div class="adv-item__text">Можливість швидкого переоснащення наявної сушарки</div></div>
-                            <div class="adv-item proj-reveal"><div class="adv-item__num">06</div><div class="adv-item__text">Автоматична подача палива — мінімум ручної праці</div></div>
-                            <div class="adv-item proj-reveal"><div class="adv-item__num">07</div><div class="adv-item__text">Дотримання екологічних стандартів горіння</div></div>
-                            <div class="adv-item proj-reveal"><div class="adv-item__num">08</div><div class="adv-item__text">Збільшення конкурентоспроможності господарства</div></div>
-                        </div>
-                    </div>
+                <div class="ap-step proj-reveal">
+                    <div class="ap-step__circle"><span class="ap-step__num">2</span></div>
+                    <div class="ap-step__title">Проєктування</div>
+                    <p class="ap-step__desc">Розробка проєкту: пальниковий блок, паливна лінія, автоматика, система подачі</p>
                 </div>
+                <div class="ap-step proj-reveal">
+                    <div class="ap-step__circle"><span class="ap-step__num">3</span></div>
+                    <div class="ap-step__title">Монтаж</div>
+                    <p class="ap-step__desc">Встановлення та підключення власними монтажними бригадами у стислі терміни</p>
+                </div>
+                <div class="ap-step proj-reveal">
+                    <div class="ap-step__circle"><span class="ap-step__num">4</span></div>
+                    <div class="ap-step__title">Запуск і навчання</div>
+                    <p class="ap-step__desc">Пусконалагоджувальні роботи, навчання персоналу та гарантійне обслуговування</p>
+                </div>
+            </div>
+        </section>
 
-                <!-- 04 — Кроки -->
-                <div class="proj-block-heading proj-reveal">
-                    <span class="proj-block-heading__num">— 04</span>
-                    <h2>Як відбувається переоснащення</h2>
-                </div>
-                <div class="proj-steps">
-                    <div class="proj-steps__row">
-                        <div class="proj-steps__item proj-reveal">
-                            <div class="proj-steps__circle"><span class="proj-steps__num">1</span></div>
-                            <div class="proj-steps__title">Технічний аудит</div>
-                            <p class="proj-steps__desc">Обстеження обладнання, визначення оптимального виду палива та потужності теплогенератора</p>
-                        </div>
-                        <div class="proj-steps__item proj-reveal">
-                            <div class="proj-steps__circle"><span class="proj-steps__num">2</span></div>
-                            <div class="proj-steps__title">Проєктування</div>
-                            <p class="proj-steps__desc">Розробка проєкту: пальниковий блок, паливна лінія, автоматика, система подачі</p>
-                        </div>
-                        <div class="proj-steps__item proj-reveal">
-                            <div class="proj-steps__circle"><span class="proj-steps__num">3</span></div>
-                            <div class="proj-steps__title">Монтаж</div>
-                            <p class="proj-steps__desc">Встановлення та підключення власними монтажними бригадами у стислі терміни</p>
-                        </div>
-                        <div class="proj-steps__item proj-reveal">
-                            <div class="proj-steps__circle"><span class="proj-steps__num">4</span></div>
-                            <div class="proj-steps__title">Запуск і навчання</div>
-                            <p class="proj-steps__desc">Пусконалагоджувальні роботи, навчання персоналу та гарантійне обслуговування</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- CTA -->
+        <div class="ap-cta proj-reveal">
+            <div class="ap-cta__content">
+                <div class="ap-cta__eyebrow">Готові розпочати?</div>
+                <h2 class="ap-cta__title">Замовте консультацію</h2>
+                <p class="ap-cta__text">Технічний менеджер підбере оптимальне рішення для вашого господарства</p>
+            </div>
+            <div class="ap-cta__btns">
+                <button class="tp-cta__btn tp-cta__btn--primary js-contact-phone-trigger">Зателефонувати</button>
+                <button class="tp-cta__btn tp-cta__btn--outline js-callback-trigger">Написати нам</button>
+            </div>
+        </div>
 
-                <!-- CTA -->
-                <div class="proj-cta proj-reveal">
-                    <div class="proj-cta__inner">
-                        <div>
-                            <div class="proj-cta__label">Готові розпочати?</div>
-                            <div class="proj-cta__title">Замовте консультацію</div>
-                            <p class="proj-cta__text">Технічний менеджер підбере оптимальне рішення для вашого господарства</p>
-                        </div>
-                        <div class="proj-cta__btns">
-                            <button class="btn-orange js-contact-phone-trigger">Зателефонувати</button>
-                            <button class="btn-orange btn-orange--ghost js-callback-trigger">Написати нам</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /proj-main -->
-
-            <!-- Sidebar -->
-            <aside class="proj-sidebar">
-                <div class="proj-sb-card">
-                    <div class="proj-sb-card__head">Наші послуги</div>
-                    <ul>
-                        <li><a href="projecting.html" class="active">Робота на альтернативному паливі</a></li>
-                        <li><a href="manufacturing.html">Будівництво зерноочисних комплексів</a></li>
-                        <li><a href="modernization.html">Переобладнання та модернізація</a></li>
-                        <li><a href="technical-support.html">Ремонт та технічний супровід</a></li>
-                        <li><a href="spare-parts-page.html">Запасні частини</a></li>
-                        <li><a href="maintenance.html">Сервіс</a></li>
-                    </ul>
-                </div>
-                <div class="proj-sb-contact">
-                    <h4>Зв'язатись з нами</h4>
-                    <a href="tel:+380675206323">+38 067 520 63 23</a>
-                    <a href="tel:+380975137175">+38 097 513 71 75</a>
-                    <a href="tel:+380675638881">+38 067 563 88 81</a>
-                    <a href="mailto:info@agrostar.com">info@agrostar.com</a>
-                    <button class="proj-sb-btn js-callback-trigger">ЗАМОВИТИ ДЗВІНОК</button>
-                </div>
-            </aside>
-
-        </div><!-- /proj-layout -->
-    </div><!-- /container -->
+    </div>
 </main>
 
 
+<!-- Modal callback -->
 <div class="modal-overlay" id="modalOverlay">
     <div class="callback-form">
         <button class="callback-form__close" id="closeForm">&times;</button>
@@ -273,6 +663,30 @@
             <textarea name="message" placeholder="Ваше повідомлення" rows="4"></textarea>
             <button type="submit" class="callback-form__submit">ВІДПРАВИТИ ЗАЯВКУ</button>
         </form>
+    </div>
+</div>
+
+<!-- Phone modal -->
+<div class="phone-modal-overlay" id="phoneModal">
+    <div class="phone-modal">
+        <button class="phone-modal__close" id="phoneModalClose">&times;</button>
+        <h2 class="phone-modal__title">Оберіть зручний спосіб зв'язку</h2>
+        <a href="tel:+380675206323" class="phone-modal__call">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.73 12.3a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1a16 16 0 0 0 6 6l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Зателефонувати
+        </a>
+        <p class="phone-modal__or">Написати</p>
+        <div class="phone-modal__messengers">
+            <a href="viber://chat?number=%2B380675206323" class="phone-modal__messenger phone-modal__messenger--viber">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M11.4 0C5.5 0 1.3 4.1 1.3 9.9c0 2.8 1 5.3 2.9 7.1v3.3l3.1-1.7c.8.2 1.6.3 2.4.3h.3c5.9 0 10.1-4.1 10.1-9.9S17.3 0 11.4 0zm1 13.3c-.2 0-.4-.1-.6-.2l-2.3-1.7-4.4 1.7 4.8-5.1 2.4 1.7 4.3-1.7-4.2 5.3z"/></svg>
+            </a>
+            <a href="https://t.me/graindryerua" target="_blank" rel="noopener" class="phone-modal__messenger phone-modal__messenger--telegram">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2l-2 9.4c-.1.6-.5.8-1 .4l-2.8-2.1-1.3 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.2-4.7c.2-.2 0-.3-.3-.1L6.1 14.5 3.4 13.7c-.6-.2-.6-.6.1-.8l11.5-4.4c.6-.2 1.1.1.9.7z"/></svg>
+            </a>
+            <a href="https://wa.me/380675206323" target="_blank" rel="noopener" class="phone-modal__messenger phone-modal__messenger--whatsapp">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.4-1.6C8.1 23.4 10 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0zm6.2 16.9c-.3.8-1.4 1.4-2.3 1.6-.6.1-1.4.2-4.1-.9-3.4-1.4-5.6-4.9-5.8-5.1-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9.3-.3.7-.4 1-.4h.7c.3 0 .6.1.8.7l1.1 2.7c.1.3.1.6-.1.8l-.6.7c-.1.2-.2.3-.1.6.5.9 1.2 1.8 2 2.5.9.7 1.8 1.2 2.8 1.5.3.1.5 0 .7-.2l.6-.8c.2-.3.5-.4.8-.2l2.6 1.2c.3.1.5.3.5.6v.7z"/></svg>
+            </a>
+        </div>
     </div>
 </div>
 
@@ -323,11 +737,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/script.js"></script>
 <script>
-    // ── Scroll reveal (IntersectionObserver) ─────────────────────
-    const revealEls = document.querySelectorAll(
-        '.proj-reveal, .proj-reveal-left, .proj-reveal-right, .proj-stats__item'
-    );
-
+    // ── Scroll reveal ─────────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -335,11 +745,12 @@
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
-    revealEls.forEach(el => observer.observe(el));
+    document.querySelectorAll('.proj-reveal, .proj-reveal-left, .proj-reveal-right')
+        .forEach(el => observer.observe(el));
 
-    // ── Callback modal ────────────────────────────────────────────
+    // ── Modals ────────────────────────────────────────────────────
     document.querySelectorAll('.js-callback-trigger').forEach(btn =>
         btn.addEventListener('click', e => {
             e.preventDefault();
@@ -350,6 +761,18 @@
         document.getElementById('modalOverlay').classList.remove('active')
     );
     document.getElementById('modalOverlay').addEventListener('click', e => {
+        if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+    });
+
+    document.querySelectorAll('.js-contact-phone-trigger').forEach(btn =>
+        btn.addEventListener('click', () =>
+            document.getElementById('phoneModal').classList.add('active')
+        )
+    );
+    document.getElementById('phoneModalClose').addEventListener('click', () =>
+        document.getElementById('phoneModal').classList.remove('active')
+    );
+    document.getElementById('phoneModal').addEventListener('click', e => {
         if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
     });
 </script>

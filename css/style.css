@@ -2455,7 +2455,7 @@
       flex-shrink: 0; }
   .section-header__title {
     font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(30px, 4vw, 52px);
+    font-size: clamp(30px, 4vw, 42px);
     font-weight: 800;
     text-transform: uppercase;
     color: #0b1724;
