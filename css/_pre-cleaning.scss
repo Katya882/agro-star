@@ -1,0 +1,569 @@
+// ─── _pre-cleaning.scss ────────────────────────────────────────────────────
+// Стилі сторінки "Попередня очистка зерна"
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+// ── Змінні ──────────────────────────────────────────────────────────────────
+$orange:    #F15623;
+$navy:      #0b1724;
+$blue:      #1877F2;
+$white:     #FFFFFF;
+$grey:      #474747;
+$grey-mid:  #5F5F5F;
+$grey-light:#777;
+$border:    #e8e8e8;
+$bg-light:  #f5f5f5;
+
+$font-display: 'Barlow Condensed', sans-serif;
+$font-body:    'Inter', sans-serif;
+
+// ── Анімації ────────────────────────────────────────────────────────────────
+@keyframes pFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pLineGrow {
+  from { width: 0; }
+  to   { width: 60px; }
+}
+
+// ── Scroll-reveal ────────────────────────────────────────────────────────────
+.pr-reveal,
+.pr-left,
+.pr-right {
+  opacity: 0;
+  transition: opacity .55s ease, transform .55s ease;
+}
+
+.pr-reveal { transform: translateY(20px); }
+.pr-left   { transform: translateX(-28px); }
+.pr-right  { transform: translateX(28px); }
+
+.pr-reveal.is-visible,
+.pr-left.is-visible,
+.pr-right.is-visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+// Stagger delays для дочірніх елементів
+.pr-stagger {
+  @for $i from 1 through 8 {
+    .pr-reveal:nth-child(#{$i}) {
+      transition-delay: #{($i - 1) * 0.07}s;
+    }
+  }
+}
+
+// ── Hero ─────────────────────────────────────────────────────────────────────
+.pc-hero {
+  padding: 44px 0 0;
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: $orange;
+    margin-bottom: 14px;
+    animation: pFadeUp .4s .05s ease both;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: $orange;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $navy;
+    line-height: 1.05;
+    letter-spacing: .01em;
+    margin-bottom: 14px;
+    animation: pFadeUp .45s .12s ease both;
+  }
+
+  &__line {
+    width: 0;
+    height: 3px;
+    background: $blue;
+    margin-bottom: 20px;
+    animation: pLineGrow .5s .3s ease forwards;
+  }
+
+  &__lead {
+    font-size: 16px;
+    font-weight: 500;
+    color: $grey;
+    max-width: 660px;
+    line-height: 1.65;
+    margin-bottom: 10px;
+    animation: pFadeUp .5s .35s ease both;
+  }
+
+  &__body {
+    font-size: 14.5px;
+    color: $grey-light;
+    max-width: 620px;
+    line-height: 1.65;
+    margin-bottom: 50px;
+    animation: pFadeUp .5s .42s ease both;
+  }
+}
+
+// ── Stats ─────────────────────────────────────────────────────────────────────
+.pc-stats {
+  display: flex;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 60px;
+}
+
+.pc-stat {
+  flex: 1;
+  padding: 20px 28px;
+  border-right: 1px solid #ebebeb;
+
+  &:last-child { border-right: none; }
+
+  &__val {
+    font-family: $font-display;
+    font-size: 38px;
+    font-weight: 800;
+    color: $navy;
+    line-height: 1;
+
+    span { color: $orange; }
+  }
+
+  &__label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    margin-top: 5px;
+  }
+}
+
+// ── Section heading ──────────────────────────────────────────────────────────
+.pc-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: $orange;
+  margin-bottom: 6px;
+}
+
+.pc-title {
+  font-family: $font-display;
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: $navy;
+  letter-spacing: .03em;
+  margin-bottom: 8px;
+}
+
+.pc-line {
+  width: 40px;
+  height: 2px;
+  background: $blue;
+  margin-bottom: 28px;
+}
+
+// ── Main photo + content block ───────────────────────────────────────────────
+.pc-main {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 0;
+  margin-bottom: 70px;
+  border: 1px solid $border;
+  overflow: hidden;
+
+  &__photo {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s ease;
+    }
+  }
+
+  &:hover .pc-main__photo img {
+    transform: scale(1.03);
+  }
+
+  &__badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: $orange;
+    color: $white;
+    font-family: $font-display;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    span {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+    }
+  }
+
+  &__content {
+    background: $navy;
+    padding: 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .pc-eyebrow { color: $orange; margin-bottom: 8px; }
+    .pc-title   { color: $white; margin-bottom: 6px; }
+    .pc-line    { background: $orange; margin-bottom: 24px; }
+
+    p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba($white, .68);
+      margin-bottom: 16px;
+
+      &:last-of-type { margin-bottom: 28px; }
+    }
+
+    strong { color: $white; }
+  }
+}
+
+// ── Inline list (inside dark block) ──────────────────────────────────────────
+.pc-inline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba($white, .1);
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+
+  li {
+    font-size: 13.5px;
+    color: rgba($white, .65);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.45;
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      background: $orange;
+      border-radius: 50%;
+      margin-top: 5px;
+    }
+  }
+}
+
+// ── Process (steps) ──────────────────────────────────────────────────────────
+.pc-process {
+  margin-bottom: 70px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, $orange 25%, $orange 75%, transparent);
+      z-index: 0;
+    }
+  }
+}
+
+.pc-step {
+  text-align: center;
+  padding: 0 14px;
+  position: relative;
+  z-index: 1;
+
+  &__circle {
+    width: 80px;
+    height: 80px;
+    background: $navy;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    border: 3px solid $white;
+    box-shadow: 0 0 0 2px $orange;
+    transition: background .3s, transform .3s;
+  }
+
+  &:hover .pc-step__circle {
+    background: $orange;
+    transform: scale(1.07);
+  }
+
+  &__num {
+    font-family: $font-display;
+    font-size: 28px;
+    font-weight: 900;
+    color: $white;
+    line-height: 1;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: $navy;
+    margin-bottom: 10px;
+  }
+
+  &__desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: $grey-light;
+  }
+}
+
+// ── Advantages ───────────────────────────────────────────────────────────────
+.pc-adv {
+  margin-bottom: 70px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    background: $bg-light;
+    border-left: 3px solid $orange;
+    transition: background .2s, transform .2s;
+
+    &:hover {
+      background: $navy;
+      transform: translateX(4px);
+
+      .pc-adv__num  { background: $orange; }
+      .pc-adv__text { color: rgba($white, .8); }
+    }
+  }
+
+  &__num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: $navy;
+    color: $white;
+    font-family: $font-display;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+  }
+
+  &__text {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: $grey;
+    padding-top: 4px;
+    transition: color .2s;
+  }
+}
+
+// ── CTA ──────────────────────────────────────────────────────────────────────
+.pc-cta {
+  background: $navy;
+  padding: 48px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba($orange, .06);
+    pointer-events: none;
+  }
+
+  &__eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: $orange;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $white;
+    line-height: 1.05;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__text {
+    font-size: 14.5px;
+    color: rgba($white, .55);
+    position: relative;
+    z-index: 1;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// ── CTA buttons (shared with projecting) ─────────────────────────────────────
+.tp-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 28px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  transition: all .25s ease;
+
+  &--primary {
+    background: $orange;
+    color: $white;
+
+    &:hover {
+      background: #ff6b3d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba($orange, .4);
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: rgba($white, .8);
+    border: 1.5px solid rgba($white, .25);
+
+    &:hover {
+      border-color: $white;
+      color: $white;
+    }
+  }
+}
+
+// ── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1100px) {
+  .pc-main { grid-template-columns: 360px 1fr; }
+}
+
+@media (max-width: 1024px) {
+  .pc-main {
+    grid-template-columns: 1fr;
+
+    &__photo { min-height: 320px; }
+    &__content { padding: 36px 30px; }
+  }
+
+  .pc-process__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    &::before { display: none; }
+  }
+
+  .pc-adv__grid { grid-template-columns: 1fr; }
+
+  .pc-cta {
+    flex-direction: column;
+    padding: 36px 30px;
+
+    &__btns { flex-direction: row; }
+  }
+
+  .pc-stats { flex-wrap: wrap; }
+  .pc-stat  { flex: 0 1 50%; }
+
+  .pc-inline-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .pc-process__grid { grid-template-columns: 1fr; }
+
+  .pc-cta {
+    padding: 30px 20px;
+
+    &__btns { flex-direction: column; width: 100%; }
+  }
+
+  .tp-cta__btn { width: 100%; }
+
+  .pc-stat { flex: 0 1 50%; }
+}
+
+@media (max-width: 480px) {
+  .pc-stat { flex: 0 1 100%; }
+}

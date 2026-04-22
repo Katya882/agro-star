@@ -280,3 +280,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+
+// ─── pre-cleaning.js ───────────────────────────────────────────────────────
+// Скрипти сторінки "Попередня очистка зерна"
+
+(function () {
+    'use strict';
+
+    // ── Scroll reveal (IntersectionObserver) ─────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.pr-reveal, .pr-left, .pr-right')
+        .forEach(el => observer.observe(el));
+
+    // Stagger для stats і карток — динамічна затримка через JS
+    document.querySelectorAll('.pr-stagger .pr-reveal').forEach((el, i) => {
+        el.style.transitionDelay = (i * 0.07) + 's';
+        observer.observe(el);
+    });
+
+    // ── Modal callback ────────────────────────────────────────────────────────
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeForm    = document.getElementById('closeForm');
+
+    document.querySelectorAll('.js-callback-trigger').forEach(btn =>
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            modalOverlay.classList.add('active');
+        })
+    );
+
+    closeForm.addEventListener('click', () =>
+        modalOverlay.classList.remove('active')
+    );
+
+    modalOverlay.addEventListener('click', e => {
+        if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+    });
+
+    // ── Phone modal ───────────────────────────────────────────────────────────
+    const phoneModal      = document.getElementById('phoneModal');
+    const phoneModalClose = document.getElementById('phoneModalClose');
+
+    document.querySelectorAll('.js-contact-phone-trigger').forEach(btn =>
+        btn.addEventListener('click', () => phoneModal.classList.add('active'))
+    );
+
+    phoneModalClose.addEventListener('click', () =>
+        phoneModal.classList.remove('active')
+    );
+
+    phoneModal.addEventListener('click', e => {
+        if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+    });
+
+})();
