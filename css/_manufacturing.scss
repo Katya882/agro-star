@@ -29,10 +29,63 @@
 .cleaning-capabilities { padding-bottom: 80px; }
 .sub-title { color: var(--grey-text); text-align: center; margin-bottom: 50px; font-size: 26px; }
 
-.capabilities-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+.capabilities {
+  padding: 100px 0;
+  background-color: var(--white);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+  }
+
+  &__item {
+    position: relative;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0; // Тонка лінія зверху для солідності
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      &::before {
+        width: 100%; // Анімація лінії при наведенні
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 40px;
+      height: 1px;
+      background-color: var(--orange);
+      transition: width 0.4s ease;
+    }
+  }
+
+  &__num {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--grey-text);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+  }
 }
 
 .cap-card {
@@ -63,7 +116,7 @@
 
 .quality-assurance { margin-top: 40px; }
 .assurance-banner {
-  background: var(--grey-text);
+  background: #0b1724;
   padding: 60px;
   border-radius: 20px;
   display: flex;

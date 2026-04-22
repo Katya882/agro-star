@@ -3191,10 +3191,48 @@
   margin-bottom: 50px;
   font-size: 26px; }
 
-.capabilities-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px; }
+.capabilities {
+  padding: 100px 0;
+  background-color: var(--white); }
+  .capabilities__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px; }
+  .capabilities__item {
+    position: relative;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    transition: transform 0.3s ease; }
+    .capabilities__item:hover {
+      transform: translateY(-5px); }
+      .capabilities__item:hover::before {
+        width: 100%; }
+    .capabilities__item::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 40px;
+      height: 1px;
+      background-color: var(--orange);
+      transition: width 0.4s ease; }
+  .capabilities__num {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 20px;
+    letter-spacing: 0.1em; }
+  .capabilities__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--grey-text);
+    margin-bottom: 15px;
+    text-transform: uppercase; }
+  .capabilities__text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666; }
 
 .cap-card {
   padding: 40px;
@@ -3233,7 +3271,7 @@
   margin-top: 40px; }
 
 .assurance-banner {
-  background: var(--grey-text);
+  background: #0b1724;
   padding: 60px;
   border-radius: 20px;
   display: flex;
