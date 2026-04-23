@@ -36,8 +36,6 @@
 }
 
 
-// ─── 2. Інформація + статистика ──────────────────────────────
-
 .about-info {
   margin-bottom: 80px;
 
@@ -94,8 +92,6 @@
 }
 
 
-// ─── 3. Можливості / переваги ─────────────────────────────────
-
 .capabilities {
   margin-bottom: 80px;
 
@@ -147,8 +143,6 @@
   }
 }
 
-
-// ─── 4. Сертифікати ───────────────────────────────────────────
 
 .certificates {
   padding-top: 80px;
@@ -243,8 +237,6 @@
   }
 }
 
-
-// ─── 5. Лайтбокс ─────────────────────────────────────────────
 
 .lightbox {
   position: fixed;
@@ -365,6 +357,10 @@
 }
 
 @media (max-width: 480px) {
+  .about-page {
+    padding-bottom: 60px;
+    padding-top: 180px;
+  }
   .about-info__stats {
     flex-direction: column;
     align-items: flex-start;
