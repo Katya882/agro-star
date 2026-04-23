@@ -5512,6 +5512,9 @@
   padding-bottom: 25px; }
 
 @media (max-width: 768px) {
+  .grain-bins {
+    padding-top: 160px; }
+
   .custom-solutions .solutions-card {
     padding: 40px 20px; }
     .custom-solutions .solutions-card__title {

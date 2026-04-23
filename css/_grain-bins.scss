@@ -58,8 +58,10 @@
   padding-bottom: 25px;
 }
 
-// Адаптація для мобільних
 @media (max-width: 768px) {
+  .grain-bins{
+    padding-top: 160px;
+  }
   .custom-solutions .solutions-card {
     padding: 40px 20px;
     &__title { font-size: 22px; }
