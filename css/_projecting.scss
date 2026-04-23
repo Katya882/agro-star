@@ -1,20 +1,14 @@
-// ─── _projecting.scss ──────────────────────────────────────────────────────
-// Розширює базові класи та додає нові для сторінки "Робота на альтернативному паливі"
-
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&display=swap');
 
-// ── Токени ──────────────────────────────────────────────────────────────────
 $font-display: 'Barlow Condensed', sans-serif;
 $font-body:    'Inter', sans-serif;
 
-// ── Секція ──────────────────────────────────────────────────────────────────
 .projecting-section {
   background-color: var(--white);
   color: var(--grey-text);
   padding-bottom: 100px;
 }
 
-// ── Хлібні крихти ───────────────────────────────────────────────────────────
 .breadcrumbs {
   display: flex;
   align-items: center;
@@ -32,7 +26,7 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Section header (заголовок сторінки) ─────────────────────────────────────
+
 .section-header {
   padding: 40px 0 0;
   margin-bottom: 0;
@@ -69,7 +63,6 @@ $font-body:    'Inter', sans-serif;
     line-height: 1.05;
     letter-spacing: .01em;
     margin-bottom: 16px;
-    max-width: 640px;
     opacity: 0;
     animation: projFadeUp .5s .12s ease forwards;
   }
@@ -97,7 +90,6 @@ $font-body:    'Inter', sans-serif;
   &__bg-num { display: none; }
 }
 
-// ── Стат-смуга ───────────────────────────────────────────────────────────────
 .proj-stats {
   display: flex;
   gap: 0;
@@ -147,7 +139,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Основний layout ──────────────────────────────────────────────────────────
 .proj-layout {
   display: grid;
   grid-template-columns: 1fr 290px;
@@ -155,7 +146,6 @@ $font-body:    'Inter', sans-serif;
   align-items: start;
 }
 
-// ── Заголовок блоку ──────────────────────────────────────────────────────────
 .proj-block-heading {
   display: flex;
   align-items: center;
@@ -186,7 +176,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Інтро-блок (переосмислений .intro-grid) ──────────────────────────────────
 .intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
