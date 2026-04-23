@@ -84,7 +84,7 @@ $font-body:    'Inter', sans-serif;
   &__title {
     font-family: $font-display;
     font-size: clamp(30px, 4vw, 52px);
-    font-weight: 800;
+    font-weight: 600;
     text-transform: uppercase;
     color: $navy;
     line-height: 1.05;
@@ -121,7 +121,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Stats ─────────────────────────────────────────────────────────────────────
 .pc-stats {
   display: flex;
   border-top: 1px solid #ebebeb;
@@ -156,7 +155,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Section heading ──────────────────────────────────────────────────────────
 .pc-eyebrow {
   font-size: 11px;
   font-weight: 600;
@@ -183,7 +181,6 @@ $font-body:    'Inter', sans-serif;
   margin-bottom: 28px;
 }
 
-// ── Main photo + content block ───────────────────────────────────────────────
 .pc-main {
   display: grid;
   grid-template-columns: 420px 1fr;
@@ -256,7 +253,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Inline list (inside dark block) ──────────────────────────────────────────
 .pc-inline-list {
   list-style: none;
   padding: 0;
@@ -287,7 +283,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Process (steps) ──────────────────────────────────────────────────────────
 .pc-process {
   margin-bottom: 70px;
 
@@ -359,7 +354,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Advantages ───────────────────────────────────────────────────────────────
 .pc-adv {
   margin-bottom: 70px;
 
@@ -411,7 +405,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── CTA ──────────────────────────────────────────────────────────────────────
 .pc-cta {
   background: $navy;
   padding: 48px 50px;
@@ -475,7 +468,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── CTA buttons (shared with projecting) ─────────────────────────────────────
 .tp-cta__btn {
   display: inline-flex;
   align-items: center;
@@ -515,7 +507,6 @@ $font-body:    'Inter', sans-serif;
   }
 }
 
-// ── Responsive ───────────────────────────────────────────────────────────────
 @media (max-width: 1100px) {
   .pc-main { grid-template-columns: 360px 1fr; }
 }
