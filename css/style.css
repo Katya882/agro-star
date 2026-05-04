@@ -413,10 +413,6 @@
     padding-top: 36px;
     justify-content: space-around; } }
 @media (max-width: 768px) {
-  .about-page {
-    padding-bottom: 60px;
-    padding-top: 200px; }
-
   .page-hero {
     padding: 200px 0 50px; }
     .page-hero__title {
@@ -726,7 +722,7 @@
   .equipment-description h3 {
     color: #313131;
     font-size: 18px;
-    margin: 30px 0 15px;
+    margin: 30px 0 16px;
     text-transform: uppercase; }
   .equipment-description li {
     font-family: 'Inter', sans-serif;
@@ -752,7 +748,7 @@
 .dryer-item {
   display: flex;
   gap: 60px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   align-items: flex-start; }
   .dryer-item__img-container {
     flex: 0 0 450px;
@@ -770,9 +766,9 @@
     font-weight: 700;
     font-size: 20px;
     color: #313131;
-    margin-bottom: 20px; }
+    margin-bottom: 16px; }
   .dryer-item__specs {
-    margin: 0 0 20px 0;
+    margin: 0 0 16px 0;
     padding: 0;
     list-style: none; }
     .dryer-item__specs li {
@@ -799,7 +795,7 @@
     font-size: 16px;
     line-height: 24px;
     color: #474747;
-    margin-bottom: 30px; }
+    margin-bottom: 24px; }
   .dryer-item__btn {
     display: inline-block;
     padding: 12px 30px;
@@ -815,7 +811,7 @@
 
 .contact-banner {
   background-color: #F15623;
-  padding: 40px 30px;
+  padding: 40px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -827,7 +823,7 @@
     .contact-banner__text h3 {
       font-size: 24px;
       font-weight: 700;
-      margin-bottom: 5px; }
+      margin-bottom: 8px; }
     .contact-banner__text p {
       font-size: 16px;
       opacity: 0.9; }
@@ -849,8 +845,8 @@
 @media (max-width: 992px) {
   .dryer-item {
     flex-direction: column;
-    gap: 30px;
-    margin-bottom: 60px; }
+    gap: 24px;
+    margin-bottom: 40px; }
     .dryer-item__img-container {
       flex: 0 0 auto;
       width: 100%;
@@ -869,7 +865,7 @@
   .contact-banner {
     flex-direction: column;
     text-align: center;
-    gap: 25px;
+    gap: 24px;
     padding: 30px 20px;
     margin: 40px 15px 0;
     width: calc(100% - 30px); }
@@ -877,12 +873,12 @@
       font-size: 20px; } }
 @media (max-width: 769px) {
   .equipment-page {
-    margin-top: 100px;
+    margin-top: 250px;
     padding: 0 15px; }
 
   .equipment-page__title {
     font-size: 18px;
-    margin-bottom: 20px; }
+    margin-bottom: 16px; }
 
   .equipment-description {
     margin-bottom: 40px; }
@@ -890,7 +886,7 @@
       font-size: 14px; } }
 @media (max-width: 576px) {
   .equipment-page {
-    margin-top: 80px; }
+    margin-top: 180px; }
 
   .dryer-item__img-container {
     border-radius: 8px; }
@@ -902,12 +898,6 @@
     width: 100%;
     padding: 15px 10px;
     font-size: 12px; } }
-@media (max-width: 769px) {
-  .equipment-page {
-    margin-top: 250px; } }
-@media (max-width: 576px) {
-  .equipment-page {
-    margin-top: 180px; } }
 .one-module-page {
   padding: 40px 0 80px; }
   .one-module-page__title {
