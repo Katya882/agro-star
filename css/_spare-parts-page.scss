@@ -14,6 +14,156 @@ $border:     #e4e9ef;
 $bg-light:   #f5f8fc;
 $white:      #ffffff;
 
+
+
+.sp-gallery {
+  padding: 50px 0;
+}
+
+.sp-section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sp-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.sp-gallery__item {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sp-gallery__item.active {
+  transform: scale(1.1);
+}
+
+.sp-gallery__img-wrap {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.sp-gallery__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sp-gallery__label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+/* Налаштування сітки та однакового розміру карток */
+.sp-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.sp-gallery__item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sp-gallery__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Фіксуємо розмір контейнера для фото */
+.sp-gallery__img-wrap {
+  width: 100%;
+  height: 220px; /* Усі фото в сітці будуть цієї висоти */
+  overflow: hidden;
+}
+
+/* Змушуємо картинку акуратно заповнювати простір без деформації */
+.sp-gallery__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sp-gallery__label {
+  padding: 15px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+}
+
+/* СТИЛІ ДЛЯ МОДАЛЬНОГО ВІКНА (ЗБІЛЬШЕННЯ) */
+.sp-gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.sp-gallery-modal__content {
+  margin: auto;
+  display: block;
+  max-width: 85%;
+  max-height: 75vh;
+  object-fit: contain;
+  animation: zoomIn 0.3s ease;
+}
+
+.sp-gallery-modal__caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 15px 0;
+  font-size: 18px;
+}
+
+.sp-gallery-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f11111;
+  font-size: 60px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.sp-gallery-modal__close:hover {
+  color: #bbb;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
 // ─── Page wrapper ────────────────────────────
 .spare-parts-page {
   padding: 0 0 80px;

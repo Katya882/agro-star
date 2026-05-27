@@ -279,6 +279,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePhone(); });
     }
 
+
+
+    const galleryItems = document.querySelectorAll('.sp-gallery__item');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+
+
+
 });
 
 
@@ -343,3 +355,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("spGalleryModal");
+    const modalImg = document.getElementById("spModalImg");
+    const captionText = document.getElementById("spModalCaption");
+    const closeBtn = document.querySelector(".sp-gallery-modal__close");
+    const items = document.querySelectorAll(".sp-gallery__item");
+
+    // Відкриття при кліку на картку
+    items.forEach(item => {
+        item.addEventListener("click", function () {
+            const img = this.querySelector("img");
+            const label = this.querySelector(".sp-gallery__label");
+
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            captionText.innerHTML = label.innerHTML;
+        });
+    });
+
+    // Закриття при кліку на хрестик
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    // Закриття при кліку на сірий екран поза картинкою
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal || e.target === closeBtn) {
+            modal.style.display = "none";
+        }
+    });
+});
