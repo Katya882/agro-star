@@ -13,6 +13,7 @@ $border:     #e4e9ef;
 $bg-light:   #f5f8fc;
 $white:      #ffffff;
 
+
 // ─── Page wrapper ────────────────────────────
 .transport-page {
   padding: 0 0 80px;
@@ -22,7 +23,8 @@ $white:      #ffffff;
   @media (max-width: 576px) { margin-top: 150px; }
 }
 
-// ─── Breadcrumbs ────────────────────────────
+
+// ─── Breadcrumbs ─────────────────────────────
 .tp-breadcrumbs {
   display: flex;
   align-items: center;
@@ -41,6 +43,7 @@ $white:      #ffffff;
 
   span:last-child { color: $text-mid; }
 }
+
 
 // ─── Hero ────────────────────────────────────
 .tp-hero {
@@ -116,11 +119,12 @@ $white:      #ffffff;
 
   @media (max-width: 576px) {
     &__title { font-size: 26px; }
-    &__lead { font-size: 15px; }
+    &__lead   { font-size: 15px; }
   }
 }
 
-// ─── Section title ───────────────────────────
+
+// ─── Section title ────────────────────────────
 .tp-section-title {
   font-size: 22px;
   font-weight: 700;
@@ -129,26 +133,104 @@ $white:      #ffffff;
   letter-spacing: -0.2px;
 }
 
+
+// ─── Article (текстовий блок опису обладнання) ─
+.tp-article {
+  margin-bottom: 60px;
+  padding: 40px 48px;
+  background: $bg-light;
+  border: 1px solid $border;
+  border-radius: 14px;
+
+  h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: $dark;
+    margin: 0 0 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid $blue;
+    letter-spacing: -0.2px;
+  }
+
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: $dark;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 28px 0 10px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: $text-mid;
+    margin: 0 0 14px;
+
+    &:last-of-type { margin-bottom: 0; }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: $text-mid;
+      border-bottom: 1px solid $border;
+
+      &:last-child { border-bottom: none; }
+
+      &::before {
+        content: '';
+        flex-shrink: 0;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: $blue;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 28px 24px;
+    h2 { font-size: 19px; }
+  }
+
+  @media (max-width: 576px) {
+    padding: 20px 16px;
+    h2 { font-size: 17px; }
+    p  { font-size: 14px; }
+  }
+}
+
+
 // ─── Gallery ─────────────────────────────────
 .tp-gallery {
   margin-bottom: 60px;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-
-    @media (max-width: 640px) { grid-template-columns: 1fr; }
+  &__swiper {
+    position: relative;
+    padding-bottom: 48px;
+    overflow: hidden;
   }
 
-  &__item {
-    transition: transform .2s ease;
-    &:hover { transform: translateY(-4px); }
+  &__slide {
+    height: auto;
   }
 
   &__img-wrap {
     width: 100%;
-    height: 280px;
+    height: 300px;
     background: $bg-light;
     border: 1px solid $border;
     border-radius: 10px;
@@ -158,31 +240,197 @@ $white:      #ffffff;
     justify-content: center;
     margin-bottom: 12px;
     padding: 16px;
+    cursor: zoom-in;
+    transition: border-color .2s, box-shadow .2s;
+
+    &:hover {
+      border-color: $blue;
+      box-shadow: 0 4px 16px rgba($blue, .12);
+    }
 
     img {
+      width: auto !important;
+      height: auto !important;
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
       display: block;
+      pointer-events: none;
     }
   }
 
   &__label {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
     color: $blue;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     text-align: center;
   }
 
+  &__prev,
+  &__next {
+    position: absolute;
+    top: calc(300px / 2 - 20px);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $white;
+    border: 1px solid $border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: $dark;
+    transition: background .15s, border-color .15s, color .15s;
+
+    &:hover {
+      background: $blue;
+      border-color: $blue;
+      color: $white;
+    }
+
+    &.swiper-button-disabled {
+      opacity: .35;
+      pointer-events: none;
+    }
+
+    svg {
+      width: 20px !important;
+      height: 20px !important;
+      flex-shrink: 0;
+    }
+  }
+
+  &__prev { left: -16px; }
+  &__next { right: -16px; }
+
+  &__pagination {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $border;
+      opacity: 1;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+
+      &-active {
+        background: $blue;
+        transform: scale(1.3);
+      }
+    }
+  }
+
   @media (max-width: 576px) {
     &__img-wrap { height: 220px; }
+    &__prev { left: 0; }
+    &__next { right: 0; }
   }
 }
 
-// ─── Specs section ───────────────────────────
+
+// ─── Lightbox ────────────────────────────────
+.tp-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($dark, .88);
+    backdrop-filter: blur(6px);
+    cursor: zoom-out;
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba($white, .12);
+    border: 1px solid rgba($white, .2);
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .15s;
+
+    &:hover { background: rgba($white, .25); }
+
+    svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  &__img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw;
+    max-height: calc(90vh - 60px);
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+    transform: scale(.92);
+    transition: transform .25s ease;
+
+    .tp-lightbox.is-open & {
+      transform: scale(1);
+    }
+  }
+
+  &__caption {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba($white, .7);
+    text-align: center;
+  }
+}
+
+
+// ─── Specs section ────────────────────────────
 .tp-specs {
   margin-bottom: 60px;
 
@@ -242,7 +490,7 @@ $white:      #ffffff;
   }
 }
 
-// Dot list
+// Dot list (у картках specs)
 .tp-dot-list {
   list-style: none;
   padding: 16px 24px;
@@ -309,114 +557,11 @@ $white:      #ffffff;
   font-size: 13px;
   color: $text-mid;
 
-  svg { flex-shrink: 0; color: $orange; }
-  strong { color: $dark; font-weight: 700; }
+  svg      { flex-shrink: 0; color: $orange; }
+  strong   { color: $dark; font-weight: 700; }
 }
-// ─── Phone modal ─────────────────────────────
-.phone-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  padding: 20px;
 
-  &.active { display: flex; }
-}
-.phone-modal {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 40px 32px 32px;
-  max-width: 420px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
 
-  &__close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 32px;
-    height: 32px;
-    background: #f0f0f0;
-    border: none;
-    border-radius: 8px;
-    font-size: 20px;
-    cursor: pointer;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    transition: background .15s;
-
-    &:hover { background: #e0e0e0; }
-  }
-
-  &__title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 1.35;
-    color: #162431;
-    margin-bottom: 28px;
-  }
-
-  &__call {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 16px 24px;
-    background: #1877F2;
-    color: #ffffff;
-    border-radius: 10px;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    margin-bottom: 24px;
-    transition: background .2s;
-
-    &:hover { background: darken(#1877F2, 8%); }
-  }
-
-  &__or {
-    font-size: 14px;
-    color: #8a9aaa;
-    margin-bottom: 16px;
-  }
-
-  &__messengers {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  &__messenger {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform .15s, box-shadow .15s;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,.15);
-    }
-
-    &--viber   { background: #7360F2; }
-    &--telegram { background: #29A8E1; }
-    &--whatsapp { background: #25D366; }
-  }
-}
 // ─── CTA ─────────────────────────────────────
 .tp-cta {
   background: linear-gradient(135deg, $dark 0%, #253040 100%);
@@ -482,13 +627,121 @@ $white:      #ffffff;
     flex-direction: column;
     padding: 36px 28px;
     text-align: center;
-    &__text { max-width: 100%; }
+    &__text    { max-width: 100%; }
     &__actions { justify-content: center; }
-    &__btn { width: 100%; justify-content: center; }
+    &__btn     { width: 100%; justify-content: center; }
   }
 
   @media (max-width: 576px) {
     padding: 28px 20px;
     &__title { font-size: 20px; }
+  }
+}
+
+
+// ─── Phone modal ──────────────────────────────
+.phone-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+
+  &.active { display: flex; }
+}
+
+.phone-modal {
+  background: $white;
+  border-radius: 20px;
+  padding: 40px 32px 32px;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background .15s;
+
+    &:hover { background: #e0e0e0; }
+  }
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.35;
+    color: $dark;
+    margin-bottom: 28px;
+  }
+
+  &__call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 24px;
+    background: $blue;
+    color: $white;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: background .2s;
+
+    &:hover { background: darken($blue, 8%); }
+  }
+
+  &__or {
+    font-size: 14px;
+    color: $text-light;
+    margin-bottom: 16px;
+  }
+
+  &__messengers {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  &__messenger {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .15s, box-shadow .15s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .15);
+    }
+
+    &--viber    { background: #7360F2; }
+    &--telegram { background: #29A8E1; }
+    &--whatsapp { background: #25D366; }
   }
 }

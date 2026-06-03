@@ -387,3 +387,59 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+// ─── Gallery: Swiper + Lightbox ──────────────
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    new Swiper('.tp-gallery__swiper', {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        loop: true,
+        navigation: {
+            nextEl: '.tp-gallery__next',
+            prevEl: '.tp-gallery__prev',
+        },
+        pagination: {
+            el: '.tp-gallery__pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            0:   { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+        },
+    });
+
+    var lightbox  = document.getElementById('tpLightbox');
+    var lbImg     = lightbox.querySelector('.tp-lightbox__img');
+    var lbCaption = lightbox.querySelector('.tp-lightbox__caption');
+    var lbClose   = lightbox.querySelector('.tp-lightbox__close');
+    var lbOverlay = lightbox.querySelector('.tp-lightbox__overlay');
+
+    function openLightbox(src, label) {
+        lbImg.src = src;
+        lbImg.alt = label;
+        lbCaption.textContent = label;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.tp-gallery__img-wrap').forEach(function (wrap) {
+        wrap.addEventListener('click', function () {
+            openLightbox(wrap.dataset.src, wrap.dataset.label);
+        });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbOverlay.addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+    });
+
+});
