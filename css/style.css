@@ -636,14 +636,22 @@
   padding: 40px 0 100px; }
   .article-page__main-img {
     width: 100%;
-    height: auto;
+    height: 475px;
     margin-bottom: 40px;
     border-radius: 8px;
     overflow: hidden; }
     .article-page__main-img img {
       width: 100%;
+      height: 100%;
       display: block;
-      object-fit: cover; }
+      object-fit: cover;
+      object-position: center; }
+    @media (max-width: 768px) {
+      .article-page__main-img {
+        height: 250px; } }
+    @media (max-width: 480px) {
+      .article-page__main-img {
+        height: 180px; } }
   .article-page__header {
     display: flex;
     justify-content: space-between;
@@ -653,7 +661,8 @@
     @media (max-width: 768px) {
       .article-page__header {
         flex-direction: column;
-        align-items: flex-start; } }
+        align-items: flex-start;
+        gap: 10px; } }
   .article-page__title {
     color: #313131;
     font-family: 'Inter', sans-serif;
@@ -663,8 +672,7 @@
     letter-spacing: 0;
     text-transform: uppercase;
     margin: 0;
-    flex: 1;
-    margin-bottom: 25px; }
+    flex: 1; }
   .article-page__date {
     color: #005BBB;
     font-family: 'Inter', sans-serif;
@@ -679,6 +687,18 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0; }
+    .article-page__content img {
+      display: block;
+      margin: 20px auto;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+    .article-page__content .article-page__team-img {
+      width: 100%;
+      max-width: 700px; }
+    .article-page__content .article-page__doc-img {
+      width: 100%;
+      max-width: 380px; }
     .article-page__content p {
       margin-bottom: 24px;
       vertical-align: middle; }
