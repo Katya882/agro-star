@@ -302,7 +302,6 @@ $white:      #ffffff;
   }
 }
 
-// Dot list
 .bp-dot-list {
   list-style: none;
   padding: 20px 24px;
@@ -332,7 +331,6 @@ $white:      #ffffff;
   }
 }
 
-// Country/brand tag
 .bp-tag {
   display: inline-block;
   font-size: 11px;
@@ -346,7 +344,6 @@ $white:      #ffffff;
   white-space: nowrap;
 }
 
-// Specs table
 .bp-table {
   width: 100%;
   border-collapse: collapse;
@@ -373,7 +370,6 @@ $white:      #ffffff;
   }
 }
 
-// Warranty row
 .bp-warranty {
   display: flex;
   align-items: center;
@@ -389,7 +385,6 @@ $white:      #ffffff;
   strong { color: $dark; font-weight: 700; }
 }
 
-// ─── CTA section ────────────────────────────
 .bp-cta {
   background: linear-gradient(135deg, $dark 0%, $dark-mid 100%);
   border-radius: 16px;
@@ -450,7 +445,6 @@ $white:      #ffffff;
   }
 }
 
-// ─── Responsive ─────────────────────────────
 @media (max-width: 900px) {
   .bp-hero {
     flex-direction: column-reverse;
@@ -464,7 +458,10 @@ $white:      #ffffff;
     &__badge-num { font-size: 34px; }
   }
 
-  .bp-specs__grid { grid-template-columns: 1fr; }
+  .burner-bp-specs__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 
   .bp-cta {
     flex-direction: column;
@@ -492,6 +489,46 @@ $white:      #ffffff;
   .bp-cta { padding: 28px 20px; }
   .bp-cta__title { font-size: 22px; }
   .bp-cta__btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .bp-table {
+    display: block;
+    width: 100%;
+
+    tr {
+      display: block;
+      padding: 12px 16px;
+      border-bottom: 1px solid $border;
+    }
+
+    &__key, &__val {
+      display: block;
+      width: 100% !important;
+      padding: 0 !important;
+      text-align: left;
+    }
+
+    &__key {
+      background: transparent;
+      font-size: 13px;
+      color: $text-light;
+      margin-bottom: 4px;
+    }
+
+    &__val {
+      font-size: 15px;
+      color: $dark;
+    }
+  }
+
+  .bp-dot-list {
+    padding: 12px 16px;
+    li {
+      padding: 8px 0;
+      font-size: 13.5px;
+    }
+  }
 }
 
 @media (max-width: 769px) {
