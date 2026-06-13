@@ -5985,14 +5985,14 @@
 .bp-hero {
   padding: 60px 0 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 40px;
   border-bottom: 1px solid #f0f0f0;
   margin-bottom: 50px; }
   .bp-hero__text {
     flex: 1;
-    max-width: 650px; }
+    max-width: 750px; }
   .bp-hero__title {
     font-size: 42px;
     font-weight: 700;
