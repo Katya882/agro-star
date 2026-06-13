@@ -490,7 +490,7 @@ $white:      #ffffff;
   }
 }
 
-// Dot list (у картках specs)
+// Dot list
 .tp-dot-list {
   list-style: none;
   padding: 16px 24px;
@@ -546,7 +546,6 @@ $white:      #ffffff;
   }
 }
 
-// Warranty row
 .tp-warranty {
   display: flex;
   align-items: center;
@@ -637,9 +636,19 @@ $white:      #ffffff;
     &__title { font-size: 20px; }
   }
 }
+.tp-gallery__pagination {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
 
 
-// ─── Phone modal ──────────────────────────────
+// ─── Модальне вікно (Контакти) ─────────────────
 .phone-modal-overlay {
   position: fixed;
   inset: 0;

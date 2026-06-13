@@ -2175,6 +2175,16 @@
       .tp-cta__title {
         font-size: 20px; } }
 
+.tp-gallery__pagination {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 6px; }
+
 .phone-modal-overlay {
   position: fixed;
   inset: 0;
