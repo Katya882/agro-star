@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================
     // 3. SWIPERS
     // =============================
-    if (document.querySelector('.equipment-swiper')) {
+    if (document.querySelector('.equipment-swiper') && typeof Swiper !== 'undefined') {
         new Swiper('.equipment-swiper', {
             loop: true,
             speed: 800,
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Burner page — thumbnails + main
-    if (document.querySelector('.bp-swiper-thumbs')) {
+    if (document.querySelector('.bp-swiper-thumbs') && typeof Swiper !== 'undefined') {
         const thumbsSwiper = new Swiper('.bp-swiper-thumbs', {
             spaceBetween: 10,
             slidesPerView: 3,
@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================
-    // 4. SCROLL REVEAL
+    // 4. SCROLL REVEAL (Загальний)
     // =============================
-    const animItems = document.querySelectorAll('.js-anim-item');
+    const animItems = document.querySelectorAll('.js-anim-item, .pr-reveal, .pr-left, .pr-right');
 
     if (animItems.length) {
         const animObserver = new IntersectionObserver((entries) => {
@@ -109,10 +109,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     animObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.1 });
 
         animItems.forEach(el => animObserver.observe(el));
     }
+
+    // Stagger для stats і карток (з колишнього pre-cleaning)
+    document.querySelectorAll('.pr-stagger .pr-reveal').forEach((el, i) => {
+        el.style.transitionDelay = (i * 0.07) + 's';
+    });
 
     // =============================
     // 5. LIGHTBOX
@@ -195,26 +200,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }, stepTime);
         };
 
-        new IntersectionObserver((entries) => {
+        const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 document.querySelectorAll('.experience__item').forEach((item, i) => {
                     setTimeout(() => item.classList.add('is-visible'), i * 200);
                 });
                 document.querySelectorAll('.experience__number').forEach(startCounter);
+                counterObserver.unobserve(experienceSection); // Вимикаємо після запуску
             });
-        }, { threshold: 0.3 }).observe(experienceSection);
+        }, { threshold: 0.3 });
+
+        counterObserver.observe(experienceSection);
     }
 
     // =============================
-    // 8. BLUEPRINT ANIMATION
+    // 8. BLUEPRINT & INTRO ANIMATION (ФІКС ФОТО)
     // =============================
     const animTrigger = document.querySelector('.js-anim-trigger');
 
     if (animTrigger) {
         let started = false;
 
-        new IntersectionObserver((entries) => {
+        const blueprintObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 const t = entry.target;
@@ -233,11 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     started = true;
                 }
 
+                // Додаємо активний клас для картинок секції інтро
                 t.querySelectorAll('.js-photo').forEach((p, i) => {
-                    setTimeout(() => p.classList.add('active'), 250 * (i + 1));
+                    setTimeout(() => p.classList.add('active'), 150 * (i + 1));
                 });
+
+                blueprintObserver.unobserve(t); // Зупиняємо стеження після активації
             });
-        }, { threshold: 0.2 }).observe(animTrigger);
+        }, { threshold: 0.1 }); // Зменшено поріг до 0.1 для стабільного запуску на мобільних
+
+        blueprintObserver.observe(animTrigger);
     }
 
     // =============================
@@ -263,183 +276,105 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================
-    // 10. PHONE MODAL (transport page)
+    // 10. PHONE MODAL
     // =============================
-    const phoneTrigger = document.querySelector('.js-contact-phone-trigger');
-    const phoneModal   = document.getElementById('phoneModal');
-    const phoneClose   = document.getElementById('phoneModalClose');
+    const phoneModal = document.getElementById('phoneModal');
+    const phoneClose = document.getElementById('phoneModalClose');
+    const phoneTriggers = document.querySelectorAll('.js-contact-phone-trigger');
 
-    if (phoneTrigger && phoneModal) {
+    if (phoneModal && phoneTriggers.length) {
         const openPhone  = () => { phoneModal.classList.add('active');    body.style.overflow = 'hidden'; };
         const closePhone = () => { phoneModal.classList.remove('active'); body.style.overflow = ''; };
 
-        phoneTrigger.addEventListener('click', openPhone);
+        phoneTriggers.forEach(btn => {
+            btn.addEventListener('click', (e) => { e.preventDefault(); openPhone(); });
+        });
         phoneClose?.addEventListener('click', closePhone);
         phoneModal.addEventListener('click', (e) => { if (e.target === phoneModal) closePhone(); });
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePhone(); });
     }
 
+    // =============================
+    // 11. SP GALLERY MODAL
+    // =============================
+    const spModal = document.getElementById("spGalleryModal");
+    const spModalImg = document.getElementById("spModalImg");
+    const spCaptionText = document.getElementById("spModalCaption");
+    const spCloseBtn = document.querySelector(".sp-gallery-modal__close");
+    const spItems = document.querySelectorAll(".sp-gallery__item");
 
+    if (spModal && spItems.length) {
+        spItems.forEach(item => {
+            item.addEventListener("click", function () {
+                const img = this.querySelector("img");
+                const label = this.querySelector(".sp-gallery__label");
 
-    const galleryItems = document.querySelectorAll('.sp-gallery__item');
-
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            item.classList.toggle('active');
+                if (img && spModalImg) {
+                    spModal.style.display = "block";
+                    spModalImg.src = img.src;
+                    if (label && spCaptionText) spCaptionText.innerHTML = label.innerHTML;
+                }
+            });
         });
-    });
 
+        const closeSpModal = () => { spModal.style.display = "none"; };
 
-
-});
-
-
-// ─── pre-cleaning.js ───────────────────────────────────────────────────────
-// Скрипти сторінки "Попередня очистка зерна"
-
-(function () {
-    'use strict';
-
-    // ── Scroll reveal (IntersectionObserver) ─────────────────────────────────
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
+        spCloseBtn?.addEventListener("click", closeSpModal);
+        spModal.addEventListener("click", function (e) {
+            if (e.target === spModal || e.target === spCloseBtn) closeSpModal();
         });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.pr-reveal, .pr-left, .pr-right')
-        .forEach(el => observer.observe(el));
-
-    // Stagger для stats і карток — динамічна затримка через JS
-    document.querySelectorAll('.pr-stagger .pr-reveal').forEach((el, i) => {
-        el.style.transitionDelay = (i * 0.07) + 's';
-        observer.observe(el);
-    });
-
-    // ── Modal callback ────────────────────────────────────────────────────────
-    const modalOverlay = document.getElementById('modalOverlay');
-    const closeForm    = document.getElementById('closeForm');
-
-    document.querySelectorAll('.js-callback-trigger').forEach(btn =>
-        btn.addEventListener('click', e => {
-            e.preventDefault();
-            modalOverlay.classList.add('active');
-        })
-    );
-
-    closeForm.addEventListener('click', () =>
-        modalOverlay.classList.remove('active')
-    );
-
-    modalOverlay.addEventListener('click', e => {
-        if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
-    });
-
-    // ── Phone modal ───────────────────────────────────────────────────────────
-    const phoneModal      = document.getElementById('phoneModal');
-    const phoneModalClose = document.getElementById('phoneModalClose');
-
-    document.querySelectorAll('.js-contact-phone-trigger').forEach(btn =>
-        btn.addEventListener('click', () => phoneModal.classList.add('active'))
-    );
-
-    phoneModalClose.addEventListener('click', () =>
-        phoneModal.classList.remove('active')
-    );
-
-    phoneModal.addEventListener('click', e => {
-        if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
-    });
-
-})();
-
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("spGalleryModal");
-    const modalImg = document.getElementById("spModalImg");
-    const captionText = document.getElementById("spModalCaption");
-    const closeBtn = document.querySelector(".sp-gallery-modal__close");
-    const items = document.querySelectorAll(".sp-gallery__item");
-
-    // Відкриття при кліку на картку
-    items.forEach(item => {
-        item.addEventListener("click", function () {
-            const img = this.querySelector("img");
-            const label = this.querySelector(".sp-gallery__label");
-
-            modal.style.display = "block";
-            modalImg.src = img.src;
-            captionText.innerHTML = label.innerHTML;
-        });
-    });
-
-    // Закриття при кліку на хрестик
-    closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
-
-    // Закриття при кліку на сірий екран поза картинкою
-    modal.addEventListener("click", function (e) {
-        if (e.target === modal || e.target === closeBtn) {
-            modal.style.display = "none";
-        }
-    });
-});
-
-// ─── Gallery: Swiper + Lightbox ──────────────
-
-document.addEventListener('DOMContentLoaded', function () {
-
-    new Swiper('.tp-gallery__swiper', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        loop: true,
-        navigation: {
-            nextEl: '.tp-gallery__next',
-            prevEl: '.tp-gallery__prev',
-        },
-        pagination: {
-            el: '.tp-gallery__pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            0:   { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-        },
-    });
-
-    var lightbox  = document.getElementById('tpLightbox');
-    var lbImg     = lightbox.querySelector('.tp-lightbox__img');
-    var lbCaption = lightbox.querySelector('.tp-lightbox__caption');
-    var lbClose   = lightbox.querySelector('.tp-lightbox__close');
-    var lbOverlay = lightbox.querySelector('.tp-lightbox__overlay');
-
-    function openLightbox(src, label) {
-        lbImg.src = src;
-        lbImg.alt = label;
-        lbCaption.textContent = label;
-        lightbox.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
     }
 
-    function closeLightbox() {
-        lightbox.classList.remove('is-open');
-        document.body.style.overflow = '';
+    // =============================
+    // 12. TP GALLERY (Swiper + Lightbox)
+    // =============================
+    if (document.querySelector('.tp-gallery__swiper') && typeof Swiper !== 'undefined') {
+        new Swiper('.tp-gallery__swiper', {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            loop: true,
+            navigation: {
+                nextEl: '.tp-gallery__next',
+                prevEl: '.tp-gallery__prev',
+            },
+            pagination: {
+                el: '.tp-gallery__pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                0:   { slidesPerView: 1 },
+                640: { slidesPerView: 2 },
+            },
+        });
     }
 
-    document.querySelectorAll('.tp-gallery__img-wrap').forEach(function (wrap) {
-        wrap.addEventListener('click', function () {
-            openLightbox(wrap.dataset.src, wrap.dataset.label);
+    const tpLightbox = document.getElementById('tpLightbox');
+    if (tpLightbox) {
+        const lbImg     = tpLightbox.querySelector('.tp-lightbox__img');
+        const lbCaption = tpLightbox.querySelector('.tp-lightbox__caption');
+        const lbClose   = tpLightbox.querySelector('.tp-lightbox__close');
+        const lbOverlay = tpLightbox.querySelector('.tp-lightbox__overlay');
+
+        const openTpLightbox = (src, label) => {
+            if (lbImg) { lbImg.src = src; lbImg.alt = label; }
+            if (lbCaption) lbCaption.textContent = label;
+            tpLightbox.classList.add('is-open');
+            body.style.overflow = 'hidden';
+        };
+
+        const closeTpLightbox = () => {
+            tpLightbox.classList.remove('is-open');
+            body.style.overflow = '';
+        };
+
+        document.querySelectorAll('.tp-gallery__img-wrap').forEach(wrap => {
+            wrap.addEventListener('click', () => {
+                openTpLightbox(wrap.dataset.src || '', wrap.dataset.label || '');
+            });
         });
-    });
 
-    lbClose.addEventListener('click', closeLightbox);
-    lbOverlay.addEventListener('click', closeLightbox);
-
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeLightbox();
-    });
-
+        lbClose?.addEventListener('click', closeTpLightbox);
+        lbOverlay?.addEventListener('click', closeTpLightbox);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeTpLightbox(); });
+    }
 });
